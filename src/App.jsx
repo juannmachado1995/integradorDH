@@ -1,5 +1,5 @@
 import './App.css'
-import Buscador from './components/buscador'
+import Buscador from './components/Buscador'
 import Electricas from './components/FiltroBusqueda/Electricas'
 import Capacidad from './components/FiltroBusqueda/Capacidad'
 import Talla from './components/FiltroBusqueda/Talla'
