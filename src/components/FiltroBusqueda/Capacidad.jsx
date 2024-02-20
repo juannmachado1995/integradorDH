@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 const Capacidad = () => {
 
+    const [checkMarcados, setCheckMarcados] = useState([]);
+
     const [opciones, setOpciones] = useState({
         quinientoscuatro: false,
         quinientos: false,
@@ -16,7 +18,15 @@ const Capacidad = () => {
             ...prevState,
             [name]: checked
         }));
+
+        if (checked) {
+            setCheckMarcados(prevState => [...prevState, name]);
+        } else {
+            setCheckMarcados(prevState => prevState.filter(item => item !== name));
+        }
     };
+    console.log('CAPACIDAD:', checkMarcados);
+  
 
 
     return (
@@ -74,6 +84,7 @@ const Capacidad = () => {
                     236Wh
                 </label>
             </form>
+            <h3>Checked {checkMarcados}</h3>
         </div>
     )
 }

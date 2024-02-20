@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 const Electricas = () => {
 
+    const [checkMarcados, setCheckMarcados] = useState([]);
+
     const [opciones, setOpciones] = useState({
         urbana: false,
         plegable: false,
@@ -16,7 +18,14 @@ const Electricas = () => {
             ...prevState,
             [name]: checked
         }));
+        if (checked) {
+            setCheckMarcados(prevState => [...prevState, name]);
+        } else {
+            setCheckMarcados(prevState => prevState.filter(item => item !== name));
+        }
     };
+    console.log('ELECTRICAS:', checkMarcados);
+    
 
 
     return (
@@ -59,7 +68,7 @@ const Electricas = () => {
                         <input
                             type="checkbox"
                             name="Carretera"
-                            checked={opciones.Carretera}
+                            checked={opciones.carretera}
                             onChange={handleChange}
                         />
                         Carretera
@@ -69,13 +78,14 @@ const Electricas = () => {
                         <input
                             type="checkbox"
                             name="Carga"
-                            checked={opciones.Carga}
+                            checked={opciones.carga}
                             onChange={handleChange}
                         />
                         Carga
                     </label>
 
                 </form>
+                <h3>Checked {checkMarcados}</h3>
             </div>
         </>
     )

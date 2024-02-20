@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 
 const Talla = () => {
 
+    const [checkMarcados, setCheckMarcados] = useState([]);
+
+
     const [opciones, setOpciones] = useState({
         XL: false,
         L: false,
@@ -16,7 +19,15 @@ const Talla = () => {
             ...prevState,
             [name]: checked
         }));
+        if (checked) {
+            setCheckMarcados(prevState => [...prevState, name]);
+        } else {
+            setCheckMarcados(prevState => prevState.filter(item => item !== name));
+        }
     };
+
+    console.log('TALLA:', checkMarcados);
+
 
     return (
         <div className='formulario-filtro'>
@@ -73,6 +84,7 @@ const Talla = () => {
                     XS
                 </label>
             </form>
+            <h3>Checked {checkMarcados}</h3>
         </div>
     )
 }
