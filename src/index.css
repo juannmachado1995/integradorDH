@@ -1,0 +1,125 @@
+:root{
+    --verde-oscuro:#14471E;
+    --verde-claro:#68904D;
+    --naranja:#EE9B01
+}
+
+.form-buscador {
+    display: flex;
+    font-size: 2rem;
+    align-items:center;
+    flex-direction: column;
+    color :#EE9B01;
+
+}
+.forms-busca-tu-bici:hover{
+    cursor: pointer;
+}
+
+.forms-busca-tu-bici{
+    width: 25rem;
+    padding: '20px';
+    font-size: 1.5rem;
+    background-color: #C8D2D1;
+    text-align: center;
+    color: #919090;
+    text-decoration: underline;
+    
+}
+.search-container{
+    display: flex;
+    align-items: center; 
+}
+
+.border-radius{
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: inset;
+    border-color: var(--naranja);
+}
+
+.formulario-filtro{
+background-color: var(--verde-oscuro);
+display: flex;
+align-items: center;
+flex-direction: column;
+width: 100%;
+}
+.titulo-filtro{
+    margin: 1rem;
+    background-color: white;
+    font-size: 1rem;
+    width: 60%;
+}
+
+.formulario-filtro-verde{
+    width: 90%;
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    color: #fff;
+    padding: 1rem;
+}
+.div-card-producto{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+border-radius: 5px;
+border-width: 3px;
+border-style: inset;
+margin: 2rem;
+
+}
+
+.card-producto-home{
+    width:40%;
+    margin: 2rem;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+border-width: 3px;
+border-style: inset;
+}
+
+.card-producto-home:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.image-ciclas-home{
+    width: 20rem;
+}
+.home{
+    display: flex;
+}
+.filtro-izquierda{
+    width: 60%;
+}
+
+.carrusel-container {
+    background-color: var(--verde-claro) ;
+    width: 100%;
+    display: flex;
+   margin: 2rem;
+   
+    
+  }
+  
+  .carrusel-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: #333;
+  }
+  
+  .carrusel-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 0 20px; 
+  }
