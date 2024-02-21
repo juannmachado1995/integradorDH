@@ -11,11 +11,18 @@ const Home = () => {
 
 
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+  const [mostrarDetalleProducto, setMostrarDetalleProducto] = useState(false);
 
   const handleProductoSeleccionado = (producto) => {
     setProductoSeleccionado(producto);
+    setMostrarDetalleProducto(true)
+  };
+  const handleCerrarDetalle = () => {
+    console.log("Cerrando detalle...");
+    setMostrarDetalleProducto(false);
   };
 
+  
 
 
   return (
@@ -30,11 +37,12 @@ const Home = () => {
       </div>
       <CardBicicleta onProductoSeleccionado={handleProductoSeleccionado} />
       </div>
-      {productoSeleccionado && (
+      {mostrarDetalleProducto && (
         <DetalleProducto
-          srcImagen={productoSeleccionado.imgBici}
-          nombreBici={productoSeleccionado.nombreBici}
-        />)}
+        srcImagen={productoSeleccionado.imgBici}
+        nombreBici={productoSeleccionado.nombreBici}
+        onClose={handleCerrarDetalle}
+      />)}
   </>
   )
 }
