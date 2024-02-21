@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CardBicicleta = () => {
+const CardBicicleta = (props) => {
 
   const ciclas = [
     {
@@ -44,13 +44,17 @@ const CardBicicleta = () => {
     }
   ]
 
+  const handleClick = (cicla) => {
+    props.onProductoSeleccionado(cicla);
+  };
+
   return (
     <div>
       
       <div className='div-card-producto'>
         {ciclas.map((cicla, index) => (
           
-          <article className='card-producto-home' key={index}>
+          <article className='card-producto-home' key={index} onClick={() => handleClick(cicla)}>
             <img className='image-ciclas-home' src={cicla.imgBici} alt={cicla.nombreBici} />
             <span>{cicla.nombreBici}</span>
           </article>
