@@ -28,15 +28,21 @@ const Home = () => {
   return (
     <>
     <Buscador />
+
     <CarrucelFotos />
+
+    {/*
     <div className='home'>
       <div className='filtro-izquierda'>
         <Electricas />
         <Capacidad />
         <Talla />
       </div>
+  */}
+
+
       <CardBicicleta onProductoSeleccionado={handleProductoSeleccionado} />
-      </div>
+     
       {mostrarDetalleProducto && (
         <DetalleProducto
         srcImagen={productoSeleccionado.imgBici}

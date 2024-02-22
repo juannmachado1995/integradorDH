@@ -1,187 +1,226 @@
-:root{
-    --verde-oscuro:#14471E;
-    --verde-claro:#68904D;
-    --naranja:#EE9B01;
-    --naranjaOscuro:#DA6A00
+:root {
+  --verde-oscuro: #14471E;
+  --verde-claro: #68904D;
+  --naranja: #EE9B01;
+  --naranjaOscuro: #DA6A00;
+
 }
 
 .form-buscador {
-    display: flex;
-    font-size: 2rem;
-    align-items:center;
-    flex-direction: column;
-    color :#EE9B01;
-
-}
-.forms-busca-tu-bici:hover{
-    cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+  flex-direction: column;
+  color: #EE9B01;
 }
 
-.forms-busca-tu-bici{
-    width: 25rem;
-    padding: '20px';
-    font-size: 1.5rem;
-    background-color: #C8D2D1;
-    text-align: center;
-    color: #919090;
-    text-decoration: underline;
-    
-}
-.search-container{
-    display: flex;
-    align-items: center; 
+.forms-busca-tu-bici:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(239, 184, 5, 1);
+  transition: background-color 0.3s ease;
 }
 
-.border-radius{
-    border-radius: 5px;
-    border-width: 3px;
-    border-style: inset;
-    border-color: var(--naranja);
-}
-
-.formulario-filtro{
-background-color: var(--verde-oscuro);
-display: flex;
-align-items: center;
-flex-direction: column;
-width: 100%;
-}
-.titulo-filtro{
-    margin: 1rem;
-    background-color: white;
-    font-size: 1rem;
-    width: 60%;
-}
-
-.formulario-filtro-verde{
-    width: 90%;
-    display: flex;
-    flex-direction:column;
-    align-items:flex-start;
-    color: #fff;
-    padding: 1rem;
-}
-.div-card-producto{
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-border-radius: 5px;
-border-width: 3px;
-border-style: inset;
-margin: 2rem;
+.forms-busca-tu-bici {
+  width: 25rem;
+  padding: '20px';
+  font-size: 1.5rem;
+  background-color: #C8D2D1;
+  text-align: center;
+  color: #919090;
+  text-decoration: underline;
 
 }
 
-.card-producto-home{
-    width:40%;
-    margin: 2rem;
-    display: flex;
-    margin-bottom: 20px;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-border-width: 3px;
-border-style: inset;
+.search-container {
+  display: flex;
+  align-items: center;
 }
 
-.card-producto-home:hover{
-    text-decoration: underline;
-    cursor: pointer;
+.border-radius {
+  border-radius: 5px;
+  border-width: 3px;
+  border-style: inset;
+  border-color: var(--naranja);
+
 }
 
-.image-ciclas-home{
-    width: 20rem;
+.formulario-filtro {
+  background-color: var(--verde-oscuro);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
-.home{
-    display: flex;
+
+.titulo-filtro {
+  margin: 1rem;
+  background-color: white;
+  font-size: 1rem;
+  width: 60%;
 }
-.filtro-izquierda{
-    width: 60%;
+
+.formulario-filtro-verde {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  padding: 1rem;
+}
+
+.div-card-producto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 5px;
+  border-width: 3px;
+  border-style: inset;
+  margin: 2rem;
+
+}
+
+.card-producto-home {
+  width: 40%;
+  margin: 2rem;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  border-radius: 10%;
+  border-width: 3px;
+  border-style: inset;
+  box-shadow: 0px 5px 15px 3px rgb(0, 0, 0,0.9);
+  transition: background-color 1s ease;
+}
+
+.card-producto-home:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: rgb(199, 192, 192);
+
+}
+
+.image-ciclas-home {
+  width: 20rem;
+}
+
+.home {
+  display: flex;
+}
+
+.filtro-izquierda {
+  width: 60%;
 }
 
 .carrusel-container {
-    background-color: var(--verde-claro) ;
-    width: 100%;
-    display: flex;
-   margin: 2rem;
-   
-    
-  }
-  
-  .carrusel-button {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    color: #333;
-  }
-  
-  .carrusel-image {
-    max-width: 100%;
-    max-height: 300px;
-    margin: 0 20px; 
-  }
+  background-color: var(--verde-claro);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem 0;
+  padding: 1rem;
+  box-shadow: 0px 10px 30px 5px rgb(0, 0, 0,0.9);
+  transition: background-color 0.3s ease;
+}
 
-  .detalle-producto-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .detalle-producto-card {
-    height: 90%;
-    width: 85%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: space-around;
-  }
+.carrusel-button {
+  background-color: var(--naranjaOscuro);
+  border: none;
+  border-radius: 40%;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 15px;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  transition: background-color 0.3s ease;
+}
 
-  .detalle-izquierda-card{
-    display: flex;
-    flex-direction: column;
-  }
-  .detalle-de-la-bici{
-    margin: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: underline;
-  }
+.carrusel-button:hover {
+  background-color: var(--naranja);
+}
 
-  .button{
-    background-color: var(--naranjaOscuro);
-    color: #fff;
-    text-decoration: underline;
-    border: none;
-    width: 9rem;
-    height: 35px;
-    border-radius: 20px;
-    font-size: 1rem;
-  }
-  .button:hover{
-    cursor: pointer;
-  }
-  .imagen-Detalle-Producto{
-    width: 28rem;
-  }
-  .titulo-nombre-bici{
-    color: #fff;
-    background-color: var(--verde-claro);
-    border : none;
-    font-weight: bold;
-    font-style: none;
-    padding: 0.5rem;
-    width: 100%;
-    font-size: 1.2rem;
-  }
+.carrusel-image {
+  max-width: 100%;
+  max-height: 250px;
+  margin: 0 20px;
+}
+
+.detalle-producto-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 3s ease;
+}
+.mostrar{
+  opacity: 0.95;
+}
+
+.detalle-producto-card {
+  height: 90%;
+  width: 85%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-around;
+}
+
+.detalle-izquierda-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalle-de-la-bici {
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.button {
+  background-color: var(--naranjaOscuro);
+  color: #fff;
+  text-decoration: underline;
+  border: none;
+  width: 9rem;
+  height: 35px;
+  border-radius: 20px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  transition: background-color 0.3s ease;
+
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--naranja);
+
+}
+
+.imagen-Detalle-Producto {
+  height: 70%;
+  width: auto;
+}
+
+.titulo-nombre-bici {
+  color: #fff;
+  background-color: var(--verde-claro);
+  border: none;
+  font-weight: bold;
+  font-style: none;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+}

@@ -7,7 +7,7 @@ const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
   return (
 
     <>
-      <div className="detalle-producto-overlay">
+      <div className="detalle-producto-overlay mostrar">
         <article className="detalle-producto-card">
           <div className='detalle-izquierda-card'>
             <button onClick={onClose} className='button'>Volver Atras</button>
