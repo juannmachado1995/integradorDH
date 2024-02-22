@@ -3,32 +3,47 @@
   --verde-claro: #68904D;
   --naranja: #EE9B01;
   --naranjaOscuro: #DA6A00;
-
 }
 
 .form-buscador {
   display: flex;
-  font-size: 2rem;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  color: #EE9B01;
+  font-size: 1.5rem;
+  color: var(--naranja); 
+}
+
+.forms-busca-tu-bici {
+  color:#fff;
+  width: 25rem;
+  padding: 10px; 
+  font-size: 1.5rem;
+  background-color: var(--verde-claro,0.5); 
+  border: none; 
+  border-radius: 20px; 
+  text-align: center;
+  outline: none; 
+  transition: background-color 0.3s ease; /
 }
 
 .forms-busca-tu-bici:hover {
   cursor: pointer;
+  background-color: var(--naranja); 
+  color: #ffffff; 
+  text-decoration: none;
   box-shadow: 0 3px 5px rgba(239, 184, 5, 1);
-  transition: background-color 0.3s ease;
 }
 
-.forms-busca-tu-bici {
-  width: 25rem;
-  padding: '20px';
-  font-size: 1.5rem;
-  background-color: #C8D2D1;
-  text-align: center;
-  color: #919090;
+.forms-busca-tu-bici::placeholder {
+  color:#cfcbcb; 
   text-decoration: underline;
+}
 
+
+.search-icon {
+  font-size: 2rem;
+  margin-right: 10px; 
 }
 
 .search-container {
@@ -223,4 +238,18 @@
   padding: 0.5rem;
   width: 100%;
   font-size: 1.2rem;
+}
+@media screen and (max-width: 768px) {
+  .div-card-producto {
+    flex-direction: column;
+  }
+
+  .card-producto-home {
+    width: 100%; 
+    margin: 1rem 0; 
+  }
+  .carrusel-image {
+    max-width: 80%; 
+    margin: 0 auto; 
+}
 }
