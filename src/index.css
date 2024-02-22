@@ -139,11 +139,26 @@ border-style: inset;
   
   .detalle-producto-card {
     height: 90%;
+    width: 85%;
     background-color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
   }
+
+  .detalle-izquierda-card{
+    display: flex;
+    flex-direction: column;
+  }
+  .detalle-de-la-bici{
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
   .button{
     background-color: var(--naranjaOscuro);
     color: #fff;
@@ -158,5 +173,15 @@ border-style: inset;
     cursor: pointer;
   }
   .imagen-Detalle-Producto{
-    width: 25rem;
+    width: 28rem;
+  }
+  .titulo-nombre-bici{
+    color: #fff;
+    background-color: var(--verde-claro);
+    border : none;
+    font-weight: bold;
+    font-style: none;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1.2rem;
   }
