@@ -139,7 +139,6 @@
 
 .carrusel-container {
   background-color: var(--verde-claro);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
