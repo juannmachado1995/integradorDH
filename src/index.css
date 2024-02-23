@@ -245,7 +245,7 @@
   }
 
   .card-producto-home {
-    width: 100%; 
+    width: 100vw; 
     margin: 1rem 0; 
   }
   .carrusel-container {
@@ -254,7 +254,28 @@
   }
 
   .carrusel-image {
-    max-width: 100%; 
+    max-width: 95vw; 
     margin: 10px 0; 
+  }
+  .detalle-producto-card {
+    width: 90%; 
+    height: auto; 
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .detalle-izquierda-card {
+    align-items: center; 
+    text-align: center; 
+  }
+
+  .imagen-Detalle-Producto {
+    max-width: 80%; 
+    height: auto; 
+  }
+
+  .button {
+    width: 100%; 
+    margin-top: 1rem; 
   }
 }
