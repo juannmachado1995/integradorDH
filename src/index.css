@@ -4,6 +4,13 @@
   --naranja: #EE9B01;
   --naranjaOscuro: #DA6A00;
 }
+  /*
+  --fondo: url('https://e1.pxfuel.com/desktop-wallpaper/75/10/desktop-wallpaper-road-bikes-racing-bicycle.jpg');
+  background-image: var(--fondo);
+  background-size: 100vw; 
+  background-repeat: no-repeat; 
+  */
+
 
 .form-buscador {
   display: flex;
@@ -24,7 +31,7 @@
   border-radius: 20px; 
   text-align: center;
   outline: none; 
-  transition: background-color 0.3s ease; /
+  transition: background-color 0.3s ease; 
 }
 
 .forms-busca-tu-bici:hover {
