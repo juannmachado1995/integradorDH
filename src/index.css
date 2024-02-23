@@ -3,14 +3,44 @@
   --verde-claro: #68904D;
   --naranja: #EE9B01;
   --naranjaOscuro: #DA6A00;
-}
+  --fuente-principal: system-ui, -apple-system, BlinkMacSystemFont;
+  
   /*
   --fondo: url('https://e1.pxfuel.com/desktop-wallpaper/75/10/desktop-wallpaper-road-bikes-racing-bicycle.jpg');
   background-image: var(--fondo);
-  background-size: 100vw; 
-  background-repeat: no-repeat; 
-  */
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  
+  mask-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.1) 30%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0) 40%, transparent)
+*/
+}
+/*https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg*/
+body{
+  font-family: var(--fuente-principal);
+}
 
+.container-buscador{  
+  display: flex;
+  flex-direction: column;
+  height: 40vw;
+  align-items: center;
+  background-image: url('https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg');
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.container-buscador::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  
+}
 
 .form-buscador {
   display: flex;
@@ -18,39 +48,53 @@
   justify-content: center;
   flex-direction: column;
   font-size: 1.5rem;
-  color: var(--naranja); 
+  color: #fff;
+  position: relative;
+}
+
+
+.titulo-slogan {
+  font-family: var(--fuente-principal);
+  position: relative;
+  color: #fff;
+  font-size: 5rem;
+  width: 50%;
 }
 
 .forms-busca-tu-bici {
-  color:#fff;
-  width: 25rem;
-  padding: 10px; 
+  font-family: var(--fuente-principal);
+  color: #fff;
+  width: 50vw;
+  padding: 10px;
   font-size: 1.5rem;
-  background-color: var(--verde-claro,0.5); 
-  border: none; 
-  border-radius: 20px; 
+  background-color: rgba(255, 255, 255, 0);
+  border-color: #ffffff;
+  border-width: 4px;
+  border-style: groove;
+  border-radius: 20vw;
   text-align: center;
-  outline: none; 
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
+
 
 .forms-busca-tu-bici:hover {
   cursor: pointer;
-  background-color: var(--naranja); 
-  color: #ffffff; 
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
   text-decoration: none;
-  box-shadow: 0 3px 5px rgba(239, 184, 5, 1);
+  
 }
 
 .forms-busca-tu-bici::placeholder {
-  color:#cfcbcb; 
-  text-decoration: underline;
+  font-family: var(--fuente-principal);
+  font-weight: 400;
+  font-size: 2rem;
+  color: #ffffff;
 }
 
-
 .search-icon {
-  font-size: 2rem;
-  margin-right: 10px; 
+  font-size: 3rem;
+  margin-right: 10px;
 }
 
 .search-container {
@@ -94,9 +138,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border-radius: 5px;
-  border-width: 3px;
-  border-style: inset;
   margin: 2rem;
 
 }
@@ -111,18 +152,15 @@
   align-items: center;
   justify-content: space-between;
   font-size: 1.2rem;
-  border-radius: 10%;
-  border-width: 3px;
-  border-style: inset;
-  box-shadow: 0px 5px 15px 3px rgb(0, 0, 0,0.9);
-  transition: background-color 1s ease;
+  transition: background-color 0.5s ease-in-out,
+  opacity 0.7s ease-in-out;
 }
 
 .card-producto-home:hover {
-  text-decoration: underline;
   cursor: pointer;
-  background-color: rgb(199, 192, 192);
-
+  background-color: rgb(241, 240, 240);
+  transform: scale(1.05);
+  z-index: 1;
 }
 
 .image-ciclas-home {
@@ -138,36 +176,42 @@
 }
 
 .carrusel-container {
-  background-color: var(--verde-claro);
+ 
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 4rem 0;
-  padding: 1rem;
-  box-shadow: 0px 10px 30px 5px rgb(0, 0, 0,0.9);
-  transition: background-color 0.3s ease;
+  padding: 1rem; 
+  transition: background-color 0.3s ease-in-out;
+  background-color: #eceaea;
 }
 
 .carrusel-button {
-  background-color: var(--naranjaOscuro);
+  background-color: #ff7f50; 
   border: none;
-  border-radius: 40%;
-  font-size: 24px;
+  border-radius: 50%; 
+  font-size: 20px; 
   cursor: pointer;
-  padding: 15px;
+  padding: 15px 20px;
   color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out; 
 }
 
 .carrusel-button:hover {
-  background-color: var(--naranja);
+  background-color: #ff6347; 
+  transform: scale(1.1); 
 }
 
 .carrusel-image {
   max-width: 100%;
   max-height: 250px;
   margin: 0 20px;
+}
+.card-carrusel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detalle-producto-overlay {
@@ -183,7 +227,8 @@
   opacity: 1;
   transition: opacity 3s ease;
 }
-.mostrar{
+
+.mostrar {
   opacity: 0.95;
 }
 
@@ -219,7 +264,6 @@
   height: 35px;
   border-radius: 20px;
   font-size: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   transition: background-color 0.3s ease;
 
 }
@@ -237,7 +281,6 @@
 
 .titulo-nombre-bici {
   color: #fff;
-  background-color: var(--verde-claro);
   border: none;
   font-weight: bold;
   font-style: none;
@@ -246,13 +289,61 @@
   font-size: 1.2rem;
 }
 
+.categorias-conteiner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+
+}
+
+.card-categoria {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 
+  background-color 0.9s ease-in-out
+  ,font-style 1s ease-in-out,
+  opacity 0.7s ease-in-out;
+}
+
+.card-categoria:hover {
+  
+  cursor: pointer;
+  font-style: italic;
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.categorias-conteiner:hover .card-categoria:not(:hover) {
+  opacity: 0.7; 
+}
+
+.img-categoria{
+  width: 80%;
+}
+.titulos {
+  margin: 2rem 1rem;
+  color: rgb(0, 0, 0);
+  font-family: "Arial", sans-serif; 
+  font-size: 2em;
+  letter-spacing: 0.05em; 
+  font-weight: normal; 
+}
 
 
 /*HACIENDO RESPONSIVE */
 @media screen and (max-width: 768px) {
-  .form-buscador{
-   width: 100%;
+  .form-buscador {
+    width: 100%;
   }
+
   .div-card-producto {
     flex-direction: column;
     margin: 0;
@@ -260,38 +351,41 @@
   }
 
   .card-producto-home {
-    width: 100vw; 
-    margin: 1rem 0; 
+    width: 100vw;
+    margin: 1rem 0;
     padding: 0;
   }
+
   .carrusel-container {
-  
-    align-items: center; 
+
+    align-items: center;
   }
 
   .carrusel-image {
-    max-width: 95vw; 
-    margin: 10px 0; 
+    max-width: 95vw;
+    margin: 10px 0;
   }
+
   .detalle-producto-card {
-    width: 90%; 
-    height: auto; 
+    width: 90%;
+    height: auto;
     padding: 1rem;
     flex-direction: column;
   }
 
   .detalle-izquierda-card {
-    align-items: center; 
-    text-align: center; 
+    align-items: center;
+    text-align: center;
   }
 
   .imagen-Detalle-Producto {
-    max-width: 80%; 
-    height: auto; 
+    max-width: 80%;
+    height: auto;
   }
 
   .button {
-    width: 100%; 
-    margin-top: 1rem; 
+    width: 100%;
+    margin-top: 1rem;
   }
+
 }
