@@ -399,10 +399,10 @@ cursor: pointer;
   }
   .forms-busca-tu-bici{
     width: 100vw;
-    margin-right: 1rem;
+    margin: 1rem;
   }
   .search-icon{
-    margin-left: 1rem;
+    display: none;
   }
   .forms-busca-tu-bici::placeholder {
     font-weight: 1;
