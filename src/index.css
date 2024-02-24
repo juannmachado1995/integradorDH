@@ -69,8 +69,8 @@ body{
   font-size: 1.5rem;
   background-color: rgba(255, 255, 255, 0);
   border-color: #ffffff;
-  border-width: 4px;
-  border-style: groove;
+  border-width: 3px;
+  border-style: solid;
   border-radius: 20vw;
   text-align: center;
   transition: background-color 0.3s ease;
@@ -340,6 +340,10 @@ cursor: pointer;
   letter-spacing: 0.05em; 
   font-weight: normal; 
 }
+.nombre-categoria{
+  font-size: 1rem;
+  font-weight: lighter;
+}
 
 
 /*HACIENDO RESPONSIVE */
@@ -442,10 +446,22 @@ cursor: pointer;
   
   .card-categoria {
     width: 100%;
+    padding: 0;
+    border: rgb(209, 206, 206);
+    justify-content: space-around;
+    border-width: 2px;
+    border-style: solid;
+    margin: 1rem 0;
+  }
+  .nombre-categoria{
+    margin-bottom: 1rem;
   }
 
   .titulo-slogan{
     display: none;
+  }
+  .titulos{
+    margin: 2rem 0 0 0;
   }
 
 }
