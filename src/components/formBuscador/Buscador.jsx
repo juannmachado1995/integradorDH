@@ -3,7 +3,7 @@ import { BiSearch } from 'react-icons/bi';
 const Buscador = () => {
     return (
         <><div className='container-buscador'>
-            <h1 className='titulo-slogan'>Encontrá la bicicleta ideal para cada viaje</h1>
+            
             <form className='form-buscador'>
                 <label htmlFor="buscador"></label>
                 <div className="search-container">
@@ -14,6 +14,7 @@ const Buscador = () => {
                         id="nombre"
                     />
                 </div>
+                <h1 className='titulo-slogan'>Encontrá la bicicleta ideal para cada viaje.</h1>
             </form>
         </div>
         </>

@@ -50,6 +50,7 @@ body{
   font-size: 1.5rem;
   color: #fff;
   position: relative;
+  margin: 3rem;
 }
 
 
@@ -59,6 +60,7 @@ body{
   color: #fff;
   font-size: 5rem;
   width: 50%;
+  margin: 0;
 }
 
 .forms-busca-tu-bici {
@@ -67,7 +69,7 @@ body{
   width: 50vw;
   padding: 10px;
   font-size: 1.5rem;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0.3);
   border-color: #ffffff;
   border-width: 3px;
   border-style: solid;
