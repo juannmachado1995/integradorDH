@@ -66,7 +66,6 @@ const CarrucelFotos = () => {
         {/* creo que asi voy a renderizar solo 1 en celulares*/}
         {window.innerWidth < 768 ? (
           <div className='card-carrusel'>
-            <h3>TITULO</h3>
             <img
               className="carrusel-image"
               src={cantFotos[0].imgBici}
