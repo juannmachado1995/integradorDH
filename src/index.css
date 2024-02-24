@@ -153,14 +153,13 @@ body{
   justify-content: space-between;
   font-size: 1.2rem;
   transition: background-color 0.5s ease-in-out,
-  opacity 0.7s ease-in-out;
+  transform 0.2s ease-in-out;
 }
 
 .card-producto-home:hover {
   cursor: pointer;
   background-color: rgb(241, 240, 240);
-  transform: scale(1.05);
-  z-index: 1;
+  transform: scale(1.1);
 }
 
 .image-ciclas-home {
@@ -194,12 +193,13 @@ body{
   cursor: pointer;
   padding: 15px 20px;
   color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease, transform 0.2s ease-in-out; 
 }
 
 .carrusel-button:hover {
   background-color: #ff6347; 
+
   transform: scale(1.1); 
 }
 
@@ -212,6 +212,12 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition:transform 0.2s ease-in-out; 
+}
+
+.card-carrusel:hover{
+transform: scale(1.1);
+cursor: pointer;
 }
 
 .detalle-producto-overlay {
@@ -228,9 +234,6 @@ body{
   transition: opacity 3s ease;
 }
 
-.mostrar {
-  opacity: 0.95;
-}
 
 .detalle-producto-card {
   height: 90%;
@@ -250,28 +253,28 @@ body{
 
 .detalle-de-la-bici {
   margin: 1rem;
+  font-family: var(--fuente-principal);
   font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: underline;
+}
+.detalle-descripcion-producto{
+  font-family: var(--fuente-principal);
 }
 
 .button {
-  background-color: var(--naranjaOscuro);
-  color: #fff;
-  text-decoration: underline;
+  background-color: #ff7f50; 
   border: none;
-  width: 9rem;
-  height: 35px;
-  border-radius: 20px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-
+  border-radius: 35px; 
+  font-size: 1.2rem; 
+  cursor: pointer;
+  padding: 4px;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out; 
 }
 
 .button:hover {
-  cursor: pointer;
-  background-color: var(--naranja);
-
+  background-color: #ff6347; 
+  transform: scale(1.1); 
 }
 
 .imagen-Detalle-Producto {
@@ -309,7 +312,8 @@ body{
   transition: 
   background-color 0.9s ease-in-out
   ,font-style 1s ease-in-out,
-  opacity 0.7s ease-in-out;
+  opacity 0.5s ease-in-out,
+  transform 0.2s ease-in-out;
 }
 
 .card-categoria:hover {
@@ -317,12 +321,12 @@ body{
   cursor: pointer;
   font-style: italic;
   background-color: rgb(255, 255, 255);
-  transform: scale(1.05);
+  transform: scale(1.09);
   z-index: 1;
 }
 
 .categorias-conteiner:hover .card-categoria:not(:hover) {
-  opacity: 0.7; 
+  opacity: 0.6; 
 }
 
 .img-categoria{
@@ -340,10 +344,6 @@ body{
 
 /*HACIENDO RESPONSIVE */
 @media screen and (max-width: 768px) {
-  .form-buscador {
-    width: 100%;
-  }
-
   .div-card-producto {
     flex-direction: column;
     margin: 0;
@@ -371,7 +371,9 @@ body{
     height: auto;
     padding: 1rem;
     flex-direction: column;
+    align-items: center;
   }
+
 
   .detalle-izquierda-card {
     align-items: center;
@@ -379,13 +381,70 @@ body{
   }
 
   .imagen-Detalle-Producto {
-    max-width: 80%;
-    height: auto;
+    width: 60%;
   }
 
   .button {
-    width: 100%;
+    width: 80%;
     margin-top: 1rem;
+  }
+  .search-container{
+    width: 100%;
+  }
+
+  .form-buscador {
+    margin-top: 2rem;
+    width: 100%;
+    font-size: 1rem; 
+  }
+  .forms-busca-tu-bici{
+    width: 100vw;
+    margin-right: 1rem;
+  }
+  .search-icon{
+    margin-left: 1rem;
+  }
+  .forms-busca-tu-bici::placeholder {
+    font-weight: 1;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+  
+ 
+  .div-card-producto {
+    flex-direction: column;
+  }
+  
+  .card-producto-home {
+    width: 100%;
+  }
+  
+  .carrusel-image {
+    max-width: 100%;
+  }
+  
+  .detalle-producto-card {
+    width: 100%;
+    padding: 0;
+  }
+  .detalle-producto-overlay{
+    height: auto;
+  }
+  .detalle-descripcion-producto{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .categorias-conteiner {
+    flex-direction: column; 
+  }
+  
+  .card-categoria {
+    width: 100%;
+  }
+
+  .titulo-slogan{
+    display: none;
   }
 
 }
