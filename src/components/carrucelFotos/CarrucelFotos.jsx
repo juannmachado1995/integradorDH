@@ -71,7 +71,7 @@ const CarrucelFotos = () => {
               src={cantFotos[0].imgBici}
               alt={cantFotos[0].nombreBici}
             />
-            <h1>TITULO</h1>
+            <h3 className='titulo-carrusel'>Nombre bicicleta</h3>
           </div>
         ) : (
           cantFotos.map((cicla, index) => (
@@ -82,7 +82,7 @@ const CarrucelFotos = () => {
                 src={cicla.imgBici}
                 alt={cicla.nombreBici}
               />
-              <h3>TITULO</h3>
+              <h3 className='titulo-carrusel'>Nombre bicicleta</h3>
 
             </div>
 
