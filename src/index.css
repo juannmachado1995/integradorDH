@@ -185,27 +185,23 @@ body{
   background-color: #eceaea;
 }
 
-.carrusel-button {
-  background-color: #ff7f50; 
+.carrusel-button { 
   border: none;
   border-radius: 50%; 
   font-size: 20px; 
   cursor: pointer;
   padding: 15px 20px;
-  color: #fff;
+  color: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease, transform 0.2s ease-in-out; 
 }
 
 .carrusel-button:hover {
-  background-color: #ff6347; 
-
   transform: scale(1.1); 
 }
 .titulo-carrusel{
   font-family: var(--fuente-principal);
   font-weight: lighter;
-  
 }
 
 .carrusel-image {
@@ -266,19 +262,19 @@ cursor: pointer;
 }
 
 .button {
-  background-color: #ff7f50; 
+   
   border: none;
   border-radius: 35px; 
   font-size: 1.2rem; 
   cursor: pointer;
   padding: 4px;
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s ease, transform 0.2s ease-in-out; 
 }
 
 .button:hover {
-  background-color: #ff6347; 
+  background-color: #e3e2e2; 
   transform: scale(1.1); 
 }
 
