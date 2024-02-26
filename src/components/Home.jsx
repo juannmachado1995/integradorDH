@@ -8,6 +8,7 @@ import CardBicicleta from './cardCiclasHome/CardBicicleta'
 import DetalleProducto from './detalleProducto/DetalleProducto'
 import Categorias from './categorias/Categorias'
 
+
 const Home = () => {
 
 
@@ -31,6 +32,7 @@ const Home = () => {
       <Buscador />
       <Categorias />
       <CarrucelFotos />
+     
       {/*
     <div className='home'>
       <div className='filtro-izquierda'>

@@ -477,3 +477,74 @@ cursor: pointer;
   }
 
 }
+
+
+
+
+
+
+/* estilos para el div que muestra el listado de productos agregados por el administrador */
+.product-list {
+  width: 100%;
+}
+
+.product-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-list th, .product-list td {
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product-list th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+/* En styles.css o tu archivo de estilos */
+.product-list {
+  width: 100%;
+}
+
+.product-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: center; /* Alinea el título al centro */
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-list th, .product-list td {
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center; /* Alinea el contenido al centro */
+}
+
+.product-list th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.table{
+  width: 50%;
+  margin: 0%;
+
+}
+
+.delete-icon{
+height: 20px;
+width: 20px;
+
+}
