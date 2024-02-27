@@ -30,8 +30,8 @@ const Home = () => {
     <>
       <Buscador />
       <Categorias />
-      <CarrucelFotos />
-      {/*
+     {/* <CarrucelFotos />
+      
     <div className='home'>
       <div className='filtro-izquierda'>
         <Electricas />

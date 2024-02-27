@@ -96,7 +96,7 @@ const CardBicicleta = (props) => {
 
   return (
     <div>
-      
+      <h3 className='titulos'>Recomendaciones</h3>
       <div className='div-card-producto'>
         {ciclaleatoria.map((cicla, index) => (
           
