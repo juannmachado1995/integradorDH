@@ -1,0 +1,29 @@
+a.ButtonRightIcon-main{
+    text-decoration: none;
+}
+
+.ButtonRightIcon-main {
+    font-family: "Inter", sans-serif;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 7px 15px;
+    text-align: center;
+    margin: 5px 7px;
+    display: flex;
+    align-items: center;
+}
+
+.ButtonRightIcon-main:hover {
+    background-color: #FB7E29;
+    color: #fff;
+}
+
+.ButtonRightIcon-main img{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+}

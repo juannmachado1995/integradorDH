@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import Buscador from './formBuscador/Buscador'
-import CarrucelFotos from './carrucelFotos/CarrucelFotos'
-import Electricas from './FiltroBusqueda/Electricas'
-import Capacidad from './FiltroBusqueda/Capacidad'
-import Talla from './FiltroBusqueda/Talla'
-import CardBicicleta from './cardCiclasHome/CardBicicleta'
-import DetalleProducto from './detalleProducto/DetalleProducto'
-import Categorias from './categorias/Categorias'
+import Buscador from '../components/formBuscador/Buscador'
+import CarrucelFotos from '../components/carrucelFotos/CarrucelFotos'
+import Electricas from '../components/FiltroBusqueda/Electricas'
+import Capacidad from '../components/FiltroBusqueda/Capacidad'
+import Talla from '../components/FiltroBusqueda/Talla'
+import CardBicicleta from '../components/cardCiclasHome/CardBicicleta'
+import DetalleProducto from '../components/detalleProducto/DetalleProducto'
+import Categorias from '../components/categorias/Categorias'
 
 const Home = () => {
 
