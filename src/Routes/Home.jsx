@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import Buscador from '../components/formBuscador/Buscador'
-import CarrucelFotos from '../components/carrucelFotos/CarrucelFotos'
-import Electricas from '../components/FiltroBusqueda/Electricas'
-import Capacidad from '../components/FiltroBusqueda/Capacidad'
-import Talla from '../components/FiltroBusqueda/Talla'
 import CardBicicleta from '../components/cardCiclasHome/CardBicicleta'
 import DetalleProducto from '../components/detalleProducto/DetalleProducto'
 import Categorias from '../components/categorias/Categorias'
+import Header from '../components/header/Header'
 
 const Home = () => {
 
@@ -28,6 +25,7 @@ const Home = () => {
 
   return (
     <>
+     <Header />
       <Buscador />
       <Categorias />
      {/* <CarrucelFotos />

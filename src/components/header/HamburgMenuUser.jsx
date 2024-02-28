@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'; 
-import {pathIcons} from './utils/global.context';
+import {pathIcons} from '../utils/global.context';
 import './HamburgMenuUser.css';
 
 const HamburgMenuUser = ({options}) => {

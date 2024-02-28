@@ -1,10 +1,10 @@
 import React, { useContext } from 'react' 
 import { Link } from 'react-router-dom';
-import { ContextGlobal, urlLogoEmpresa, pathIcons } from '../components/utils/global.context';
+import { ContextGlobal, urlLogoEmpresa, pathIcons } from '../utils/global.context';
 import './Header.css';
 import hamburgUserIcon from '/src/assets/hamburg-user-icon.svg';
-import ButtonLeftIcon from './ButtonLeftIcon';
-import ButtonRightIcon from './ButtonRightIcon';
+import ButtonLeftIcon from '../Buttons/ButtonLeftIcon';
+import ButtonRightIcon from '../Buttons/ButtonRightIcon';
 import HamburgMenuUser from './HamburgMenuUser';
 
 const Header = () => {
