@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ImageUploader from 'react-images-upload';
+/*import ImageUploader from 'react-images-upload';*/
 import './formProduct.css'; 
 
 
@@ -54,6 +54,7 @@ const FormProduct = ({ onSubmit }) => {
       </div>
       <div className="form-group">
         <label>Subir imágenes:</label>
+        {/*
         <ImageUploader
           withIcon={true}
            buttonText="Seleccionar imágenes"
@@ -61,6 +62,7 @@ const FormProduct = ({ onSubmit }) => {
           imgExtension={['.jpg', '.gif', '.png', '.gif', '.jpeg']}
           maxFileSize={5242880} // 5MB
         />
+  */}
       </div>
       <button type="submit">
       <img src="./img/save.png" alt="Imagen del botón" className='saveButton' />
