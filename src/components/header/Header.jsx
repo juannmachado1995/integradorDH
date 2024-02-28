@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ContextGlobal, urlLogoEmpresa, pathIcons } from '../utils/global.context';
 import './Header.css';
-import hamburgUserIcon from '/src/assets/hamburg-user-icon.svg';
 import ButtonLeftIcon from '../Buttons/ButtonLeftIcon';
 import ButtonRightIcon from '../Buttons/ButtonRightIcon';
 import HamburgMenuUser from './HamburgMenuUser';
@@ -36,7 +35,7 @@ const Header = () => {
   return (
     <header className='header-flex-container'>
       <div className='header-container-logo-empresa'>
-        <Link to={'/'}><img src={urlLogoEmpresa} alt='Home' className='header-logo-empresa' /></Link>
+        <Link to={'/'}><img src="./img/Logo.png" alt='Home' className='header-logo-empresa' /></Link>
 
         <div className='header-lema'>
           <Link to={'/'}><div><u>Ecológica, Eléctrica y</u> <br/> <u>muevete a tu ritmo</u></div></Link>
