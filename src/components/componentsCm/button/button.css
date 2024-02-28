@@ -1,0 +1,177 @@
+
+
+/*estilos container desktop */
+
+.container-admin{
+
+    width: 80%;
+    height: 10vh;
+    background-color: rgba(255, 255, 255, 1);
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    margin: 0 auto; 
+    margin-bottom: 30px;
+    
+    
+    }
+    
+    
+    button {
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      padding: 5px;
+      border:1px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0 40px;
+      text-decoration: underline;
+      display: flex;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+    
+        
+    
+    button:hover {
+      background-color: #ececec;
+    }
+       
+
+    .iconButton {
+
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+
+
+    
+
+
+      /*estilos  entre 768 y 1023*/
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+    .iconButton {
+
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+    }
+
+    button:hover {
+        background-color: #ececec;
+      }
+    button{
+
+        
+        margin: 0 25px;
+        font-size: 1rem;
+    }
+
+
+
+  }
+
+
+
+    
+  /* Estilos  entre 377 y 676 */
+  @media (min-width: 377px) and (max-width: 767px) {
+
+
+    .iconButton {
+
+        width: 30px;
+        height: 30px;
+   
+    }
+
+    button:hover {
+        background-color: #ececec;
+      }
+    button{
+
+
+        margin: 0 20px;
+        font-size: 0.8rem;
+    }
+
+
+
+
+  }
+
+
+
+
+    /* Estilos entre 321 y 376 */
+    @media (min-width: 321px) and (max-width: 376px)  {
+
+        .container-admin{
+
+            display: flex;
+            flex-direction: column;
+            height: 13vh;
+            padding: 1%;
+    
+            }
+        .iconButton {
+
+            width: 10px;
+            height: 10px;
+            margin-left: 10px;
+        }
+    
+        button:hover {
+            background-color: #ececec;
+          }
+        button{
+    
+
+            margin: 0 20px;
+            font-size: 0.8rem;
+        }
+
+
+
+    }
+          /*estilos en 320*/
+    
+    @media (max-width: 320px) {
+
+
+        .container-admin{
+
+        display: flex;
+        flex-direction: column;
+        height: 12vh;
+        padding: 1%;
+
+
+        }
+        .iconButton {
+
+            width: 14px;
+            height: 14px;
+    
+        }
+    
+       
+        button:hover {
+            background-color: #ececec;
+          }
+
+        button{
+            margin: 0%;   
+            font-size: 0.8rem;
+ 
+        }
+    
+    
+    
+    }
+    
+    

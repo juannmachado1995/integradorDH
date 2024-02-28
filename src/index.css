@@ -18,13 +18,12 @@
 /*https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg*/
 body{
   font-family: var(--fuente-principal);
-  padding-top: 71px;
 }
 
 .container-buscador{  
   display: flex;
   flex-direction: column;
-  height: 40vw;
+  height: 50vw;
   align-items: center;
   background-image: url('https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg');
   background-size: 100vw;
@@ -45,13 +44,14 @@ body{
 
 .form-buscador {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   font-size: 1.5rem;
   color: #fff;
+  margin: 2rem;
   position: relative;
-  margin: 3rem;
+  height: 100vw;
 }
 
 
@@ -59,9 +59,9 @@ body{
   font-family: var(--fuente-principal);
   position: relative;
   color: #fff;
-  font-size: 5rem;
-  width: 50%;
-  margin: 0;
+  text-align: center;
+  font-size: 9vw;
+
 }
 
 .forms-busca-tu-bici {
@@ -236,6 +236,7 @@ cursor: pointer;
   align-items: center;
   opacity: 1;
   transition: opacity 3s ease;
+  z-index: 4;
 }
 
 
@@ -253,10 +254,17 @@ cursor: pointer;
 .detalle-izquierda-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.button-detalle{
+  width: 9rem;
+  display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 .detalle-de-la-bici {
-  margin: 1rem;
+  margin: 0.5rem;
   font-family: var(--fuente-principal);
   font-size: 1.5rem;
 }
@@ -282,16 +290,13 @@ cursor: pointer;
 }
 
 .imagen-Detalle-Producto {
-  height: 70%;
-  width: auto;
+
+  width:50%;
 }
 
 .titulo-nombre-bici {
-  color: #fff;
+  color: #000000;
   border: none;
-  font-weight: bold;
-  font-style: none;
-  padding: 0.5rem;
   width: 100%;
   font-size: 1.2rem;
 }
@@ -518,3 +523,41 @@ button:focus-visible {
   }
 }
 */
+
+.product-list th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.product-list {
+  width: 100%;
+}
+
+.product-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: center; 
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-list th, .product-list td {
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.table{
+  width: 50%;
+  margin: 0%;
+
+}
+
+.delete-icon{
+height: 20px;
+width: 20px;
+}
