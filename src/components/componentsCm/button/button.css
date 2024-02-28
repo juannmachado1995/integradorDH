@@ -1,7 +1,4 @@
 
-
-/*estilos container desktop */
-
 .container-admin{
 
     width: 80%;
@@ -18,38 +15,12 @@
     
     }
     
-    
-    button {
-      background-color: rgb(255, 255, 255);
-      color: rgb(0, 0, 0);
-      padding: 5px;
-      border:1px solid black;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 0 40px;
-      text-decoration: underline;
-      display: flex;
-      align-items: center;
-      font-size: 0.7rem;
-    }
-    
-        
-    
-    button:hover {
-      background-color: #ececec;
-    }
-       
-
     .iconButton {
 
         width: 30px;
         height: 30px;
         margin-left: 10px;
     }
-
-
-    
-
 
       /*estilos  entre 768 y 1023*/
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -60,19 +31,6 @@
         height: 20px;
         margin-left: 10px;
     }
-
-    button:hover {
-        background-color: #ececec;
-      }
-    button{
-
-        
-        margin: 0 25px;
-        font-size: 1rem;
-    }
-
-
-
   }
 
 
@@ -88,19 +46,6 @@
         height: 30px;
    
     }
-
-    button:hover {
-        background-color: #ececec;
-      }
-    button{
-
-
-        margin: 0 20px;
-        font-size: 0.8rem;
-    }
-
-
-
 
   }
 
@@ -124,18 +69,6 @@
             height: 10px;
             margin-left: 10px;
         }
-    
-        button:hover {
-            background-color: #ececec;
-          }
-        button{
-    
-
-            margin: 0 20px;
-            font-size: 0.8rem;
-        }
-
-
 
     }
           /*estilos en 320*/
@@ -158,19 +91,6 @@
             height: 14px;
     
         }
-    
-       
-        button:hover {
-            background-color: #ececec;
-          }
-
-        button{
-            margin: 0%;   
-            font-size: 0.8rem;
- 
-        }
-    
-    
     
     }
     

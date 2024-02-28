@@ -15,7 +15,7 @@ export const ContextProvider = ({ children }) => {
 };
 
 /*Global values*/ 
-export const urlLogoEmpresa = '/src/assets/e_bikernt_logo.png';
+export const urlLogoEmpresa = '../src/assets/e_bikernt_logo.png';
 export const pathIcons = {
   addUser: "/src/assets/ico-btn-add-user.png",
   goLogginUser: "src/assets/ico-btn-go-loggin-user.png",

@@ -26,7 +26,7 @@ const Home = () => {
 
 
   return (
-    <>
+    <><div id="top" ></div>
       <Header />
       <Buscador />
       <Categorias />
