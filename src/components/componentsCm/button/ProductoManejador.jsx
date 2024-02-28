@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormProduct from '../Form/formProduct';
+import FormProduct from '../Form/FormProduct';
 import ProductRegistration from '../Products/ProductRegistration' 
 import './button.css'; 
 
