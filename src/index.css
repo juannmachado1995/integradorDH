@@ -573,3 +573,7 @@ button:focus-visible {
 height: 20px;
 width: 20px;
 }
+
+.ver-mas-fotos{
+  z-index: 5;
+}

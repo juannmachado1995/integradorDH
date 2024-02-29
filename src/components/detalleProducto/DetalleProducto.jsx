@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
+import VerMasFotos from './VerMasFotos';
+import { Link } from 'react-router-dom';
 
 const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
 
+  const [mostrarFotos, setMostrarFotos] = useState(false);
 
+  const handleMostrarFotos = () => {
+    setMostrarFotos(true)
+  };
+
+  const handleCerrarFotos = () => {
+    console.log("Cerrando fotos...");
+    setMostrarFotos(false);
+  };
 
   return (
 
@@ -13,9 +24,14 @@ const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
           <div className='detalle-izquierda-card'>
             <button onClick={onClose} className='button button-detalle'> {<IoIosArrowBack />}  Volver Atras</button>
             <span className='detalle-de-la-bici'>Detalles de la bicicleta</span>
-            <text className='titulo-nombre-bici border-radius'>{nombreBici}</text>
+            <span className='titulo-nombre-bici border-radius'>{nombreBici}</span>
             <img className='imagen-Detalle-Producto' src={srcImagen} alt="" />
-            <button className='button button-detalle'>Ver mas fotos +</button>
+            <Link to="/masfotos">
+              <button className='button button-detalle'
+                onClick={handleMostrarFotos}>
+                Ver mas fotos +
+              </button>
+            </Link>
           </div>
 
           <div className='detalle-descripcion-producto'>
@@ -30,6 +46,7 @@ const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
 
         </article>
       </div>
+      {mostrarFotos && <VerMasFotos srcImagen={srcImagen} nombreBici={nombreBici} onClose={handleCerrarFotos} />}
     </>
   )
 }
