@@ -237,6 +237,7 @@ cursor: pointer;
   opacity: 1;
   transition: opacity 3s ease;
   z-index: 4;
+  margin-top: 93px;
 }
 
 
@@ -453,6 +454,7 @@ cursor: pointer;
   }
   .detalle-producto-overlay{
     height: auto;
+    margin-top: 71px;
   }
   .detalle-descripcion-producto{
     display: flex;
@@ -488,6 +490,10 @@ cursor: pointer;
 @media (min-width: 431px){
   body{
       padding-top: 93px;
+  }
+
+  .detalle-producto-overlay {
+    margin-top: 93px;
   }
 }
 
