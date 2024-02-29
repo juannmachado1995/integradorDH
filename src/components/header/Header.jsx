@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <header className='header-flex-container'>
       <div className='header-container-logo-empresa'>
-        <Link to={'/'}><img src="./img/Logo.png" alt='Home' className='header-logo-empresa' /></Link>
+        <Link to={'/'}><img src={urlLogoEmpresa} alt='Home' className='header-logo-empresa' /></Link>
 
         <div className='header-lema'>
           <Link to={'/'}><div><u>Ecológica, Eléctrica y</u> <br/> <u>muevete a tu ritmo</u></div></Link>

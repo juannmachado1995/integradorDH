@@ -3,11 +3,12 @@ import './ButtonRightIcon.css';
 import { Link } from 'react-router-dom';
 import { FaUserCheck } from 'react-icons/fa';
 
-const ButtonRightIcon = ({ title, text }) => {
+const ButtonRightIcon = ({ title, text, icon }) => {
   return (
-    <Link to="/admin" className="ButtonRightIcon-main" title={title}>
-      {text} <FaUserCheck />
-    </Link>
+    <a className="ButtonRightIcon-main" title={title} >
+      {text}
+      <img src={icon} alt={title} />
+    </a>
   );
 };
 

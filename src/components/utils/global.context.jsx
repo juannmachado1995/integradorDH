@@ -1,4 +1,8 @@
 import { createContext, useMemo, useState } from "react"; 
+import pathIcoBtnAddUser from '../../images/ico-btn-add-user.png';
+import pathIcoBtnGoLogginUser from '../../images/ico-btn-go-loggin-user.png';
+import pathIcoHamburgerUser from '../../images/hamburg-user-icon.svg';
+import pathLogoEmpresa from '../../images/e_bikernt_logo.png';
 
 export const initialState = {theme: "light"};
 export const ContextGlobal = createContext();
@@ -15,9 +19,9 @@ export const ContextProvider = ({ children }) => {
 };
 
 /*Global values*/ 
-export const urlLogoEmpresa = './images/e_bikernt_logo.png';
+export const urlLogoEmpresa = pathLogoEmpresa;
 export const pathIcons = {
-  addUser: "./images/ico-btn-add-user.png",
-  goLogginUser: "./images/ico-btn-go-loggin-user.png",
-  hamburgUser: "./images/hamburg-user-icon.svg"
+  addUser: pathIcoBtnAddUser,
+  goLogginUser: pathIcoBtnGoLogginUser,
+  hamburgUser: pathIcoHamburgerUser
 };
