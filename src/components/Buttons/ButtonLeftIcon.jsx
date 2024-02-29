@@ -6,7 +6,7 @@ const ButtonLeftIcon = ({title, text, icon}) => {
 
   return (
     <a className="ButtonLeftIcon-main" title={title} >
-      {<FaUserPlus />}
+      <img src={icon} alt={title} />
       {text}
     </a>
   )
