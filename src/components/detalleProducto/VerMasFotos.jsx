@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoIosArrowBack } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const VerMasFotos = ({ srcImagen, nombreBici, onClose }) => {
     const ciclas = [
@@ -34,42 +35,45 @@ const VerMasFotos = ({ srcImagen, nombreBici, onClose }) => {
 
     return (
         <>
-           
-                <button onClick={onClose} className='button button-detalle'>
-                    <IoIosArrowBack /> Volver Atras
-                </button>
-                <h3 className='titulos'>{ciclas[0].nombreBici}</h3>
-                <div className="carrusel-container">
-                    <button className="carrusel-button" onClick={fotoAnterior}>{'<'}</button>
 
-                    {/* creo que asi voy a renderizar solo 1 en celulares*/}
-                    {window.innerWidth < 768 ? (
+            <Link to="/">
+                <button className='button button-detalle'>
+                    Volver Atras
+                </button>
+            </Link>
+
+            <h3 className='titulos'>{ciclas[0].nombreBici}</h3>
+            <div className="carrusel-container">
+                <button className="carrusel-button" onClick={fotoAnterior}>{'<'}</button>
+
+                {/* creo que asi voy a renderizar solo 1 en celulares*/}
+                {window.innerWidth < 768 ? (
+                    <div className='card-carrusel'>
+                        <img
+                            className="carrusel-image"
+                            src={cantFotos[0].imgBici}
+                            alt={cantFotos[0].nombreBici}
+                        />
+                    </div>
+                ) : (
+                    cantFotos.map((cicla, index) => (
                         <div className='card-carrusel'>
                             <img
+                                key={index}
                                 className="carrusel-image"
-                                src={cantFotos[0].imgBici}
-                                alt={cantFotos[0].nombreBici}
+                                src={cicla.imgBici}
+                                alt={cicla.nombreBici}
                             />
+
                         </div>
-                    ) : (
-                        cantFotos.map((cicla, index) => (
-                            <div className='card-carrusel'>
-                                <img
-                                    key={index}
-                                    className="carrusel-image"
-                                    src={cicla.imgBici}
-                                    alt={cicla.nombreBici}
-                                />
 
-                            </div>
+                    ))
+                )}
 
-                        ))
-                    )}
-
-                    <button className="carrusel-button" onClick={proxFoto}>{'>'}</button>
-                </div>
-            </>
-            );
+                <button className="carrusel-button" onClick={proxFoto}>{'>'}</button>
+            </div>
+        </>
+    );
 }
 
-            export default VerMasFotos;
+export default VerMasFotos;
