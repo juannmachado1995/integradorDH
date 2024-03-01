@@ -74,7 +74,6 @@ const ProductoManejador = () => {
                   {producto.imagenes.map(imagen => (
                     <li key={imagen.id} className="imagen-item">
                       <img src={imagen.urlImg} alt={imagen.titulo} className="imagen" />
-                      <p className="imagen-titulo">{imagen.titulo}</p>
                     </li>
                   ))}
                 </ul>

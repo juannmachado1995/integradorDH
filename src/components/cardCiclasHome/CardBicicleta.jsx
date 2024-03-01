@@ -63,7 +63,9 @@ const CardBicicleta = (props) => {
       imgBici: 'https://i.imgur.com/fNgTMbJ.png'
     }];
 
-    const shuffledCiclas = ciclas.slice().sort(() => Math.random() - 0.5);
+    const ciclasConNuevosProductos = [...ciclas, ...nuevaBici];
+
+    const shuffledCiclas = ciclasConNuevosProductos.slice().sort(() => Math.random() - 0.5);
     setCiclaleatoria(shuffledCiclas);
   }, []);
 
