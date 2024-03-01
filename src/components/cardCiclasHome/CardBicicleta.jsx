@@ -8,27 +8,35 @@ const CardBicicleta = (props) => {
   const [nuevosProductos, setNuevosProductos] = useState([]);
   const nuevaBici = nuevosProductos.map(producto => ({
     nombreBici: producto.nombre,
-    urlImg: producto.imagenes[0].urlImg
+    imgBici: producto.imagenes[0].urlImg
 }));
+
+useEffect(() => {
   const manejadorProductos = async () => {
-      try {
-          const response = await axios.get('http://localhost:8080/productos/listar');
-          console.log('Productos obtenidos:', response.data);
-          setNuevosProductos(response.data);
-      } catch (error) {
-          console.error('Error al obtener productos:', error);
-      }
+    try {
+      const response = await axios.get('http://localhost:8080/productos/listar');
+      console.log('Productos obtenidos:', response.data);
+      setNuevosProductos(response.data);
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+    }
   };
+
+  manejadorProductos();
+}, []);
 
   const [ciclaleatoria, setCiclaleatoria] = useState([]);
 
   useEffect(() => {
-    manejadorProductos();
+    const nuevaBici = nuevosProductos.map(producto => ({
+      nombreBici: producto.nombre,
+      imgBici: producto.imagenes[0].urlImg
+    }));
+
     const ciclas = [{
       nombreBici: 'Haibike Bicicleta Eléctrica Adventr FS 9',
       imgBici: 'https://i.imgur.com/OFuVyJt.png'
-    },
-    {
+    },{
       nombreBici: 'Wilier Bicicleta Eléctrica Triestina Hybrid GRX812',
       imgBici: 'https://i.imgur.com/oO2sILV.png'
     }
@@ -67,7 +75,7 @@ const CardBicicleta = (props) => {
 
     const shuffledCiclas = ciclasConNuevosProductos.slice().sort(() => Math.random() - 0.5);
     setCiclaleatoria(shuffledCiclas);
-  }, []);
+  }, [nuevosProductos]);
 
   const handleClick = (cicla) => {
     props.onProductoSeleccionado(cicla);
