@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 /*import ImageUploader from 'react-images-upload';*/
 import './formProduct.css';
 import axios from "axios";
+import CardBicicleta from '../../cardCiclasHome/CardBicicleta';
 
 const FormProduct = ({ onSubmit }) => {
 
@@ -11,6 +12,8 @@ const FormProduct = ({ onSubmit }) => {
   const [urlImagen, setUrlmagenes] = useState("");
   const [tituloImagen, setTituloImagen] = useState("");
   const [imagenes, setImagenes] = useState([]);
+
+  const[nombreCard,setNombreCard] = useState([])
 
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
@@ -72,12 +75,16 @@ const FormProduct = ({ onSubmit }) => {
       const productoCreado = JSON.stringify(response.data)
       alert("PRODUCTO CREADO CORRECTAMENTE" + productoCreado)
 
+      setNombreCard({nombre})
+
       setNombre("");
       setCategoria("");
       setDescripcion("");
       setImagenes([]);
       setUrlmagenes(""); 
       setTituloImagen("");
+
+  
 
     } catch (error) {
       console.error("Error al guardar el producto:", error);
@@ -162,9 +169,8 @@ const FormProduct = ({ onSubmit }) => {
           Guardar Producto
         </button>
       </form>
-
     </div>
-
+  
   );
 };
 

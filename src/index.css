@@ -575,5 +575,54 @@ width: 20px;
 }
 
 .ver-mas-fotos{
-  z-index: 5;
+width: 60vw;
+}
+.ver-mas-fotos-container{
+  background-color: none;
+}
+.button-detalle{
+  text-decoration: none;
+}
+
+/*CARD LISTADO PRODUCTOS*/
+
+.productos-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.productos-list {
+  list-style-type: none;
+}
+
+
+.producto-item {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  border-color:#14471E;
+  border-width: 3rem;
+  border:solid;
+  padding: 1rem;
+  
+}
+
+
+.producto-nombre {
+  margin-bottom: 1px;
+  font-size: 1rem;
+}
+
+.imagen {
+  width: 150px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+
+.imagen-titulo {
+  margin-top: 0;
+  font-size: 1rem;
 }

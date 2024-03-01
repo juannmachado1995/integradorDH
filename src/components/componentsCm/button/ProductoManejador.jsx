@@ -5,6 +5,7 @@ import './button.css';
 import axios from 'axios';
 
 const ProductoManejador = () => {
+
   const [showAddForm, setShowAddForm] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null); // Nuevo estado para mantener el producto actual
   const [productos, setProductos] = useState([]);
@@ -57,25 +58,26 @@ const ProductoManejador = () => {
       {showAddForm && <FormProduct onSubmit={handleListClick} currentProduct={currentProduct} />}
 
       {productos.length > 0 && !showAddForm && (
-        <div>
+        <div className="productos-container">
           <h1>Listado de Productos</h1>
-          <ul>
+          <ul className="productos-list">
             {productos.map(producto => (
-              <li key={producto.id}>
-                <h2>NOMBRE PRODUCTO: {producto.nombre}</h2>
-                <p>DESCRIPCION: {producto.descripcion}</p>
-                <p>ID PRODUCTO: {producto.id}</p>
-                <h3>IMÁGENES:</h3>
-                <ul>
-                  {producto.imagenes.map(imagen => (
-                    <li key={imagen.id}>
-                      <img src={imagen.urlImg} alt={imagen.titulo} />
-                      <p>{imagen.titulo}</p>
-                    </li>
 
+              <li key={producto.id} className="producto-item">
+
+                <div className=''>
+                <h2 className="producto-nombre">NOMBRE PRODUCTO: {producto.nombre}</h2>
+                <p className="producto-descripcion">DESCRIPCION: {producto.descripcion}</p>
+                <p className="producto-id">ID PRODUCTO: {producto.id}</p>
+                </div>
+                <ul className="imagenes-list">
+                  {producto.imagenes.map(imagen => (
+                    <li key={imagen.id} className="imagen-item">
+                      <img src={imagen.urlImg} alt={imagen.titulo} className="imagen" />
+                      <p className="imagen-titulo">{imagen.titulo}</p>
+                    </li>
                   ))}
                 </ul>
-                <h1>---------------------------</h1>
               </li>
             ))}
           </ul>

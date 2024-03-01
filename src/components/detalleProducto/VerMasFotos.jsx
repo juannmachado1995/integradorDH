@@ -45,11 +45,12 @@ const VerMasFotos = ({ srcImagen, nombreBici, onClose }) => {
             <h3 className='titulos'>{ciclas[0].nombreBici}</h3>
             <div className="carrusel-container">
                 <button className="carrusel-button" onClick={fotoAnterior}>{'<'}</button>
-
-                {/* creo que asi voy a renderizar solo 1 en celulares*/}
+{/*
+               
                 {window.innerWidth < 768 ? (
                     <div className='card-carrusel'>
                         <img
+                            key={cantFotos[0].nombreBici}
                             className="carrusel-image"
                             src={cantFotos[0].imgBici}
                             alt={cantFotos[0].nombreBici}
@@ -57,18 +58,25 @@ const VerMasFotos = ({ srcImagen, nombreBici, onClose }) => {
                     </div>
                 ) : (
                     cantFotos.map((cicla, index) => (
-                        <div className='card-carrusel'>
+                        <div className='card-carrusel' key={cicla.nombreBici + index}>
                             <img
                                 key={index}
                                 className="carrusel-image"
                                 src={cicla.imgBici}
                                 alt={cicla.nombreBici}
                             />
-
                         </div>
-
                     ))
-                )}
+
+                )}*/}
+                <div className='card-carrusel'>
+                        <img
+                            key={cantFotos[0].nombreBici}
+                            className="ver-mas-fotos"
+                            src={cantFotos[0].imgBici}
+                            alt={cantFotos[0].nombreBici}
+                        />
+                    </div>
 
                 <button className="carrusel-button" onClick={proxFoto}>{'>'}</button>
             </div>
