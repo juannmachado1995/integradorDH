@@ -6,6 +6,8 @@ import CardBicicleta from '../../cardCiclasHome/CardBicicleta';
 
 const FormProduct = ({ onSubmit }) => {
 
+
+
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [categoria, setCategoria] = useState("");

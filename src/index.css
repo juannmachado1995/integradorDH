@@ -360,6 +360,7 @@ cursor: pointer;
 /*HACIENDO RESPONSIVE */
 @media screen and (max-width: 768px) {
 
+
   .container-buscador{
     margin-top: 25vw;
   }
