@@ -72,7 +72,8 @@ body {
   font-size: 1.5rem;
   color: #fff;
   position: relative;
-  height: 100vw;
+  /*height: 100vw;*/
+  margin-top: 3vw;
 }
 
 
