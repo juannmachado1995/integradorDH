@@ -1,10 +1,12 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { ContextGlobal } from '../utils/global.context';
 
 
 const CardBicicleta = (props) => {
 
+  const {contexto, setContexto} = useContext(ContextGlobal);
   const [nuevosProductos, setNuevosProductos] = useState([]);
   const nuevaBici = nuevosProductos.map(producto => ({
     nombreBici: producto.nombre,
@@ -75,10 +77,13 @@ useEffect(() => {
 
     const shuffledCiclas = ciclasConNuevosProductos.slice().sort(() => Math.random() - 0.5);
     setCiclaleatoria(shuffledCiclas);
+    setContexto({...contexto, arrayCiclas: shuffledCiclas});
+    console.log(contexto);
   }, [nuevosProductos]);
 
   const handleClick = (cicla) => {
-    props.onProductoSeleccionado(cicla);
+    /*props.onProductoSeleccionado(cicla);*/
+    console.log('click handleClick CardBicicleta')
   };
   
   return (
@@ -86,11 +91,12 @@ useEffect(() => {
       <h3 className='titulos'>Recomendaciones</h3>
       <div className='div-card-producto'>
         {ciclaleatoria.map((cicla, index) => (
-          
-          <article className='card-producto-home' key={index} onClick={() => handleClick(cicla)}>
+          <Link to={'/productos/' + (+index + 1)} key={index}>
+          <article className='card-producto-home'  onClick={() => handleClick(cicla)}>
             <img className='image-ciclas-home' src={cicla.imgBici} alt={cicla.nombreBici} />
             <span>{cicla.nombreBici}</span>
           </article>
+          </Link>
         
         ))}
       </div>

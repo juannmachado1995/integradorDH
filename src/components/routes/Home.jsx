@@ -32,12 +32,12 @@ const Home = () => {
       <Categorias />
       <CardBicicleta onProductoSeleccionado={handleProductoSeleccionado} />
 
-      {mostrarDetalleProducto && (
+      {/*mostrarDetalleProducto && (
         <DetalleProducto
           srcImagen={productoSeleccionado.imgBici}
           nombreBici={productoSeleccionado.nombreBici}
           onClose={handleCerrarDetalle}
-        />)}
+      />)*/}
     </div>
   )
 }
