@@ -3,13 +3,13 @@ a.ButtonLeftIcon-main{
 }
 
 .ButtonLeftIcon-main {
-    font-family: "Inter", sans-serif;
+    font-family: var(--fuente-principal);
     background-color: #ffffff;
     border-radius: 15px;
     border: none;
-    color: #000;
+    color: var(--color-fuente);
     cursor: pointer;
-    font-size: 15px;
+    font-size: var(--tamano-fuente-header-buttons);
     padding: 7px 15px;
     text-align: center;
     margin: 5px 7px;
@@ -18,12 +18,12 @@ a.ButtonLeftIcon-main{
 }
 
 .ButtonLeftIcon-main:hover {
-    background-color: #FB7E29;
-    color: #fff;
+    background-color: var(--naranja-claro);
+    color: var(--color-fuente-contraste1);
 }
 
 .ButtonLeftIcon-main img{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-right: 5px;
 }

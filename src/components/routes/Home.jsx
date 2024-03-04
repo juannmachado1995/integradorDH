@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Buscador from './formBuscador/Buscador'
-import CardBicicleta from './cardCiclasHome/CardBicicleta'
-import DetalleProducto from './detalleProducto/DetalleProducto'
-import Categorias from './categorias/Categorias'
-import Header from './header/Header'
-import Footer from './Footer/Footer'
-import ProductoManejador from './componentsCm/button/ProductoManejador'
+import Buscador from '../formBuscador/Buscador'
+import CardBicicleta from '../cardCiclasHome/CardBicicleta'
+import DetalleProducto from '../detalleProducto/DetalleProducto'
+import Categorias from '../categorias/Categorias'
+import Header from '../header/Header'
+import Footer from '../Footer/Footer'
+import ProductoManejador from '../componentsCm/button/ProductoManejador'
 
 const Home = () => {
 
@@ -26,8 +26,8 @@ const Home = () => {
 
 
   return (
-    <><div id="top" ></div>
-      <Header />
+    <div className='container-middle'>
+      <div id="top" ></div>
       <Buscador />
       <Categorias />
       <CardBicicleta onProductoSeleccionado={handleProductoSeleccionado} />
@@ -38,9 +38,7 @@ const Home = () => {
           nombreBici={productoSeleccionado.nombreBici}
           onClose={handleCerrarDetalle}
         />)}
-        
-      <Footer />
-    </>
+    </div>
   )
 }
 

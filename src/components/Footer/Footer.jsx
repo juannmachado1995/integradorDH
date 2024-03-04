@@ -14,9 +14,7 @@ const Footer = () => {
           <img src="./img/whatsapp.png" alt="WhatsApp" />
         </div> */}
         <div className="left">
-        <Link to="/admin">
         <div className="logo"><img src="./img/Logo.png" alt="Logo" /></div>
-    </Link>
           <div className="copy"> <p>Copyright © 2024</p></div>
         </div>
       </div>
