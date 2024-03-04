@@ -7,6 +7,7 @@ import { useMediaQuery } from "@mui/material";
 import { Link } from 'react-router-dom';
 
 const ProductoManejador = () => {
+  /*
   const isSmallScreen = useMediaQuery('(max-width:670px)');
 
   if (isSmallScreen) {
@@ -14,7 +15,7 @@ const ProductoManejador = () => {
    return alert("La pantalla es demasiado pequeña");
    
   }
-
+  */
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null); // Nuevo estado para mantener el producto actual

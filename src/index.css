@@ -1,10 +1,20 @@
-:root {
-  --verde-oscuro: #14471E;
-  --verde-claro: #68904D;
-  --naranja: #EE9B01;
-  --naranjaOscuro: #DA6A00;
-  --fuente-principal: system-ui, -apple-system, BlinkMacSystemFont;
 
+
+:root {
+  --verde-claro: #68904D;
+  --verde-oscuro: #14471E;
+  --verde-oscuro-rgb: 20,71,30;
+  --naranja-claro: #EE9B01;
+  --naranja-oscuro: #DA6A00;
+  --gris-claro: #C8D2D1;
+  --gris-claro-rgb: 200,210,209;
+  /*--fuente-principal: system-ui, -apple-system, BlinkMacSystemFont;*/
+  --fuente-principal: "Roboto", sans-serif;;
+  --color-fuente: #000000;
+  --color-fuente-contraste1: #fff;
+  --tamano-fuente-header-buttons: 12px;
+  --padding-top-vs-header-desktop: 60px;
+  --padding-top-vs-header-mobile: 55px;
   /*
   --fondo: url('https://e1.pxfuel.com/desktop-wallpaper/75/10/desktop-wallpaper-road-bikes-racing-bicycle.jpg');
   background-image: var(--fondo);
@@ -21,15 +31,26 @@ body {
   font-family: var(--fuente-principal);
 }
 
+/*Importante: Agregar esta clase a todos los objetos en medio del header y footer
+  para hacer que el footer se mantenga abajo*/
+.container-middle{
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 130px);
+  padding-top: var(--padding-top-vs-header-mobile);
+  background: rgba(var(--gris-claro-rgb), 0.3);
+}
+
 .container-buscador {
   display: flex;
   flex-direction: column;
-  height: 50vw;
+  height: 20vw;
   align-items: center;
   background-image: url('https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg');
   background-size: 100vw;
   background-repeat: no-repeat;
   position: relative;
+  border-radius: 20px;
 }
 
 .container-buscador::before {
@@ -40,7 +61,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-
+  border-radius: 20px;
 }
 
 .form-buscador {
@@ -50,7 +71,6 @@ body {
   justify-content: center;
   font-size: 1.5rem;
   color: #fff;
-  margin: 2rem;
   position: relative;
   height: 100vw;
 }
@@ -61,7 +81,7 @@ body {
   position: relative;
   color: #fff;
   text-align: center;
-  font-size: 9vw;
+  font-size: 3vw;
 
 }
 
@@ -91,7 +111,7 @@ body {
 
 .forms-busca-tu-bici::placeholder {
   font-family: var(--fuente-principal);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 2rem;
   color: #ffffff;
 }
@@ -110,7 +130,7 @@ body {
   border-radius: 5px;
   border-width: 3px;
   border-style: inset;
-  border-color: var(--naranja);
+  border-color: var(--naranja-claro);
 
 }
 
@@ -319,6 +339,12 @@ a:-webkit-any-link {
   font-size: 1.2rem;
 }
 
+.categorias-wrapper{
+  box-shadow: 0px 7px 4px 1px #00000040;
+  border-radius: 20px;
+}
+
+
 .categorias-conteiner {
   display: flex;
   flex-wrap: wrap;
@@ -340,6 +366,7 @@ a:-webkit-any-link {
     background-color 0.9s ease-in-out, font-style 1s ease-in-out,
     opacity 0.5s ease-in-out,
     transform 0.2s ease-in-out;
+  border-radius: 20px;
 }
 
 .card-categoria:hover {
@@ -357,18 +384,18 @@ a:-webkit-any-link {
 
 .img-categoria {
   width: 80%;
+  border-radius: 20px;
 }
 
 .titulos {
   margin: 2rem 1rem;
   color: rgb(0, 0, 0);
-  font-family: "Arial", sans-serif;
   font-size: 2em;
-  letter-spacing: 0.05em;
   font-weight: normal;
 }
 
 .nombre-categoria {
+  margin-top: 1rem;
   font-size: 1rem;
   font-weight: lighter;
 }
@@ -377,10 +404,11 @@ a:-webkit-any-link {
 /*HACIENDO RESPONSIVE */
 @media screen and (max-width: 768px) {
 
-
+  /*
   .container-buscador {
     margin-top: 25vw;
   }
+  */
 
   .div-card-producto {
     flex-direction: column;
@@ -443,14 +471,14 @@ a:-webkit-any-link {
   }
 
   .form-buscador {
-    margin-top: 2rem;
     width: 100%;
     font-size: 1rem;
   }
 
   .forms-busca-tu-bici {
     width: 100vw;
-    margin: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .search-icon {
@@ -504,6 +532,7 @@ a:-webkit-any-link {
     border-width: 2px;
     border-style: solid;
     margin: 1rem 0;
+    border-radius: 20px;
   }
 
   .card-categoria:hover {
@@ -525,8 +554,8 @@ a:-webkit-any-link {
 }
 
 @media (min-width: 431px) {
-  body {
-    padding-top: 93px;
+  .container-middle{
+    padding-top: var(--padding-top-vs-header-desktop);
   }
 
   .detalle-producto-overlay {

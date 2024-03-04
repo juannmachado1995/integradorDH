@@ -6,7 +6,6 @@ import VerMasFotos from './VerMasFotos'
 const MasFotos = () => {
   return (
     <>
-    <Header/>
     <VerMasFotos/>
     </>
   )

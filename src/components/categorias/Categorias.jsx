@@ -20,8 +20,8 @@ const Categorias = () => {
     ]
 
     return (
-        <>
-            <h3 className='titulos'>Categorias</h3>
+        <div className='categorias-wrapper'>
+            <h3 className='titulos'> Nuestras Categorías</h3>
             <div className='categorias-conteiner'>
 
                 {categorias.map((categoria, index) => (
@@ -32,7 +32,7 @@ const Categorias = () => {
                 ))}
 
             </div>
-        </>
+        </div>
     )
 }
 
