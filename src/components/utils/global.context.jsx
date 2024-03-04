@@ -4,7 +4,7 @@ import pathIcoBtnGoLogginUser from '../../images/ico-btn-go-loggin-user.png';
 import pathIcoHamburgerUser from '../../images/hamburg-user-icon.svg';
 import pathLogoEmpresa from '../../images/e_bikernt_logo.png';
 
-export const initialState = {theme: "light"};
+export const initialState = {theme: "light", arrayCiclas: []};
 export const ContextGlobal = createContext();
 
 export const ContextProvider = ({ children }) => { 
@@ -25,3 +25,4 @@ export const pathIcons = {
   goLogginUser: pathIcoBtnGoLogginUser,
   hamburgUser: pathIcoHamburgerUser
 };
+export const urlBackend = 'http://localhost:8080/';

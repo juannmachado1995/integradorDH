@@ -1,9 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
 import VerMasFotos from './VerMasFotos';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { ContextGlobal, urlBackend } from '../utils/global.context';
 
-const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
+const DetalleProducto = () => {
+  const {contexto} = useContext(ContextGlobal);
+
+  const {id} = useParams();
+  const url =  urlBackend + 'productos/' + id;
+  console.log(url);
+
+  /*En las pruebas con backend, se pueden habilitar y probar estas lineas o cambiar por axios a gusto*/
+  /*const {data, error} = useFetchEffect(url);*/
+  /*mientra se consume el back, nos traemos el array con la info para probar*/ 
+  /*Posteriormente data será lo que devuelva el llamado al back, mientras se emula con el array*/
+  const data = contexto.arrayCiclas[+id - 1];
 
   const [mostrarFotos, setMostrarFotos] = useState(false);
 
@@ -16,17 +28,21 @@ const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
     setMostrarFotos(false);
   };
 
+  
+
   return (
 
     <>
-      <div className='background-overlay mostrar'>
+      <div className='background-overlay mostrar container-middle'>
         <div className="detalle-producto-overlay mostrar">
           <article className="detalle-producto-card">
             <div className='detalle-izquierda-card'>
-              <button onClick={onClose} className='button button-detalle'> {<IoIosArrowBack />}  Volver Atras</button>
+              <Link to='/'>
+                <button className='button button-detalle'> {<IoIosArrowBack />}  Volver Atras</button>
+              </Link>
               <span className='detalle-de-la-bici'>Detalles de la bicicleta</span>
-              <span className='titulo-nombre-bici border-radius'>{nombreBici}</span>
-              <img className='imagen-Detalle-Producto' src={srcImagen} alt="" />
+              <span className='titulo-nombre-bici border-radius'>{data.nombreBici}</span>
+              <img className='imagen-Detalle-Producto' src={data.imgBici} alt="" />
               <Link to="/masfotos">
                 <button className='button button-detalle'
                   onClick={handleMostrarFotos}>
@@ -47,7 +63,7 @@ const DetalleProducto = ({ srcImagen, nombreBici, onClose }) => {
 
           </article>
         </div>
-        {mostrarFotos && <VerMasFotos srcImagen={srcImagen} nombreBici={nombreBici} onClose={handleCerrarFotos} />}
+        {mostrarFotos && <VerMasFotos srcImagen={data.imgBici} nombreBici={data.nombreBici} onClose={handleCerrarFotos} />}
       </div>
     </>
   )
