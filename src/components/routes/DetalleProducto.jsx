@@ -3,6 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import VerMasFotos from './VerMasFotos';
 import { Link, useParams } from 'react-router-dom';
 import { ContextGlobal, urlBackend } from '../utils/global.context';
+import './detalleProducto.css'
 
 const DetalleProducto = () => {
   const {contexto} = useContext(ContextGlobal);

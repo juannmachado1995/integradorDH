@@ -1,5 +1,7 @@
 import React from 'react'
 import { BiSearch } from 'react-icons/bi';
+import './formBuscador.css'
+
 const Buscador = () => {
     return (
         <>

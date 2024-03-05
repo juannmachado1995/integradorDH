@@ -2,6 +2,7 @@ import React,{useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { ContextGlobal } from '../utils/global.context';
+import './cardCiclasHome.css'
 
 
 const CardBicicleta = (props) => {
@@ -84,7 +85,7 @@ useEffect(() => {
   }, [nuevosProductos]);
 
   const handleClick = (cicla) => {
-    /*props.onProductoSeleccionado(cicla);*/
+    
     console.log('click handleClick CardBicicleta')
   };
   
