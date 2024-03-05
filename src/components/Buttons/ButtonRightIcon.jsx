@@ -5,10 +5,10 @@ import { FaUserCheck } from 'react-icons/fa';
 
 const ButtonRightIcon = ({ title, text, icon }) => {
   return (
-    <a className="ButtonRightIcon-main" title={title} >
+    <span className="ButtonRightIcon-main" title={title} >
       {text}
       <img src={icon} alt={title} />
-    </a>
+    </span>
   );
 };
 

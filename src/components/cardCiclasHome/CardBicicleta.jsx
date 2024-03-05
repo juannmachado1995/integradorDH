@@ -13,6 +13,7 @@ const CardBicicleta = (props) => {
     imgBici: producto.imagenes[0].urlImg
 }));
 
+/*
 useEffect(() => {
   const manejadorProductos = async () => {
     try {
@@ -23,9 +24,11 @@ useEffect(() => {
       console.error('Error al obtener productos:', error);
     }
   };
+  
 
   manejadorProductos();
 }, []);
+*/
 
   const [ciclaleatoria, setCiclaleatoria] = useState([]);
 
@@ -78,7 +81,6 @@ useEffect(() => {
     const shuffledCiclas = ciclasConNuevosProductos.slice().sort(() => Math.random() - 0.5);
     setCiclaleatoria(shuffledCiclas);
     setContexto({...contexto, arrayCiclas: shuffledCiclas});
-    console.log(contexto);
   }, [nuevosProductos]);
 
   const handleClick = (cicla) => {

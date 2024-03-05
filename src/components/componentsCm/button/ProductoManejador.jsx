@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FormProduct from '../Form/FormProduct';
+import ProductosRegistrar from '../../routes/Admin/Productos/ProductosRegistrar';
 import ProductRegistration from '../Products/ProductRegistration'
 import './button.css';
 import axios from 'axios';
@@ -66,7 +66,7 @@ const ProductoManejador = () => {
           <img src="./img/imgBoton2.png" alt="Imagen del botón" className='iconButton' />
         </button>
       </div>
-      {showAddForm && <FormProduct onSubmit={handleListClick} currentProduct={currentProduct} />}
+      {showAddForm && <ProductosRegistrar onSubmit={handleListClick} currentProduct={currentProduct} />}
 
       {productos.length > 0 && !showAddForm && (
         <div className="productos-container">

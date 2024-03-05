@@ -1,10 +1,12 @@
-import { createContext, useMemo, useState } from "react"; 
-import pathIcoBtnAddUser from '../../images/ico-btn-add-user.png';
-import pathIcoBtnGoLogginUser from '../../images/ico-btn-go-loggin-user.png';
-import pathIcoHamburgerUser from '../../images/hamburg-user-icon.svg';
+import { createContext, useMemo, useState } from "react";
 import pathLogoEmpresa from '../../images/e_bikernt_logo.png';
+import pathIcoHamburgerUser from '../../images/hamburg-user-icon.svg';
+import pathIcoBtnAddUser from '../../images/ico-btn-add-user.png';
 import pathIcoBtnAdd from '../../images/ico-btn-add.png';
+import pathIcoBtnGoLogginUser from '../../images/ico-btn-go-loggin-user.png';
 import pathIcoBtnList from '../../images/ico-btn-list.png';
+import pathIcoSave from '../../images/ico-save.png';
+import pathLogoFooter from '../../images/logo-footer.png';
 
 export const initialState = {theme: "light", arrayCiclas: []};
 export const ContextGlobal = createContext();
@@ -22,12 +24,14 @@ export const ContextProvider = ({ children }) => {
 
 /*Global values*/ 
 export const urlLogoEmpresa = pathLogoEmpresa;
+export const urlLogoFooter = pathLogoFooter;
 export const pathIcons = {
   addUser: pathIcoBtnAddUser,
   goLogginUser: pathIcoBtnGoLogginUser,
   hamburgUser: pathIcoHamburgerUser,
   add: pathIcoBtnAdd,
-  list: pathIcoBtnList
+  list: pathIcoBtnList,
+  save: pathIcoSave
 };
 
 export const urlBackend = 'http://localhost:8080/';
