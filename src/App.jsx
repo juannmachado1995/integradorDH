@@ -3,10 +3,10 @@ import Home from './components/routes/Home'
 
 import { Routes, Route } from 'react-router-dom'
 import Admin from './components/routes/Admin/Admin'
-import MasFotos from './components/detalleProducto/MasFotos'
+import MasFotos from './components/routes/MasFotos'
 import Header from './components/header/Header'
 import Footer from './components/Footer/Footer'
-import DetalleProducto from './components/detalleProducto/DetalleProducto'
+import DetalleProducto from './components/routes/DetalleProducto'
 
 function App() {
 
