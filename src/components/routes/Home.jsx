@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Buscador from '../formBuscador/Buscador'
 import CardBicicleta from '../cardCiclasHome/CardBicicleta'
-import DetalleProducto from '../detalleProducto/DetalleProducto'
+import DetalleProducto from './DetalleProducto'
 import Categorias from '../categorias/Categorias'
 import Header from '../header/Header'
 import Footer from '../Footer/Footer'
