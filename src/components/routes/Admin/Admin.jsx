@@ -11,34 +11,35 @@ const Admin = () => {
       <div className='Admin-container'>
         {/* Grupo de productos*/}
         <div className='Admin-group'>
-          <Link to='/productos/registrar'>
+          <Link to='productos/registrar'>
             <ButtonRightIcon title='Registrar producto' text='Agregar productos' icon={pathIcons.add} />
           </Link>
-          <Link to='/productos/listar'>
+          <Link to='productos'>
             <ButtonRightIcon title='Listar productos' text='Lista de productos' icon={pathIcons.list} />
           </Link>
         </div>
 
         {/* Grupo de categorías*/}
         <div className='Admin-group'>
-          <Link to='/categorias/registrar'>
+          <Link to='categorias/registrar'>
             <ButtonRightIcon title='Registrar categoría' text='Crear categoría' icon={pathIcons.add} />
           </Link>
-          <Link to='/categorias/listar'>
+          <Link to='categorias'>
             <ButtonRightIcon title='Listar categorías' text='Lista de categorías' icon={pathIcons.list} />
           </Link>
         </div>
 
         {/* Grupo de Ccracterísticas*/}
         <div className='Admin-group'>
-          <Link to='/caracteristicas/registrar'>
+          <Link to='caracteristicas/registrar'>
             <ButtonRightIcon title='Registrar carcacterística' text='Crear característica' icon={pathIcons.add} />
           </Link>
-          <Link to='/caracteristicas/listar'>
+          <Link to='caracteristicas'>
             <ButtonRightIcon title='Listar carcacterísticas' text='Lista de carcácteristicas' icon={pathIcons.list} />
           </Link>
         </div>
       </div>
+      
       <Outlet />
       {/*<ProductoManejador/>*/}
     </div>

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 /*import ImageUploader from 'react-images-upload';*/
-import './formProduct.css';
 import axios from "axios";
-import CardBicicleta from '../../cardCiclasHome/CardBicicleta';
+import { pathIcons } from '../../../utils/global.context';
+import './ProductosRegistrar.css';
 
-const FormProduct = ({ onSubmit }) => {
-
-
+const ProductosRegistrar = ({ onSubmit }) => {
 
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -96,7 +94,7 @@ const FormProduct = ({ onSubmit }) => {
 
   return (
 
-    <div>
+    <div className='ProductoRegistrar-main'>
 
       <form className="product-form" onSubmit={handleSubmit}>
 
@@ -167,7 +165,7 @@ const FormProduct = ({ onSubmit }) => {
       </div>*/}
 
         <button type="submit" onClick={handleAgregarImagen}>
-          <img src="./img/save.png" alt="Imagen del botón" className='saveButton' />
+          <img src={pathIcons.save} alt="Imagen del botón" className='saveButton' />
           Guardar Producto
         </button>
       </form>
@@ -176,4 +174,4 @@ const FormProduct = ({ onSubmit }) => {
   );
 };
 
-export default FormProduct;
+export default ProductosRegistrar;

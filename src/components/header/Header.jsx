@@ -10,8 +10,8 @@ import HamburgMenuUser from './HamburgMenuUser';
 const Header = () => {
   const { contexto } = useContext(ContextGlobal);
   const options = [
-    { title: 'Crear cuenta', text: 'Crear cuenta', icon: pathIcons.addUser, typeButton: 1 },
-    { title: 'Iniciar sesión', text: 'Iniciar sesión', icon: pathIcons.goLogginUser, typeButton: 2 }
+    { title: 'Crear cuenta', text: 'Crear cuenta', icon: pathIcons.addUser, link: '/signup'},
+    { title: 'Iniciar sesión', text: 'Iniciar sesión', icon: pathIcons.goLogginUser, link: '/login'}
   ];
 
   useEffect(() => {
@@ -45,10 +45,10 @@ const Header = () => {
       <HamburgMenuUser options={options}/>
 
       <div className='header-buttons-section'>
-        {options.map((item, idx) => (item.typeButton === 1?
-          <ButtonLeftIcon key={idx} title={item.title} text={item.text} icon={item.icon} />
-          :
-          <ButtonRightIcon key={idx} title={item.title} text={item.text} icon={item.icon} />
+        {options.map((item, idx) => (
+          <Link to={item.link}>
+            <ButtonLeftIcon key={idx} title={item.title} text={item.text} icon={item.icon} />
+          </Link>
         ))}
       </div>
     </header>
