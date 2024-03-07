@@ -46,8 +46,8 @@ const Header = () => {
 
       <div className='header-buttons-section'>
         {options.map((item, idx) => (
-          <Link to={item.link}>
-            <ButtonLeftIcon key={idx} title={item.title} text={item.text} icon={item.icon} />
+          <Link key={idx} to={item.link}>
+            <ButtonLeftIcon title={item.title} text={item.text} icon={item.icon} />
           </Link>
         ))}
       </div>
