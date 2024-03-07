@@ -9,6 +9,7 @@ import ProductosListar from './components/routes/Admin/Productos/ProductosListar
 import ProductosRegistrar from './components/routes/Admin/Productos/ProductosRegistrar'
 import DetalleProducto from './components/routes/DetalleProducto'
 import MasFotos from './components/routes/MasFotos'
+import RegistrarUsuario from './components/routes/RegistrarUsuario'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
 
         {/*Registro de usuarios */}
-        <Route path='/signup' element={<div className='container-middle'><h1>Registro de usuarios</h1></div>}/>
+        <Route path='/signup' element={<RegistrarUsuario />}/>
 
         {/*Inicio de sesión de usuarios */}
         <Route path='/login' element={<div className='container-middle'><h1>Inicio de sesión</h1></div>}/>
