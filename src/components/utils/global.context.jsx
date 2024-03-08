@@ -7,6 +7,9 @@ import pathIcoBtnGoLogginUser from '../../images/ico-btn-go-loggin-user.png';
 import pathIcoBtnList from '../../images/ico-btn-list.png';
 import pathIcoSave from '../../images/ico-save.png';
 import pathLogoFooter from '../../images/logo-footer.png';
+import pathIcoError from '../../images/ico-error.png';
+import pathIcoOk1 from '../../images/ico-ok1.png';
+import pathIcoLogin from '../../images/ico-login.png';
 
 export const initialState = {theme: "light", arrayCiclas: []};
 export const ContextGlobal = createContext();
@@ -31,7 +34,10 @@ export const pathIcons = {
   hamburgUser: pathIcoHamburgerUser,
   add: pathIcoBtnAdd,
   list: pathIcoBtnList,
-  save: pathIcoSave
+  save: pathIcoSave,
+  error: pathIcoError,
+  ok1: pathIcoOk1,
+  login: pathIcoLogin
 };
 
 export const urlBackend = 'http://localhost:8080/';

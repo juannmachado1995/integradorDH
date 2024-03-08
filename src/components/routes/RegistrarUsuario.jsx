@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import './RegistrarUsuario.css';
 import Form1 from "../Form1/Form1";
+import {pathIcons} from '../../components/utils/global.context';
 /*
 
 */
-/*Form genérico */
+/*Componente de ruta de creación/alta de usuarios*/
 const RegistrarUsuario = () =>{
+
+    /*Estados de validación de campos*/
+    const [errorNombre, setErrorNombre] = useState('');
+    const [errorApellido, setErrorApellido] = useState('');
+    const [errorCorreo, setErrorCorreo] = useState('');
+    const [errorContrasena1, setErrorContrasena1] = useState('');
+    const [errorContrasena2, setErrorContrasena2] = useState('');
+
+    /*Estados de resultado de consumo de servicio */
+    const [errorConsumeService, setErrorConsumeService] = useState('');
+    const [okConsumeService, setOkConsumeService] = useState('');
+
     const inputs= [
         {
             idInput: 'identificacionId',
-            textInput: '* DNI/Pasaporte/CC:',
+            textInput: 'DNI/Pasaporte/CC:',
             nameInput: 'identificacion',
-            placeHolderInput: 'Este campos puede ser alfanumérico',
+            placeHolderInput: 'Este campo puede ser alfanumérico',
             typeInput: 'text',
             maxLengthInput: '20',
             required: 'required',
@@ -19,39 +32,39 @@ const RegistrarUsuario = () =>{
         },
         {
             idInput: 'nombreId',
-            textInput: '* Nombre:',
+            textInput: 'Nombre:',
             nameInput: 'nombre',
             placeHolderInput: 'Este campo solo admite letras',
             typeInput: 'text',
             maxLengthInput: '50',
             required: 'required',
-            errorTextInput: ''
+            errorTextInput: errorNombre
         },
         {
             idInput: 'apellidoId',
-            textInput: '* Apellido:',
+            textInput: 'Apellido:',
             nameInput: 'apellido',
             placeHolderInput: 'Este campo solo admite letras',
             typeInput: 'text',
             maxLengthInput: '50',
             required: 'required',
-            errorTextInput: ''
+            errorTextInput: errorApellido
         },
         {
             idInput: 'correoId',
-            textInput: '* Correo electrónico:',
+            textInput: 'Correo electrónico:',
             nameInput: 'correo',
-            placeHolderInput: 'email@email.com',
+            placeHolderInput: 'email@dominio.com',
             typeInput: 'email',
             maxLengthInput: '80',
             required: 'required',
-            errorTextInput: ''
+            errorTextInput: errorCorreo
         },
         {
             idInput: 'telefonoId',
-            textInput: '* Telefono:',
+            textInput: 'Telefono:',
             nameInput: 'telefono',
-            placeHolderInput: 'Este campo solo admite nmúmeros',
+            placeHolderInput: 'Este campo solo admite números',
             typeInput: 'number',
             maxLengthInput: '',
             required: 'required',
@@ -59,40 +72,117 @@ const RegistrarUsuario = () =>{
         },
         {
             idInput: 'contrasena1Id',
-            textInput: '* Contraseña:',
+            textInput: 'Contraseña:',
             nameInput: 'contrasena1',
             placeHolderInput: '10 caracteres',
             typeInput: 'password',
             maxLengthInput: '10',
             required: 'required',
-            errorTextInput: ''
+            errorTextInput: errorContrasena1
         },
         {
             idInput: 'contrasena2Id',
-            textInput: '* Confirmar contraseña:',
+            textInput: 'Confirmar contraseña:',
             nameInput: 'contrasena2',
             placeHolderInput: 'Repite y asegúrate que es la misma contraseña',
             typeInput: 'password',
             maxLengthInput: '10',
             required: 'required',
-            errorTextInput: ''
+            errorTextInput: errorContrasena2
         }
     ];
+    
+    const validateForm = (form) =>{
+        setErrorNombre('');
+        setErrorApellido('');
+        setErrorCorreo('');
+        setErrorContrasena1('');
+        setErrorContrasena2('');
+
+        let isValidForm = true;
+        let expRegularSoloTexto = /^[A-Z]+$/i;
+        let expRegularCorreo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    
+        /*Validación de campo nombre */
+        if(!form.nombre){
+            setErrorNombre('Ingresa un nombre');
+            isValidForm = false;
+        }else{
+            if(!expRegularSoloTexto.test(form.nombre)){
+                setErrorNombre('Nombre inválido');
+                isValidForm = false;
+            }
+        }
+
+        /*Validación de campo apellido */
+        if(!form.apellido){
+            setErrorApellido('Ingresa un apellido');
+            isValidForm = false;
+        }else{
+            if(!expRegularSoloTexto.test(form.apellido)){
+                setErrorApellido('Apellido inválido');
+                isValidForm = false;
+            }
+        }
+
+        /*Validación de Correo */
+        if(!expRegularCorreo.test(form.correo)){
+            setErrorCorreo('Correo inválido');
+            isValidForm = false;
+        }
+
+        /*Validación contraseña 1 */
+        if(!form.contrasena1){
+            setErrorContrasena1('Debes ingresar una contraseña');
+            isValidForm = false
+        }else{
+            /*Validación de confirmación de la contraseña */
+            if(form.contrasena1 != form.contrasena2){
+                setErrorContrasena2('Las contraseña no es la misma');
+                isValidForm = false;
+            }
+        }
+
+        return isValidForm;
+    };
+
+    const consumeService = (form) =>{
+        return [true, 'Error consumiendo el servicio'];
+    } 
 
     const handleForm = (e) =>{
+        setOkConsumeService('');
+        setErrorConsumeService('');
         const formRegistrar = e.target;
         const formRegistrarData = new FormData(formRegistrar);
         const formJson = Object.fromEntries(formRegistrarData.entries());
-        console.log(formJson);
-    }
+
+        const isValidForm = validateForm(formJson);
+
+        if(isValidForm){
+            const [isConsumeServiceOk, msgErrorService] = consumeService(formJson);
+            if(isConsumeServiceOk){
+                formRegistrar.reset();
+                setOkConsumeService('Felicidades!, te has registrado en E-Bikerent');
+            }
+            else{
+                setErrorConsumeService(msgErrorService);
+            }
+        }
+    };
 
     return (
-        <div className="container-middle">
-            <h1>Registro de usuario nuevo</h1>
-            <span>Para poder rentar nuestros productos, debes diligenciar los siguientes datos:</span>
-            <Form1 inputs={inputs} handleForm={handleForm} textSubmit='Registrar' />
-            <br />
-            <b>Los campos marcados con * son obligatorios</b>
+        <div className="container-middle RegistrarUsuario-parent-center">
+            <div className="RegistrarUsuario-main">
+                <h1>Registro de usuario nuevo</h1>
+                <span>Para poder rentar nuestros productos debes diligenciar los siguientes datos:</span>
+                <br/>
+                <Form1 inputs={inputs} handleForm={handleForm} textSubmit='Registrar datos' iconSubmit={pathIcons.save}
+                       textSuccesfulService={okConsumeService} textErrorService={errorConsumeService}
+                />
+                <br />
+                
+            </div>
         </div>
     )
 }
