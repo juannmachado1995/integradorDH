@@ -10,7 +10,7 @@ import ProductosRegistrar from './components/routes/Admin/Productos/ProductosReg
 import DetalleProducto from './components/routes/DetalleProducto'
 import MasFotos from './components/routes/MasFotos'
 import RegistrarUsuario from './components/routes/RegistrarUsuario'
-import IniciarSesion from './components/routes/iniciarSesion'
+import IniciarSesion from './components/routes/IniciarSesion'
 
 function App() {
 
