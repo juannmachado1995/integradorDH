@@ -10,6 +10,7 @@ import ProductosRegistrar from './components/routes/Admin/Productos/ProductosReg
 import DetalleProducto from './components/routes/DetalleProducto'
 import MasFotos from './components/routes/MasFotos'
 import RegistrarUsuario from './components/routes/RegistrarUsuario'
+import IniciarSesion from './components/routes/iniciarSesion'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
         <Route path='/signup' element={<RegistrarUsuario />}/>
 
         {/*Inicio de sesión de usuarios */}
-        <Route path='/login' element={<div className='container-middle'><h1>Inicio de sesión</h1></div>}/>
+        <Route path='/login' element={<IniciarSesion />}/>
 
         {/*Sección admin*/}
         <Route path='/admin' element={<Admin/>}>

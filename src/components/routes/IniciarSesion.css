@@ -1,4 +1,4 @@
-.RegistrarUsuario-main{
+.IniciarSesion-main{
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -7,6 +7,6 @@
     border-radius: 20px;
 }
 
-.RegistrarUsuario-parent-center{
+.IniciarSesion-parent-center{
     align-items: center;
 }
