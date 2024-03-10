@@ -1,11 +1,27 @@
-import React from 'react'
-import ProductoManejador from '../../componentsCm/button/ProductoManejador'
+import React, { useEffect } from 'react'
 import ButtonRightIcon from '../../Buttons/ButtonRightIcon'
-import { Link, Outlet } from 'react-router-dom'
-import { pathIcons } from '../../utils/global.context'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { pathIcons, getObjSession } from '../../utils/global.context'
 import './Admin.css'
 
 const Admin = () => {
+  /*Objeto de redireccionamiento según la acción realizada en el header */
+  const navigate = useNavigate(); 
+
+  useEffect(() => {
+    const objSessionTmp = getObjSession();
+
+    if(objSessionTmp === null){
+      /*Si no hay objeto de sesión, es decir, no se ha logueado, no permite usar el modulo admin */
+      navigate('/login')
+    }else{
+      /*Si existe el objeto de sesión, pero no tiene los permisos, no permite usar el modulo */
+      if(!objSessionTmp.esAdmin){
+        navigate('/');
+      }
+    }
+  }, []);
+
   return (
     <div className='container-middle Admin-parent-center'>
       <div className='Admin-container'>

@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './IniciarSesion.css';
 import Form1 from "../Form1/Form1";
-import {pathIcons} from '../../components/utils/global.context';
+import {ContextGlobal, pathIcons} from '../../components/utils/global.context';
 import { useNavigate } from "react-router-dom";
+import { getObjSession, setObjSession } from "../../components/utils/global.context";
 /*
 
 */
-/*Form genérico */
+/*Componente de ruta de inicio de sesión*/
 const IniciarSesion = () =>{
+    /*Contexto global para actualzación y renders */
+    const {contexto, setContexto} = useContext(ContextGlobal);
 
     /*Estados de validación de campos*/
     const [errorCorreo, setErrorCorreo] = useState('');
@@ -18,6 +21,22 @@ const IniciarSesion = () =>{
 
     /*Navigate para redireccionar a home en caso de login exitoso */
     const navigate = useNavigate();
+
+    /*Se valida al cargue del componente si existe un objeto de sesión, si existe, redirecciona al home */
+    useEffect(() =>{
+        const objSessionTmp = getObjSession();
+        if(!(objSessionTmp === null)){
+            navigate('/');
+        }
+    }, []);
+
+    /*Simula info del servicio de login */
+    const objSessionSimul = {
+        nombre: "German",
+        apellido: "Sarmiento",
+        correo: "german.sarmiento.diaz@gmail.com",
+        esAdmin: true
+    }
 
     const inputs= [
         {
@@ -59,6 +78,7 @@ const IniciarSesion = () =>{
     };
 
     const consumeService = (form) =>{
+        setObjSession(objSessionSimul);
         return [true, 'Usuario o contraseña incorrectos'];
     } 
 
@@ -75,6 +95,7 @@ const IniciarSesion = () =>{
             const [isConsumeServiceOk, msgErrorService] = consumeService(formJson);
             if(isConsumeServiceOk){
                 formRegistrar.reset();
+                setContexto({...contexto, sesionActiva: true});
                 navigate('/');
             }
             else{
@@ -84,7 +105,7 @@ const IniciarSesion = () =>{
     };
 
     return (
-        <div className="container-middle IniciarSesion-parent-center">
+        <div className={"container-middle IniciarSesion-parent-center " }>
             <div className="IniciarSesion-main">
                 <h1>Iniciar sesión</h1>
                 <span>Para ingresar a tu cuenta por favor diligencia los siguientes datos:</span>

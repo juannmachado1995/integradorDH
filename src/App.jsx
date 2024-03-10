@@ -13,7 +13,6 @@ import RegistrarUsuario from './components/routes/RegistrarUsuario'
 import IniciarSesion from './components/routes/IniciarSesion'
 
 function App() {
-
   return (
     <>
       <Header />
