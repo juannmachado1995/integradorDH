@@ -11,10 +11,32 @@ import pathIcoError from '../../images/ico-error.png';
 import pathIcoOk1 from '../../images/ico-ok1.png';
 import pathIcoLogin from '../../images/ico-login.png';
 
-export const initialState = {theme: "light", arrayCiclas: []};
+/*Manejo global de objeto de sesión */
+const nameObjSession = 'ebikerent-session';
+
+export const getObjSession = () =>{
+  return JSON.parse(localStorage.getItem(nameObjSession)) ?? null;
+}
+
+export const setObjSession = (objSession) =>{
+  localStorage.setItem(nameObjSession, JSON.stringify(objSession));
+}
+
+export const deleteObjSession = () =>{
+  localStorage.removeItem(nameObjSession);
+}
+
+/*Contexto Global */
+export const initialState = {
+  theme: "light", 
+  arrayCiclas: [],
+  sesionActiva: false
+};
+
 export const ContextGlobal = createContext();
 
 export const ContextProvider = ({ children }) => { 
+  initialState.sesionActiva = getObjSession() === null ? false : true;
   const [contexto, setContexto] = useState(initialState);
   const providerValue = useMemo(() => ({contexto, setContexto}), [contexto]);
   
@@ -24,6 +46,7 @@ export const ContextProvider = ({ children }) => {
     </ContextGlobal.Provider>
   );
 };
+
 
 /*Global values*/ 
 export const urlLogoEmpresa = pathLogoEmpresa;

@@ -1,17 +1,41 @@
-.HamburgMenuUser{
+.HamburgMenuUser-main{
     display: flex;
-   /*flex-wrap: wrap;*/
     flex-direction: column;
-    font-family: "Inter", sans-serif;
+    font-family: var(--fuente-principal);
     font-size: 14px;
-    font-variation-settings: "slnt" 0;
     align-items: flex-end;
-    width: 200px;
+    width: 50vw;
 }
 
-.HamburgMenuUser-button-a{
-    text-decoration: none;
-    height: 71px;
+.HamburgMenuUser-avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fuente-principal);
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 6px;
+    background: var(--gris-claro);
+    border-color: #000040;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 9999px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 2.3rem;
+    width: 2.3rem;
+    margin-top: 5px;
+    margin-right: 10px;
+    user-select: none;
+}
+
+.HamburgMenuUser-avatar:hover{
+    cursor: pointer;
+}
+
+.HamburgMenuUser-avatar.HamburgMenuUser-isActive{
+    background-color: white;
+    border-color: var(--naranja-oscuro);
+    color: var(--naranja-oscuro);
 }
 
 .HamburgMenuUser-icon{
@@ -33,11 +57,12 @@
     justify-content: flex-start;
     height:100vh;
     opacity: 0;
-    /*overflow: hidden;*/
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
     box-shadow: 0px 2px 4px 0px #000040;
     transition: all .3s ease;
     margin-top: 20px;
+    margin-right: 10px;
+    float: right;
 }
 
 .HamburgMenuUser-nav.HamburgMenuUser-isActive{
@@ -46,10 +71,9 @@
 }
 
 .HamburgMenuUser-ul{
-    background: #ffffff;
-    color: black;
     list-style: none;
-    padding-inline-start: 20px;
+    padding-inline-start: 0px;
+    overflow: hidden;
 }
 
 .HamburgMenuUser-li{
@@ -57,17 +81,104 @@
 }
 
 .HamburgMenuUser-li img{
-    width: 20px;
+    width: auto;
     height: 20px;
 }
 
-.HamburgMenuUser-li:hover {
-    background-color: #FB7E29;
-    color: #fff;
+.HamburgMenuUser-li .ButtonLeftIcon-main{
+    justify-content: center;
 }
 
-@media (min-width: 431px){
-    .HamburgMenuUser{
+.HamburgMenuUser-cont-inner-avatar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.HamburgMenuUser-cont-inner-avatar .HamburgMenuUser-avatar{
+    margin-right: 0px;
+}
+
+.HamburgMenuUser-cont-inner-avatar-data{
+    margin-top: 7px;
+    text-align: center;
+}
+
+.HamburgMenuUser-cont-inner-avatar-name{
+}
+
+.HamburgMenuUser-cont-inner-avatar-email{
+    display: flex;
+    margin-top: 5px;
+    padding: 10px;
+    flex-direction: column;
+    word-break: break-word;
+}
+
+@media (min-width: 554px){
+    
+    .HamburgMenuUser-main{
+        width: 50vw;
+    }
+
+    .HamburgMenuUser-main.HamburgMenuUser-main-user{
+        width: auto;
+        max-width: 25vw;
+        min-width: 276px;
+    }
+
+    .HamburgMenuUser-nav{
+        background: none;
+        margin-top: 0;
+        align-items: flex-end;
+        box-shadow: none;
+        width: 100%;
+        opacity: 1;
+        transition: none;
+    }
+
+    .HamburgMenuUser-nav.HamburgMenuUser-nav-user{
+        background: #e6e6f2;
+        margin-top: 20px;
+        box-shadow: 0px 2px 4px 0px #000040;
+        width:0;
+        opacity: 0;
+        transition: all .3s ease;
+    }
+
+    .HamburgMenuUser-nav.HamburgMenuUser-nav-user.HamburgMenuUser-isActive{
+        opacity: 1;
+        width: 100%;
+        align-items: center;
+    }
+
+    .HamburgMenuUser-cont-inner-avatar{
+        font-size: 14px;
+    }
+
+    .HamburgMenuUser-nav ul li{
+        float: left;
+    }
+
+    .HamburgMenuUser-anonimus-avatar{
         display: none;
     }
+
+    .HamburgMenuUser-ul{
+        width: 100%;
+        display: flex;
+        padding-inline-start: 0%;
+        flex-direction: row-reverse;
+    }
+
+    .HamburgMenuUser-nav.HamburgMenuUser-nav-user.HamburgMenuUser-isActive 
+        .HamburgMenuUser-ul{
+        flex-direction: column;
+    }
+
+    .HamburgMenuUser-li{
+        margin: 0;
+    }
+    
 }

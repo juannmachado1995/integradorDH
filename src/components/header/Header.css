@@ -29,9 +29,6 @@ header .header-logo-usuario{
     justify-content: space-between;
 }
 
-.header-buttons-section{
-    display: none;
-}
 
 .header-lema{
     display: none;
@@ -56,11 +53,6 @@ header .header-logo-usuario{
         width: 75px;
         height: 55px;
         margin: 7px 0 0 28px;
-    }
-
-    .header-buttons-section{
-        display: flex;
-        align-items: center;
     }
 
     .header-lema{
