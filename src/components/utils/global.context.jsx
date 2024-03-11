@@ -10,6 +10,8 @@ import pathLogoFooter from '../../images/logo-footer.png';
 import pathIcoError from '../../images/ico-error.png';
 import pathIcoOk1 from '../../images/ico-ok1.png';
 import pathIcoLogin from '../../images/ico-login.png';
+import pathLogoDelete from '../../images/delete.png';
+import pathLogoEdit from '../../images/edit.png';
 
 /*Manejo global de objeto de sesión */
 const nameObjSession = 'ebikerent-session';
@@ -60,7 +62,9 @@ export const pathIcons = {
   save: pathIcoSave,
   error: pathIcoError,
   ok1: pathIcoOk1,
-  login: pathIcoLogin
+  login: pathIcoLogin,
+  delete: pathLogoDelete,
+  edit:pathLogoEdit
 };
 
 export const urlBackend = 'http://localhost:8080/';

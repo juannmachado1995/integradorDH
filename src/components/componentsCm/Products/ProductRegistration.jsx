@@ -6,8 +6,6 @@ const ProductRegistration = () => {
 
   const [registeredProducts, setRegisteredProducts] = useState([]);
 
-
-
   const handleProductSubmit = (productData) => {
     fetch("http://localhost:3001/registrar", {
       method: "POST",

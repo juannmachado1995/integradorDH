@@ -11,6 +11,8 @@ import DetalleProducto from './components/routes/DetalleProducto'
 import MasFotos from './components/routes/MasFotos'
 import RegistrarUsuario from './components/routes/RegistrarUsuario'
 import IniciarSesion from './components/routes/IniciarSesion'
+import CategoriaLista from './components/routes/Admin/Productos/CategoriaLista'
+import FormCategoria from './components/routes/Admin/Productos/FormCategoria'
 
 function App() {
   return (
@@ -35,8 +37,8 @@ function App() {
           </Route> 
           {/*Administración de categorías*/}
           <Route path='categorias'  >
-            <Route  index element={<div>Listar categorías</div>} />
-            <Route path='registrar' element={<div>Registrar categoría</div>} />
+            <Route  index element={<CategoriaLista/>} />
+            <Route path='registrar' element={<FormCategoria/>} />
           </Route> 
           
           {/*Administración de características*/}

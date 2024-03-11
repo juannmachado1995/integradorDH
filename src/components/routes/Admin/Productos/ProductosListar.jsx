@@ -3,18 +3,27 @@ import './ProductosListar.css'
 import { useState } from 'react';
 import axios from 'axios';
 import { ContextGlobal, urlBackend } from '../../../utils/global.context';
+import { pathIcons } from '../../../utils/global.context';
+import FormActualizar from './FormActualizar';
+
+
+
 
 const ProductosListar = () => {
     const {contexto, setContexto} = useContext(ContextGlobal);
-
     const [showAddForm, setShowAddForm] = useState(false);
     const [currentProduct, setCurrentProduct] = useState(null); // Nuevo estado para mantener el producto actual
     const [productos, setProductos] = useState([]);
-
-    /*Se crea este array de prueba solo para probar el renderizado, por favor reemplazar por el 
-    consumo del back, creo que ya estaba, no lo borré, solo lo comentarie por que no tuve tiempo de
-    bajarlo y montarlo */
+    const [editingProductId, setEditingProductId] = useState(null);
+    const [categoria, setCategoria] = useState(null); 
     
+    
+
+
+    // /*Se crea este array de prueba solo para probar el renderizado, por favor reemplazar por el 
+    // consumo del back, creo que ya estaba, no lo borré, solo lo comentarie por que no tuve tiempo de
+    // bajarlo y montarlo */
+     /*
     useEffect(()=>{
         const ciclas = [{
             nombreBici: 'Haibike Bicicleta Eléctrica Adventr FS 9',
@@ -22,7 +31,7 @@ const ProductosListar = () => {
           },{
             nombreBici: 'Wilier Bicicleta Eléctrica Triestina Hybrid GRX812',
             imgBici: 'https://i.imgur.com/oO2sILV.png'
-          }
+          }100vw;
           ,
           {
             nombreBici: 'Bianchi Bicicleta Eléctrica E-Spillo Classic G Altus',
@@ -69,14 +78,16 @@ const ProductosListar = () => {
         setProductos(newProductos);
     }
     ,[]);
-    
-    /*
+     */
+    // este metodo Reinicia el producto actual al abrir el formulario
     const handleAddClick = () => {
         setShowAddForm(!showAddForm);
-        setCurrentProduct(null); // Reiniciar el producto actual al abrir el formulario
+        setCurrentProduct(null);
         console.log('showAddForm después de handleListClick:', showAddForm);
     };
 
+
+      // este metodo lista los productos guardados cuando se hace click en listar
     const handleListClick = async () => {
         try {
         const response = await axios.get('http://localhost:8080/productos/listar');
@@ -87,6 +98,7 @@ const ProductosListar = () => {
         }
     };
 
+       //este permite mostrar el listado de productos
     useEffect(() => {
         const fetchProductos = async () => {
         try {
@@ -99,34 +111,140 @@ const ProductosListar = () => {
         };
 
         fetchProductos();
-    }, []); // Se ejecuta solo una vez al montar el componente
-    */
+    }, []); 
+    
+
+        // este es para eliminar el producto del listado
+
+        const handleDeleteClick = async (productoId) => {
+            try {
+                const response = await axios.delete(`http://localhost:8080/productos/eliminar/${productoId}`);
+                
+                if (response.status === 204) {
+
+                    const updatedProducts = productos.filter(producto => producto.id !== productoId);
+                    setProductos(updatedProducts);
+                    alert('Producto eliminado correctamente.');
+
+                    handleListClick();
+                } else {
+                    alert('Error al intentar eliminar el producto. Estado: ' + response.status);
+                }
+            } catch (error) {
+                console.error('Error deleting product:', error);
+                alert('Error al intentar eliminar el producto. Detalles: ' + error.message);
+            }
+        };
+
+
+        
+        // este prepara el form actualizar cuando se hace clic en icono editar
+
+const handleModifyClick = (productoId, updatedData) => {
+  if (productoId) {
+    const productoActualizado = productos.find(producto => producto.id === productoId);
+    console.log('ID de producto:', productoId);
+    setCurrentProduct(productoActualizado);
+    setEditingProductId(productoId);
+    obtenerCategoria(productoId);
+    setShowAddForm(true);
+  } else {
+    console.error('ID de producto no definido');
+  }
+};
+
+//este me trae los datos del producto por id, le puse categoria pero en realidad es de los productos
+const obtenerCategoria = async (categoriaId) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/categorias/buscarPorId/${categoriaId}`);
+    
+    if (!response.status !== 200) {
+      throw new Error(`Error al obtener la categoría: ${response.statusText}`);
+    }
+
+    const categoria = response.data;
+    const categoriaValor = categoria.titulo;
+
+    setNombre(categoria.nombre);
+    setDescripcion(categoria.descripcion);
+    setCategoria({ titulo: categoriaValor });
+
+ 
+  } 
+  catch (error) {
+    console.error("Error al obtener la categoría:", error);
+  }
+
+};
+
 
     return (
         <div className="productos-container">
             <h1>Listado de Productos</h1>
-            <ul className="productos-list">
+
+            <div className="producto-item">
+              <div className="producto-id">ID Producto</div>
+               <div className="producto-nombre">Nombre Producto</div>
+               <div className="producto-nombre">Categoria</div>
+               <div className="producto-acciones">Acciones</div>
+             </div>
+
+
+            <ul className="">
                 {productos.map(producto => (
 
                 <li key={producto.id} className="producto-item">
 
-                    <div className=''>
-                    <h2 className="producto-nombre">NOMBRE PRODUCTO: {producto.nombre}</h2>
-                    <p className="producto-descripcion">DESCRIPCION: {producto.descripcion}</p>
-                    <p className="producto-id">ID PRODUCTO: {producto.id}</p>
+      
+                  <div>  <p className="producto-id"> {producto.id}</p></div>
+                  <div> <h2 className="producto-nombre"> {producto.nombre}</h2></div>
+                    {/* <p className="producto-descripcion">DESCRIPCION: {producto.descripcion}</p>*/}
+                    <div> <p className="producto-categoria"> {producto.categoria.titulo}</p> </div>
+               
+               <div>  <img
+                      src={pathIcons.delete}
+                      alt="Eliminar"
+                      className="delete-icon"
+                      onClick={() => handleDeleteClick(producto.id)}
+                    />
+                              <img
+                      src={pathIcons.edit}
+                      alt="Modificar"
+                      className="delete-icon"
+                      onClick={() => handleModifyClick(producto.id)}
+                    />
                     </div>
-                    <ul className="imagenes-list">
+                
+
+
+            {/* quite las imagenes porque asi no esta en el figma      */}
+              {/* <ul className="imagenes-list">
                     {producto.imagenes.map(imagen => (
                         <li key={imagen.id} className="imagen-item">
                         <img src={imagen.urlImg} alt={imagen.titulo} className="imagen" />
                         </li>
                     ))}
-                    </ul>
+                    </ul> */}
                 </li>
                 ))}
             </ul>
+
+                    {/*este muestra el form*/ }
+
+            {showAddForm && (
+  <FormActualizar
+    producto={currentProduct}
+    onActualizar={(productoId, updatedData) => {
+      handleListClick();
+      setShowAddForm(false);
+    }}
+    onClose={() => setShowAddForm(false)}
+  />
+)}
+
+
         </div>
     )
 }
 
-export default ProductosListar
+export default ProductosListar;

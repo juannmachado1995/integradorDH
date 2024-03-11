@@ -12,7 +12,6 @@ const ProductosRegistrar = ({ onSubmit }) => {
   const [urlImagen, setUrlmagenes] = useState("");
   const [tituloImagen, setTituloImagen] = useState("");
   const [imagenes, setImagenes] = useState([]);
-
   const[nombreCard,setNombreCard] = useState([])
 
   const handleNombreChange = (event) => {
@@ -62,7 +61,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
       imagenes: imagenes.map((imagen) => ({
         urlImagen: URL.createObjectURL(imagen),
       })),*/
-      categoriaId: categoria,
+      categoria: categoria,
     };
     console.log(nuevoProducto)
 
@@ -145,7 +144,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
           <input
             type="text"
             name="categoria"
-            placeholder='Categoria N°'
+            placeholder='Nombre de la Categoria '
             value={categoria}
             onChange={handleCategoriaChange}
           />

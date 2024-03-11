@@ -49,9 +49,8 @@ const ProductoManejador = () => {
     };
 
     fetchProductos();
-  }, []); // Se ejecuta solo una vez al montar el componente
+  }, []);
 
-  ;
 
   return (
     <div>
