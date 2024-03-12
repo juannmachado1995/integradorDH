@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import 'carrucelFotos.css'
 
 const CarrucelFotos = () => {
 
@@ -38,10 +39,11 @@ const CarrucelFotos = () => {
     }
     ,
     {
-      nombreBici: 'Montana Bikes Bicicleta Eléctrica Carretera Gavia',
+      nombreBici: 'Montana Bikes Bicicleta Elécsdftrica Carretera Gavia',
       imgBici: 'https://i.imgur.com/fNgTMbJ.png'
     }
   ]
+
 
   const [fotos, setFotos] = useState(0);
   const [cantFotos, setCantfotos] = useState(ciclas.slice(0, 3));

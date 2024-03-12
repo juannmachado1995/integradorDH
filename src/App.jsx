@@ -1,27 +1,63 @@
 import './App.css'
-import Buscador from './components/formBuscador/Buscador'
-import Electricas from './components/FiltroBusqueda/Electricas'
-import Capacidad from './components/FiltroBusqueda/Capacidad'
-import Talla from './components/FiltroBusqueda/Talla'
-import CardBicicleta from './components/cardCiclasHome/CardBicicleta'
-import CarrucelFotos from './components/carrucelFotos/CarrucelFotos'
-import Home from './components/Home'
-import Footer from './components/Footer/footer'
+import Home from './components/routes/Home'
 
-
+import { Route, Routes } from 'react-router-dom'
+import Footer from './components/Footer/Footer'
+import Header from './components/header/Header'
+import Admin from './components/routes/Admin/Admin'
+import ProductosListar from './components/routes/Admin/Productos/ProductosListar'
+import ProductosRegistrar from './components/routes/Admin/Productos/ProductosRegistrar'
+import DetalleProducto from './components/routes/DetalleProducto'
+import MasFotos from './components/routes/MasFotos'
+import RegistrarUsuario from './components/routes/RegistrarUsuario'
+import IniciarSesion from './components/routes/IniciarSesion'
+import CategoriaLista from './components/routes/Admin/Productos/CategoriaLista'
+import FormCategoria from './components/routes/Admin/Productos/FormCategoria'
 
 function App() {
-
   return (
     <>
-    <p>header</p>
-      <Home />
+      <Header />
+      <Routes>
+        {/*Home del site */}
+        <Route path='/' element={<Home/>}/>
 
-       {/* Este es el componente que debe ir en adminpage porque contiene en formulario con el
-        contaier con los botones agregar y listar producto*:  <ProductManagement></ProductManagement>*/}
-    
-    
-      <Footer></Footer>
+        {/*Registro de usuarios */}
+        <Route path='/signup' element={<RegistrarUsuario />}/>
+
+        {/*Inicio de sesión de usuarios */}
+        <Route path='/login' element={<IniciarSesion />}/>
+
+        {/*Sección admin*/}
+        <Route path='/admin' element={<Admin/>}>
+          {/*Administración de productos*/}
+          <Route path='productos'  >
+            <Route  index element={<ProductosListar/>} />
+            <Route path='registrar' element={<ProductosRegistrar/>} />
+          </Route> 
+          {/*Administración de categorías*/}
+          <Route path='categorias'  >
+            <Route  index element={<CategoriaLista/>} />
+            <Route path='registrar' element={<FormCategoria/>} />
+          </Route> 
+          
+          {/*Administración de características*/}
+          <Route path='caracteristicas'  >
+            <Route  index element={<div>Listar características</div>} />
+            <Route path='registrar' element={<div>Registrar característica</div>} />
+          </Route> 
+        </Route>
+
+        {/*Detalle de producto*/}
+        <Route path='/productos/:id' element={<DetalleProducto/>} />
+        <Route path='/masFotos' element={<MasFotos/>}/>
+
+        {/*Rutas no encontradas*/}
+        <Route path='*' element={
+          <div className='container-middle'><h1>Página/ruta no encontrada</h1></div>
+        } />
+      </Routes>
+      <Footer />
     </>
   )
 }

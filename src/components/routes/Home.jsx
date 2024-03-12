@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import Buscador from './formBuscador/Buscador'
-import CarrucelFotos from './carrucelFotos/CarrucelFotos'
-import Electricas from './FiltroBusqueda/Electricas'
-import Capacidad from './FiltroBusqueda/Capacidad'
-import Talla from './FiltroBusqueda/Talla'
-import CardBicicleta from './cardCiclasHome/CardBicicleta'
-import DetalleProducto from './detalleProducto/DetalleProducto'
-import Categorias from './categorias/Categorias'
-
+import Buscador from '../formBuscador/Buscador'
+import CardBicicleta from '../cardCiclasHome/CardBicicleta'
+import DetalleProducto from './DetalleProducto'
+import Categorias from '../categorias/Categorias'
+import Header from '../header/Header'
+import Footer from '../Footer/Footer'
+import ProductoManejador from '../componentsCm/button/ProductoManejador'
 
 const Home = () => {
 
@@ -28,30 +26,19 @@ const Home = () => {
 
 
   return (
-    <>
+    <div className='container-middle'>
+      <div id="top" ></div>
       <Buscador />
       <Categorias />
-      <CarrucelFotos />
-     
-      {/*
-    <div className='home'>
-      <div className='filtro-izquierda'>
-        <Electricas />
-        <Capacidad />
-        <Talla />
-      </div>
-  */}
-
-
       <CardBicicleta onProductoSeleccionado={handleProductoSeleccionado} />
 
-      {mostrarDetalleProducto && (
+      {/*mostrarDetalleProducto && (
         <DetalleProducto
           srcImagen={productoSeleccionado.imgBici}
           nombreBici={productoSeleccionado.nombreBici}
           onClose={handleCerrarDetalle}
-        />)}
-    </>
+      />)*/}
+    </div>
   )
 }
 
