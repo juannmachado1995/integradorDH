@@ -13,6 +13,9 @@ import RegistrarUsuario from './components/routes/RegistrarUsuario'
 import IniciarSesion from './components/routes/IniciarSesion'
 import CategoriaLista from './components/routes/Admin/Productos/CategoriaLista'
 import FormCategoria from './components/routes/Admin/Productos/FormCategoria'
+import CaracteristicaLista from './components/routes/Admin/Productos/CaracteristicaLista'
+import FormCaracteristica from './components/routes/Admin/Productos/FormCaracteristica'
+
 
 function App() {
   return (
@@ -43,8 +46,8 @@ function App() {
           
           {/*Administración de características*/}
           <Route path='caracteristicas'  >
-            <Route  index element={<div>Listar características</div>} />
-            <Route path='registrar' element={<div>Registrar característica</div>} />
+          <Route  index element={<CaracteristicaLista/>} />
+          <Route path='registrar' element={<FormCaracteristica/>} />
           </Route> 
         </Route>
 
