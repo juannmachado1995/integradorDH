@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { pathIcons } from '../../../utils/global.context';
+import './CaracteristicaLista.css'
 
 // Lista las características
 const CaracteristicaLista = () => {

@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
 import VerMasFotos from './VerMasFotos';
 import { Link, useParams } from 'react-router-dom';
 import { ContextGlobal, urlBackend } from '../utils/global.context';
 import './DetalleProducto.css'
+import axios from 'axios';
 
 const DetalleProducto = () => {
   const {contexto} = useContext(ContextGlobal);
@@ -20,6 +21,10 @@ const DetalleProducto = () => {
 
   const [mostrarFotos, setMostrarFotos] = useState(false);
 
+  //se inlcuye
+  const [caracteristicas, setCaracteristicas] = useState([]);
+
+
   const handleMostrarFotos = () => {
     setMostrarFotos(true)
   };
@@ -28,6 +33,25 @@ const DetalleProducto = () => {
     console.log("Cerrando fotos...");
     setMostrarFotos(false);
   };
+
+
+
+   // se incliye este para la solicitud para obtener características para el container
+   useEffect(() => {
+
+    const fetchCaracteristicas = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/caracteristicas/listar');
+        console.log('Características obtenidas:', response.data);
+        setCaracteristicas(response.data);
+      } catch (error) {
+        console.error('Error al obtener características:', error);
+      }
+    };
+  
+    fetchCaracteristicas();
+  }, []); 
+
 
   
 
@@ -61,6 +85,35 @@ const DetalleProducto = () => {
               <p>Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon</p>
               <p>Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon</p>
             </div>
+
+
+
+              {/* Mostrar las características */}
+              {/* <div className='tituloCaracteristicas'><h2>Características</h2>  </div> */}
+              <div className="caracteristicas-container">
+                <div className='tituloCaracteristicas'><h2 >Características</h2>  </div>
+                
+              {caracteristicas.map(caracteristica => (
+                <div className='container-big-item'>
+                <div key={caracteristica.id} className="caracteristica-item">
+                  <p>{caracteristica.nombre}</p>
+                  <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
+                      </div>
+                     </div>
+              ))}
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
           </article>
         </div>
