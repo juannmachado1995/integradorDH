@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 /*import ImageUploader from 'react-images-upload';*/
 import axios from "axios";
 import { pathIcons } from '../../../utils/global.context';
@@ -9,10 +9,13 @@ const ProductosRegistrar = ({ onSubmit }) => {
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [categorias, setCategorias] = useState([])
   const [urlImagen, setUrlmagenes] = useState("");
   const [tituloImagen, setTituloImagen] = useState("");
   const [imagenes, setImagenes] = useState([]);
-  const[nombreCard,setNombreCard] = useState([])
+  const [nombreCard, setNombreCard] = useState([]);
+  const [caracteristicas, setCaracteriticas] = useState([]);
+  const [caracteristicaSeleccionada, setCaracteriticaSeleccionada] = useState([]);
 
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
@@ -20,7 +23,19 @@ const ProductosRegistrar = ({ onSubmit }) => {
 
   const handleCategoriaChange = (event) => {
     setCategoria(event.target.value);
+
   };
+
+  function handleCaracteristicaChange(event) {
+    const { value, checked } = event.target;
+    if (checked) {
+      setCaracteriticaSeleccionada([...caracteristicaSeleccionada, value]); // Cambiar a 'caracteristicasSeleccionadas'
+    } else {
+      setCaracteriticaSeleccionada(
+        caracteristicaSeleccionada.filter((caracteristicaId) => caracteristicaId !== value)
+      );
+    }
+  }
 
   const handleDescripcionChange = (event) => {
     setDescripcion(event.target.value);
@@ -62,6 +77,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
         urlImagen: URL.createObjectURL(imagen),
       })),*/
       categoria: categoria,
+      caracteristicas: caracteristicaSeleccionada
     };
     console.log(nuevoProducto)
 
@@ -74,22 +90,60 @@ const ProductosRegistrar = ({ onSubmit }) => {
       const productoCreado = JSON.stringify(response.data)
       alert("PRODUCTO CREADO CORRECTAMENTE" + productoCreado)
 
-      setNombreCard({nombre})
+      setNombreCard({ nombre })
 
       setNombre("");
       setCategoria("");
       setDescripcion("");
       setImagenes([]);
-      setUrlmagenes(""); 
+      setUrlmagenes("");
       setTituloImagen("");
+      setCaracteriticaSeleccionada("");
+      setCaracteriticas("");
 
-  
+
 
     } catch (error) {
-      console.error("Error al guardar el producto:", error);
-      alert("ERROR AL CREAR PRODUCTO"+ error)
+      console.error("Error al guardar el producto:", error, nuevoProducto);
+      alert("ERROR AL CREAR PRODUCTO" + error)
     }
   };
+
+  //para traer lista de categorias 
+  useEffect(() => {
+    async function fetchCategorias() {
+      try {
+        const response = await fetch('http://localhost:8080/categorias/listar');
+        if (!response.ok) {
+          throw new Error('Error al cargar las categorías');
+        }
+        const data = await response.json();
+        setCategorias(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    fetchCategorias();
+  }, []);
+
+  //CARECTERISTICAS!!
+  useEffect(() => {
+    async function fetchCaracteristicas() {
+      try {
+        const response = await fetch('http://localhost:8080/caracteristicas/listar');
+        if (!response.ok) {
+          throw new Error('Error al cargar las categorías');
+        }
+        const data = await response.json();
+        setCaracteriticas(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    fetchCaracteristicas();
+  }, []);
 
   return (
 
@@ -141,13 +195,37 @@ const ProductosRegistrar = ({ onSubmit }) => {
         </div>
         <div className="form-group">
           <label>Categoria:</label>
-          <input
-            type="text"
+          <select
+            id="categoria"
             name="categoria"
-            placeholder='Nombre de la Categoria '
             value={categoria}
             onChange={handleCategoriaChange}
-          />
+          >
+            <option value="">Selecciona una categoría</option>
+            {categorias.map((categoria) => (
+              <option key={categoria.id} value={categoria.titulo}>
+                {categoria.titulo}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Características:</label>
+          
+          {Array.isArray(caracteristicas) && caracteristicas.map((caracteristica) => (
+            <div key={caracteristica.id}>
+              <input
+                type="checkbox"
+                id={`caracteristica-${caracteristica.id}`}
+                name={`caracteristica-${caracteristica.nombre}`}
+                value={caracteristica.nombre}
+                checked={caracteristicaSeleccionada.includes(caracteristica.nombre)}
+                onChange={handleCaracteristicaChange}
+              />
+              <label htmlFor={`caracteristica-${caracteristica.id}`}>{caracteristica.nombre}</label>
+            </div>
+          ))}
+          
         </div>
 
 
@@ -169,7 +247,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
         </button>
       </form>
     </div>
-  
+
   );
 };
 
