@@ -51,7 +51,7 @@ const Admin = () => {
             <ButtonRightIcon title='Registrar carcacterística' text='Crear característica' icon={pathIcons.add} />
           </Link>
           <Link to='caracteristicas'>
-            <ButtonRightIcon title='Listar carcacterísticas' text='Lista de carcácteristicas' icon={pathIcons.list} />
+            <ButtonRightIcon title='Listar características' text='Lista de características' icon={pathIcons.list} />
           </Link>
         </div>
       </div>
