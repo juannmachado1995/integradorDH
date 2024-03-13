@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import './IniciarSesion.css';
 import Form1 from "../Form1/Form1";
-import {ContextGlobal, pathIcons} from '../../components/utils/global.context';
+import {ContextGlobal, pathIcons, urlBackend} from '../../components/utils/global.context';
 import { useNavigate } from "react-router-dom";
 import { getObjSession, setObjSession } from "../../components/utils/global.context";
+import axios from "axios";
 /*
 
 */
@@ -77,30 +78,42 @@ const IniciarSesion = () =>{
         return isValidForm;
     };
 
-    const consumeService = (form) =>{
-        setObjSession(objSessionSimul);
-        return [true, 'Usuario o contraseña incorrectos'];
+    const consumeService = async (formJson, formHTML) =>{
+
+        const endPoint = 'usuarios/login';
+        const url = urlBackend + endPoint;
+
+        const params = new URLSearchParams();
+        params.append('mail', formJson.correo);
+        params.append('password', formJson.contrasena);
+
+        try{
+            const response = await axios.post(url, params);
+            formHTML.reset();
+            setObjSession({
+                nombre: response.data.nombre,
+                apellido: response.data.apellido,
+                correo: response.data.mail,
+                esAdmin: response.data.esAdmin
+            });
+            setContexto({...contexto, sesionActiva: true});
+            navigate('/');
+        }catch(error){
+            setErrorConsumeService(error.response.data);
+        }
     } 
 
     const handleForm = (e) =>{
         setOkConsumeService('');
         setErrorConsumeService('');
-        const formRegistrar = e.target;
-        const formRegistrarData = new FormData(formRegistrar);
-        const formJson = Object.fromEntries(formRegistrarData.entries());
+        const formIniciarSesion = e.target;
+        const formIniciarSesionData = new FormData(formIniciarSesion);
+        const formJson = Object.fromEntries(formIniciarSesionData.entries());
 
         const isValidForm = validateForm(formJson);
 
         if(isValidForm){
-            const [isConsumeServiceOk, msgErrorService] = consumeService(formJson);
-            if(isConsumeServiceOk){
-                formRegistrar.reset();
-                setContexto({...contexto, sesionActiva: true});
-                navigate('/');
-            }
-            else{
-                setErrorConsumeService(msgErrorService);
-            }
+            consumeService(formJson, formIniciarSesion);
         }
     };
 
