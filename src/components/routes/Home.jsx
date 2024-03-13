@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import Buscador from '../formBuscador/Buscador'
 import CardBicicleta from '../cardCiclasHome/CardBicicleta'
-import DetalleProducto from './DetalleProducto'
 import Categorias from '../categorias/Categorias'
-import Header from '../header/Header'
-import Footer from '../Footer/Footer'
-import ProductoManejador from '../componentsCm/button/ProductoManejador'
 
 const Home = () => {
 
