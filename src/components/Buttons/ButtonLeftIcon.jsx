@@ -1,6 +1,5 @@
 import React, { useContext } from 'react' 
 import './ButtonLeftIcon.css';
-import { FaUserPlus } from "react-icons/fa";
 
 const ButtonLeftIcon = ({title, text, icon, handleClick}) => {
   return (

@@ -11,10 +11,10 @@ import DetalleProducto from './components/routes/DetalleProducto'
 import MasFotos from './components/routes/MasFotos'
 import RegistrarUsuario from './components/routes/RegistrarUsuario'
 import IniciarSesion from './components/routes/IniciarSesion'
-import CategoriaLista from './components/routes/Admin/Productos/CategoriaLista'
-import FormCategoria from './components/routes/Admin/Productos/FormCategoria'
-import CaracteristicaLista from './components/routes/Admin/Productos/CaracteristicaLista'
-import FormCaracteristica from './components/routes/Admin/Productos/FormCaracteristica'
+import CategoriaLista from './components/routes/Admin/Categorias/CategoriaLista'
+import FormCategoria from './components/routes/Admin/Categorias/FormCategoria'
+import CaracteristicaLista from './components/routes/Admin/Caracteristicas/CaracteristicaLista'
+import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCaracteristica'
 
 
 function App() {

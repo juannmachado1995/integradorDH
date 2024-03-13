@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { pathIcons } from '../../../utils/global.context';
-import './ProductosRegistrar.css';
+import '../Productos/ProductosRegistrar.css';
 
 const FormCategoria = ({ onSubmit }) => {
   const [titulo, setTitulo] = useState("");
