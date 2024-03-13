@@ -14,7 +14,7 @@ const CardBicicleta = (props) => {
     imgBici: producto.imagenes[0].urlImg
 }));
 
-/*
+
 useEffect(() => {
   const manejadorProductos = async () => {
     try {
@@ -29,7 +29,6 @@ useEffect(() => {
 
   manejadorProductos();
 }, []);
-*/
 
   const [ciclaleatoria, setCiclaleatoria] = useState([]);
 
