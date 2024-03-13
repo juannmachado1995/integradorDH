@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './RegistrarUsuario.css';
 import Form1 from "../Form1/Form1";
-import {pathIcons} from '../../components/utils/global.context';
+import {pathIcons, urlBackend} from '../../components/utils/global.context';
+import axios from "axios";
 /*
 
 */
@@ -146,8 +147,25 @@ const RegistrarUsuario = () =>{
         return isValidForm;
     };
 
-    const consumeService = (form) =>{
-        return [true, 'Error consumiendo el servicio'];
+    const consumeService = async (formJson, formHTML) =>{
+        const payload = {
+            nombre: formJson.nombre,
+            apellido: formJson.apellido,
+            mail: formJson.correo,
+            password: formJson.contrasena1,
+            esAdmin: false
+        };
+
+        const endPoint = 'usuarios/registrar';
+        const url = urlBackend + endPoint;
+
+        try{
+            const response = await axios.post(url, payload);
+            formHTML.reset();
+            setOkConsumeService('Felicidades!, te has registrado en E-Bikerent');
+        }catch(error){
+            setErrorConsumeService(error.response.data.message);
+        }
     } 
 
     const handleForm = (e) =>{
@@ -160,14 +178,7 @@ const RegistrarUsuario = () =>{
         const isValidForm = validateForm(formJson);
 
         if(isValidForm){
-            const [isConsumeServiceOk, msgErrorService] = consumeService(formJson);
-            if(isConsumeServiceOk){
-                formRegistrar.reset();
-                setOkConsumeService('Felicidades!, te has registrado en E-Bikerent');
-            }
-            else{
-                setErrorConsumeService(msgErrorService);
-            }
+            consumeService(formJson, formRegistrar);
         }
     };
 

@@ -169,7 +169,8 @@
         width: 100%;
         display: flex;
         padding-inline-start: 0%;
-        flex-direction: row-reverse;
+        flex-direction: row;
+        justify-content: flex-end;
     }
 
     .HamburgMenuUser-nav.HamburgMenuUser-nav-user.HamburgMenuUser-isActive 
