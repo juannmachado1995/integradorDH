@@ -13,17 +13,15 @@ const ProductosRegistrar = ({ onSubmit }) => {
   const [urlImagen, setUrlmagenes] = useState("");
   const [tituloImagen, setTituloImagen] = useState("");
   const [imagenes, setImagenes] = useState([]);
-  const [nombreCard, setNombreCard] = useState([]);
   const [caracteristicas, setCaracteriticas] = useState([]);
   const [caracteristicaSeleccionada, setCaracteriticaSeleccionada] = useState([]);
-
+  const [nombreCard, setNombreCard] = useState([]);
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
   };
 
   const handleCategoriaChange = (event) => {
     setCategoria(event.target.value);
-
   };
 
   function handleCaracteristicaChange(event) {

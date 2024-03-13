@@ -11,13 +11,26 @@ const FormActualizar = ({ onUpdate, producto }) => {
   const [nombre, setNombre] = useState(producto ? producto.nombre : "");
   const [descripcion, setDescripcion] = useState(producto ? producto.descripcion : "");
   const [categoria, setCategoria] = useState(producto ? producto.categoria?.titulo : "")
+  const [categorias, setCategorias] = useState([])
   const [urlImagen, setUrlImagen] = useState("");
   const [tituloImagen, setTituloImagen] = useState("");
   const [imagenes, setImagenes] = useState([]);
+  const [caracteristicas, setCaracteriticas] = useState([]);
+  const [caracteristicaSeleccionada, setCaracteriticaSeleccionada] = useState([]);
 
 console.log(nombre,descripcion,categoria,id);
 
   //manejo de eventos
+  function handleCaracteristicaChange(event) {
+    const { value, checked } = event.target;
+    if (checked) {
+      setCaracteriticaSeleccionada([...caracteristicaSeleccionada, value]); // Cambiar a 'caracteristicasSeleccionadas'
+    } else {
+      setCaracteriticaSeleccionada(
+        caracteristicaSeleccionada.filter((caracteristicaId) => caracteristicaId !== value)
+      );
+    }
+  }
 
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
@@ -66,9 +79,7 @@ console.log(nombre,descripcion,categoria,id);
       "nombre": nombre,
       "descripcion": descripcion,
       "categoria": categoria,
-      "caracteristicas": [
-        "string","string2"
-      ]
+      "caracteristicas": caracteristicaSeleccionada
     };
 
   console.log("NEWWWW",productoActualizado);
@@ -91,7 +102,41 @@ console.log(nombre,descripcion,categoria,id);
       console.log("NEWWWW",productoActualizado);
     }
   };
+    //para traer lista de categorias 
+    useEffect(() => {
+      async function fetchCategorias() {
+        try {
+          const response = await fetch('http://localhost:8080/categorias/listar');
+          if (!response.ok) {
+            throw new Error('Error al cargar las categorías');
+          }
+          const data = await response.json();
+          setCategorias(data);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+  
+      fetchCategorias();
+    }, []);
 
+  //CARECTERISTICAS!!
+  useEffect(() => {
+    async function fetchCaracteristicas() {
+      try {
+        const response = await fetch('http://localhost:8080/caracteristicas/listar');
+        if (!response.ok) {
+          throw new Error('Error al cargar las categorías');
+        }
+        const data = await response.json();
+        setCaracteriticas(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    fetchCaracteristicas();
+  }, []);
 
   return (
     <div>
@@ -116,13 +161,39 @@ console.log(nombre,descripcion,categoria,id);
           />
         </div>
         <div className="form-group">
-          <label>Categoría:</label>
-          <input
-            type="text"
+          <label>Categoria:</label>
+          <select
+            id="categoria"
             name="categoria"
             value={categoria}
             onChange={handleCategoriaChange}
-          />
+          >
+            <option value="">Selecciona una categoría</option>
+            {categorias.map((categoria) => (
+              <option key={categoria.id} value={categoria.titulo}>
+                {categoria.titulo}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Características:</label>
+          
+          {Array.isArray(caracteristicas) && caracteristicas.map((caracteristica) => (
+            <div key={caracteristica.id}>
+              <input
+                type="checkbox"
+                id={`caracteristica-${caracteristica.id}`}
+                name={`caracteristica-${caracteristica.nombre}`}
+                value={caracteristica.nombre}
+                checked={caracteristicaSeleccionada.includes(caracteristica.nombre)}
+                onChange={handleCaracteristicaChange}
+              />
+              <label htmlFor={`caracteristica-${caracteristica.id}`}>{caracteristica.nombre}</label>
+            </div>
+          ))}
+          
         </div>
 
         {/* estos no los inclui en el form porque segun el back modifica sin imegnes y titulo*/}
@@ -145,6 +216,7 @@ console.log(nombre,descripcion,categoria,id);
             onChange={handleUrlImagenChange}
           />
         </div> */}
+
         <button type="submit" onClick={actualizarProducto}>
           Actualizar producto
         </button>
