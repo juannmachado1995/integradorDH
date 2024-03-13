@@ -38,8 +38,9 @@ useEffect(() => {
       imgBici: producto.imagenes[0].urlImg
     }));
 
+    /*
     const ciclas = [{
-      nombreBici: 'Haibike Bicicleta Eléctrica Adventr FS 9',
+      nombreBici: 'Haibike Bicicleta Eléctrica Adventr FS ',
       imgBici: 'https://i.imgur.com/OFuVyJt.png'
     },{
       nombreBici: 'Wilier Bicicleta Eléctrica Triestina Hybrid GRX812',
@@ -74,9 +75,9 @@ useEffect(() => {
     {
       nombreBici: 'Montana Bikes Bicicleta Eléctrica Carretera Gavia',
       imgBici: 'https://i.imgur.com/fNgTMbJ.png'
-    }];
+    }];*/
 
-    const ciclasConNuevosProductos = [...ciclas, ...nuevaBici];
+    const ciclasConNuevosProductos = [...nuevaBici];
 
     const shuffledCiclas = ciclasConNuevosProductos.slice().sort(() => Math.random() - 0.5);
     setCiclaleatoria(shuffledCiclas);
@@ -84,7 +85,6 @@ useEffect(() => {
   }, [nuevosProductos]);
 
   const handleClick = (cicla) => {
-    
     console.log('click handleClick CardBicicleta')
   };
   

@@ -17,68 +17,7 @@ const ProductosListar = () => {
     const [editingProductId, setEditingProductId] = useState(null);
     const [categoria, setCategoria] = useState(null); 
     
-    
-
-
-    // /*Se crea este array de prueba solo para probar el renderizado, por favor reemplazar por el 
-    // consumo del back, creo que ya estaba, no lo borré, solo lo comentarie por que no tuve tiempo de
-    // bajarlo y montarlo */
-     /*
-    useEffect(()=>{
-        const ciclas = [{
-            nombreBici: 'Haibike Bicicleta Eléctrica Adventr FS 9',
-            imgBici: 'https://i.imgur.com/OFuVyJt.png'
-          },{
-            nombreBici: 'Wilier Bicicleta Eléctrica Triestina Hybrid GRX812',
-            imgBici: 'https://i.imgur.com/oO2sILV.png'
-          }100vw;
-          ,
-          {
-            nombreBici: 'Bianchi Bicicleta Eléctrica E-Spillo Classic G Altus',
-            imgBici: 'https://i.imgur.com/370InV6.png'
-          }
-          ,
-          {
-            nombreBici: 'Haibike Bicicleta Eléctrica MTB Alltrail',
-            imgBici: 'https://i.imgur.com/IccTsb0.png'
-          }
-          ,
-          {
-            nombreBici: 'Youin Bicicleta Eléctrica Plegable Dakar',
-            imgBici: 'https://i.imgur.com/kSLWt3a.png'
-          }
-          ,
-          {
-            nombreBici: 'Winora Bicicleta Eléctrica Tria X9 Wave',
-            imgBici: 'https://i.imgur.com/UfRt2hz.png'
-          }
-          ,
-          {
-            nombreBici: 'Bianchi Bicicleta Eléctrica Gravel E-Impulso Ultegra RD-R8000 2021',
-            imgBici: 'https://i.imgur.com/Ou8g9TW.png'
-          }
-          ,
-          {
-            nombreBici: 'Montana Bikes Bicicleta Eléctrica Carretera Gavia',
-            imgBici: 'https://i.imgur.com/fNgTMbJ.png'
-          }];
-        const newProductos = ciclas.map(
-            (item, idx) =>{
-                return {
-                    id: idx + 1, 
-                    nombre: item.nombreBici, 
-                    descripcion: 'Alguna descripción',
-                    imagenes: [{
-                        id: 1,
-                        urlImg: item.imgBici
-                    }]
-                }
-            }
-        );
-        setProductos(newProductos);
-    }
-    ,[]);
-     */
+     
     // este metodo Reinicia el producto actual al abrir el formulario
     const handleAddClick = () => {
         setShowAddForm(!showAddForm);
@@ -136,8 +75,6 @@ const ProductosListar = () => {
             }
         };
 
-
-        
         // este prepara el form actualizar cuando se hace clic en icono editar
 
 const handleModifyClick = (productoId, updatedData) => {
@@ -214,8 +151,6 @@ const obtenerCategoria = async (categoriaId) => {
                       onClick={() => handleModifyClick(producto.id)}
                     />
                     </div>
-                
-
 
             {/* quite las imagenes porque asi no esta en el figma      */}
               {/* <ul className="imagenes-list">
