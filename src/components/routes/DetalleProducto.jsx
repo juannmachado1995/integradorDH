@@ -84,8 +84,9 @@ console.log("DATAAAAAAA",data);
 
             {/* Mostrar las características */}
             {/* <div className='tituloCaracteristicas'><h2>Características</h2>  </div> */}
+            <h2 className="titulo-426">Características</h2>
             <div className="caracteristicas-container">
-              <div className='tituloCaracteristicas'><h2 >Características</h2>  </div>
+              <div className='tituloCaracteristicas'><h2 className='oculto'>Características</h2>  </div>
 
               {caracteristicas.map(caracteristica => (
                 <div className='container-big-item'>

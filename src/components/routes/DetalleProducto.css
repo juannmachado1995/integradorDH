@@ -126,6 +126,11 @@ width: 100%;
 display: block;
 }
 
+.titulo-426{
+
+  display: none;
+}
+
 /* Media queries para hacerlo responsive 768*/
 @media screen and (max-width: 768px){
 
@@ -178,7 +183,10 @@ box-sizing: border-box;
 
 }
 
+.titulo-426{
 
+  display: none;
+}
 }
 
 
@@ -204,13 +212,21 @@ div.detalle-descripcion-producto{
 
 h2{
   margin: 0%;
-
+  
 }
 
+.titulo-426{
 
+  display:block;
+}
+
+.oculto {
+  display: none;
+}
 
 div.tituloCaracteristicas{
-overflow: hidden;
+  display: none;
+
 }
 
 div.detalle-izquierda-card {
