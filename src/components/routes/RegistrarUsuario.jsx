@@ -3,6 +3,7 @@ import './RegistrarUsuario.css';
 import Form1 from "../Form1/Form1";
 import {pathIcons, urlBackend} from '../../components/utils/global.context';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 /*
 
 */
@@ -19,6 +20,9 @@ const RegistrarUsuario = () =>{
     /*Estados de resultado de consumo de servicio */
     const [errorConsumeService, setErrorConsumeService] = useState('');
     const [okConsumeService, setOkConsumeService] = useState('');
+
+     /*Navigate para redireccionar a home en caso de login exitoso */
+     const navigate = useNavigate();
 
     const inputs= [
         {
@@ -163,6 +167,7 @@ const RegistrarUsuario = () =>{
             const response = await axios.post(url, payload);
             formHTML.reset();
             setOkConsumeService('Felicidades!, te has registrado en E-Bikerent');
+            setTimeout(() =>(navigate('/login')),2500)
         }catch(error){
             setErrorConsumeService(error.response.data.message);
         }

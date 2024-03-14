@@ -12,6 +12,10 @@ import pathIcoOk1 from '../../images/ico-ok1.png';
 import pathIcoLogin from '../../images/ico-login.png';
 import pathLogoDelete from '../../images/delete.png';
 import pathLogoEdit from '../../images/edit.png';
+import pathIcoFacebook from '../../images/facebook.png';
+import pathIcoWhatsapp from '../../images/whatsapp.png';
+import pathIcoInstagram from '../../images/instagram.png';
+import pathIcoYoutube from '../../images/youtube.png';
 
 /*Manejo global de objeto de sesión */
 const nameObjSession = 'ebikerent-session';
@@ -64,7 +68,11 @@ export const pathIcons = {
   ok1: pathIcoOk1,
   login: pathIcoLogin,
   delete: pathLogoDelete,
-  edit:pathLogoEdit
+  edit:pathLogoEdit,
+  facebook: pathIcoFacebook,
+  whatsapp: pathIcoWhatsapp,
+  instagram: pathIcoInstagram,
+  youtube: pathIcoYoutube
 };
 
 export const urlBackend = 'http://localhost:8080/';
