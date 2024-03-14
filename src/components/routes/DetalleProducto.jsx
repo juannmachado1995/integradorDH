@@ -7,15 +7,15 @@ import './DetalleProducto.css'
 import axios from 'axios';
 
 const DetalleProducto = () => {
-  const {contexto} = useContext(ContextGlobal);
+  const { contexto } = useContext(ContextGlobal);
 
-  const {id} = useParams();
-  const url =  urlBackend + 'productos/' + id;
+  const { id } = useParams();
+  const url = urlBackend + 'productos/' + id;
   console.log(url);
 
   /*En las pruebas con backend, se pueden habilitar y probar estas lineas o cambiar por axios a gusto*/
   /*const {data, error} = useFetchEffect(url);*/
-  /*mientra se consume el back, nos traemos el array con la info para probar*/ 
+  /*mientra se consume el back, nos traemos el array con la info para probar*/
   /*Posteriormente data será lo que devuelva el llamado al back, mientras se emula con el array*/
   const data = contexto.arrayCiclas[+id - 1];
 
@@ -36,8 +36,8 @@ const DetalleProducto = () => {
 
 
 
-   // se incliye este para la solicitud para obtener características para el container
-   useEffect(() => {
+  // se incliye este para la solicitud para obtener características para el container
+  useEffect(() => {
 
     const fetchCaracteristicas = async () => {
       try {
@@ -48,13 +48,13 @@ const DetalleProducto = () => {
         console.error('Error al obtener características:', error);
       }
     };
-  
+
     fetchCaracteristicas();
-  }, []); 
+  }, []);
 
 
-  
 
+console.log("DATAAAAAAA",data);
   return (
 
     <>
@@ -78,28 +78,22 @@ const DetalleProducto = () => {
 
             <div className='detalle-descripcion-producto'>
               <h2>Descripcion de producto</h2>
-              <p>Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon
-                <br />  Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon
-                <br />  Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon
-                <br />  Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon</p>
-              <p>Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon</p>
-              <p>Cuadro: Monoscocca Carbon <br /> Horquilla: Monoscocca Carbon</p>
+              <p>{data.descripcion}</p>
             </div>
 
 
+            {/* Mostrar las características */}
+            {/* <div className='tituloCaracteristicas'><h2>Características</h2>  </div> */}
+            <div className="caracteristicas-container">
+              <div className='tituloCaracteristicas'><h2 >Características</h2>  </div>
 
-              {/* Mostrar las características */}
-              {/* <div className='tituloCaracteristicas'><h2>Características</h2>  </div> */}
-              <div className="caracteristicas-container">
-                <div className='tituloCaracteristicas'><h2 >Características</h2>  </div>
-                
               {caracteristicas.map(caracteristica => (
                 <div className='container-big-item'>
-                <div key={caracteristica.id} className="caracteristica-item">
-                  <p>{caracteristica.nombre}</p>
-                  <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
-                      </div>
-                     </div>
+                  <div key={caracteristica.id} className="caracteristica-item">
+                    <p>{caracteristica.nombre}</p>
+                    <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
+                  </div>
+                </div>
               ))}
             </div>
 
