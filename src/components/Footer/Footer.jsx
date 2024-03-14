@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css'; 
 import { Link } from 'react-router-dom';
-import { urlLogoFooter } from '../utils/global.context';
+import { urlLogoFooter, pathIcons } from '../utils/global.context';
 
 
 const Footer = () => {
@@ -17,6 +17,12 @@ const Footer = () => {
         <div className="left">
         <div className="logo"><img src={urlLogoFooter} alt="Logo" /></div>
           <div className="copy"> <p>Copyright © 2024</p></div>
+        </div>
+        <div className='right'>
+          <img src={pathIcons.facebook} alt='Facebook' />
+          <img src={pathIcons.whatsapp} alt='WhatsApp' />
+          <img src={pathIcons.instagram} alt='Instagram' />
+          <img src={pathIcons.youtube} alt='Youtube' />
         </div>
       </div>
     </footer>
