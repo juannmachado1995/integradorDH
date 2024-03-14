@@ -93,7 +93,7 @@ console.log(nombre,descripcion,categoria,id);
       console.log("Producto actualizado:", response.data);
       alert("PRODUCTO ACTUALIZADO CORRECTAMENTE");
   
-      
+      window.location.reload();
       
     } catch (error) {
       console.error("Error al actualizar el producto:", error);
