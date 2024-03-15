@@ -15,11 +15,13 @@ import CategoriaLista from './components/routes/Admin/Categorias/CategoriaLista'
 import FormCategoria from './components/routes/Admin/Categorias/FormCategoria'
 import CaracteristicaLista from './components/routes/Admin/Caracteristicas/CaracteristicaLista'
 import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCaracteristica'
+import Inicializador from './components/Inicializador/Inicializador'
 
 
 function App() {
   return (
     <>
+    <Inicializador/>
       <Header />
       <Routes>
         {/*Home del site */}

@@ -5,15 +5,15 @@ const Categorias = () => {
 
     const categorias = [
         {
-            nombre: 'CATEGORIA 1',
+            nombre: 'Ruta',
             imgCategoria: 'https://img.freepik.com/fotos-premium/icono-blanco-negro-bicicleta-moderna-sombra_1057389-35988.jpg?w=740'
         },
         {
-            nombre: 'CATEGORIA 2',
+            nombre: 'Mountain Bike',
             imgCategoria: 'https://img.freepik.com/fotos-premium/icono-blanco-negro-bicicleta-moderna-sombra_1057389-35988.jpg?w=740'
         },
         {
-            nombre: 'CATEGORIA 3',
+            nombre: 'Urbana',
             imgCategoria: 'https://img.freepik.com/fotos-premium/icono-blanco-negro-bicicleta-moderna-sombra_1057389-35988.jpg?w=740'
         },
        

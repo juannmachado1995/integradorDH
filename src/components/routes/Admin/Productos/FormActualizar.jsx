@@ -82,7 +82,7 @@ console.log(nombre,descripcion,categoria,id);
       "caracteristicas": caracteristicaSeleccionada
     };
 
-  console.log("NEWWWW",productoActualizado);
+  console.log("NEW",productoActualizado);
 
     try {
       const response = await axios.put(
@@ -99,7 +99,7 @@ console.log(nombre,descripcion,categoria,id);
       console.error("Error al actualizar el producto:", error);
       console.log(error); 
       alert("ERROR AL ACTUALIZAR PRODUCTO" + error);
-      console.log("NEWWWW",productoActualizado);
+      console.log("ERROR AL ACTUALIZAR",productoActualizado);
     }
   };
     //para traer lista de categorias 
