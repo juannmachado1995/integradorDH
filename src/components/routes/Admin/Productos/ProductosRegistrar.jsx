@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-/*import ImageUploader from 'react-images-upload';*/
 import axios from "axios";
 import { pathIcons } from '../../../utils/global.context';
 import './ProductosRegistrar.css';
@@ -70,10 +69,6 @@ const ProductosRegistrar = ({ onSubmit }) => {
       nombre: nombre,
       descripcion: descripcion,
       imagenes: imagenes,
-      /*
-      imagenes: imagenes.map((imagen) => ({
-        urlImagen: URL.createObjectURL(imagen),
-      })),*/
       categoria: categoria,
       caracteristicas: caracteristicaSeleccionada
     };
@@ -225,19 +220,6 @@ const ProductosRegistrar = ({ onSubmit }) => {
           ))}
           
         </div>
-
-
-
-        {/*  <div className="form-group">
-        <label>Subir imágenes:</label>
-        <ImageUploader
-          withIcon={true}
-           buttonText="Seleccionar imágenes"
-          onChange={handleImageUpload}
-          imgExtension={['.jpg', '.gif', '.png', '.gif', '.jpeg']}
-          maxFileSize={5242880} // 5MB
-        />
-      </div>*/}
 
         <button type="submit" onClick={handleAgregarImagen}>
           <img src={pathIcons.save} alt="Imagen del botón" className='saveButton' />

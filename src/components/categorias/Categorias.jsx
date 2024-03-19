@@ -1,6 +1,7 @@
 import React,{useState , useEffect} from 'react'
 import './categorias.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 const Categorias = () => {
 
@@ -27,10 +28,12 @@ const Categorias = () => {
             <div className='categorias-conteiner'>
 
                 {categorias.map((categoria, index) => (
+                    <Link key={index} to={`categorias/${categoria.titulo}`} className='card-link'>
                     <article className='card-categoria' key={index}>
                         <img className='img-categoria' src={categoria.imagen} alt={categoria.titulo} />
                         <span className='nombre-categoria'>{categoria.titulo}</span>
                     </article>
+                    </Link>
                 ))}
 
             </div>
