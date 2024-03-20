@@ -24,7 +24,7 @@ function App() {
       <Inicializador />
       <Header />
       <Routes>
-        <Route path='categorias/:categoria' element={<CategoriasLista />} />
+        
         {/*Home del site */}
         <Route path='/' element={<Home />} />
 
@@ -59,10 +59,13 @@ function App() {
         <Route path='/productos/:id' element={<DetalleProducto />} />
         <Route path='/masFotos' element={<MasFotos />} />
 
+        <Route path='categorias/:categoria' element={<CategoriasLista />} />
+
         {/*Rutas no encontradas*/}
         <Route path='*' element={
           <div className='container-middle'><h1>Página/ruta no encontrada</h1></div>
         } />
+
       </Routes>
       <Footer />
     </>
