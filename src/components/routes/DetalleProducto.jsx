@@ -7,6 +7,7 @@ import './DetalleProducto.css'
 import axios from 'axios';
 
 const DetalleProducto = () => {
+  
   const { contexto } = useContext(ContextGlobal);
 
   const { id } = useParams();
@@ -20,7 +21,6 @@ const DetalleProducto = () => {
   const data = contexto.arrayCiclas[+id - 1];
 
   const [mostrarFotos, setMostrarFotos] = useState(false);
-
   //se inlcuye
   const [caracteristicas, setCaracteristicas] = useState([]);
 
