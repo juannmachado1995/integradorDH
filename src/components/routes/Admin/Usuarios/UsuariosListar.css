@@ -29,17 +29,17 @@ align-items: center;
 /* Estilos para el mensaje de no disponible en dispositivos más pequeños */
 @media (max-width: 768px) {
     .not-available-message {
-      display: block; /* Mostrar el mensaje */
-      text-align: center; /* Centrar el texto */
-      padding: 20px; /* Añadir espacio alrededor del texto */
-      background-color: #f8d7da; /* Color de fondo */
-      color: #721c24; /* Color del texto */
-      border: 1px solid #f5c6cb; /* Borde */
-      margin: 20px auto; /* Margen para centrar verticalmente */
-      max-width: 80%; /* Ancho máximo del mensaje */
+      display: block; 
+      text-align: center; 
+      padding: 20px; 
+      background-color: #f8d7da; 
+      color: #721c24; 
+      border: 1px solid #f5c6cb; 
+      margin: 20px auto; 
+      max-width: 80%; 
     }
     
     .producto-item {
-      display: none; /* Ocultar la lista de usuarios registrados */
+      display: none; 
     }
   }
