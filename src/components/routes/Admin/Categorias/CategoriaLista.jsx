@@ -42,7 +42,7 @@ const CategoriaLista = () => {
             <div><p> {categoria.titulo}</p></div>
             {/* <p>{categoria.descripcion}</p> */}
             {/* <img src={categoria.imagen} alt="" className='card-categoria'/> */}
-                    <div>               
+                    <div className='icon-aling'>               
                       <img
                       src={pathIcons.delete}
                       alt="Eliminar"

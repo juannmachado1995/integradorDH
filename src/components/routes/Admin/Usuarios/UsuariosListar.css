@@ -1,0 +1,45 @@
+.assign-admin{
+
+width: 3vw;
+height: 5vh;
+
+}
+
+.producto-itemUser{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 10px; 
+    border-color: #14471E;
+    border-width: 3rem;
+    border: solid;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color:white;
+}
+
+
+.icon-aling{
+display: flex;
+align-items: center;
+
+}
+
+
+/* Estilos para el mensaje de no disponible en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .not-available-message {
+      display: block; /* Mostrar el mensaje */
+      text-align: center; /* Centrar el texto */
+      padding: 20px; /* Añadir espacio alrededor del texto */
+      background-color: #f8d7da; /* Color de fondo */
+      color: #721c24; /* Color del texto */
+      border: 1px solid #f5c6cb; /* Borde */
+      margin: 20px auto; /* Margen para centrar verticalmente */
+      max-width: 80%; /* Ancho máximo del mensaje */
+    }
+    
+    .producto-item {
+      display: none; /* Ocultar la lista de usuarios registrados */
+    }
+  }

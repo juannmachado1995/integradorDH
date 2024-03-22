@@ -16,6 +16,7 @@ import CaracteristicaLista from './components/routes/Admin/Caracteristicas/Carac
 import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCaracteristica'
 import Inicializador from './components/Inicializador/Inicializador'
 import CategoriasLista from './components/categorias/CategoriasLista'
+import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
 
 
 function App() {
@@ -53,12 +54,24 @@ function App() {
             <Route index element={<CaracteristicaLista />} />
             <Route path='registrar' element={<FormCaracteristica />} />
           </Route>
+
+          {/*Administración de lista usuarios*/}
+          <Route path='usuarios'  >
+                  <Route index element={<UsuariosListar/>} />
+                 
+                </Route>
+
+
+
+
         </Route>
+
+
+
 
         {/*Detalle de producto*/}
         <Route path='/productos/:id' element={<DetalleProducto />} />
         <Route path='/masFotos' element={<MasFotos />} />
-
         <Route path='categorias/:categoria' element={<CategoriasLista />} />
 
         {/*Rutas no encontradas*/}
