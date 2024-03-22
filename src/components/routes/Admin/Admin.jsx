@@ -54,7 +54,19 @@ const Admin = () => {
             <ButtonRightIcon title='Listar características' text='Lista de características' icon={pathIcons.list} />
           </Link>
         </div>
+        
+        {/* Grupo de usuarios*/}
+          <div className='Admin-group'>
+            <Link to='usuarios'>
+            <ButtonRightIcon title='Lista de usuarios registrados' text='Lista de usuarios registrados' icon={pathIcons.list} />
+          </Link>
+           </div>
       </div>
+
+  
+
+
+
       
       <Outlet />
       {/*<ProductoManejador/>*/}

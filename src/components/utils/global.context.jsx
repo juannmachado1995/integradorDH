@@ -18,6 +18,7 @@ import pathIcoInstagram from '../../images/instagram.png';
 import pathIcoYoutube from '../../images/youtube.png';
 import pathIcoLupa from '../../images/ico-lupa.png';
 import pathIcoCalendario from '../../images/ico-calendario.png';
+import pathRol from '../../images/rol.png';
 
 /*Manejo global de objeto de sesión */
 const nameObjSession = 'ebikerent-session';
@@ -76,7 +77,8 @@ export const pathIcons = {
   instagram: pathIcoInstagram,
   youtube: pathIcoYoutube,
   lupa: pathIcoLupa,
-  calendario: pathIcoCalendario
+  calendario: pathIcoCalendario,
+  rol: pathRol
 };
 
 export const urlBackend = 'http://localhost:8080/';
