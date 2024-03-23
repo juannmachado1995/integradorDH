@@ -62,8 +62,8 @@ const CaracteristicaLista = () => {
           <li key={caracteristica.id} className="producto-item">
             <div> <p>{caracteristica.id}</p></div>
             <div><p> {caracteristica.nombre}</p></div>
-            <div><img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" /></div>
-            <div>               
+            <div className='icon-aling'><img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" /></div>
+            <div >                
               <img
                 src={pathIcons.delete}
                 alt="Eliminar"
