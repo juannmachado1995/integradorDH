@@ -5,9 +5,11 @@ import { Link, useParams } from 'react-router-dom';
 import { ContextGlobal, urlBackend } from '../utils/global.context';
 import './DetalleProducto.css'
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTruckMedical } from '@fortawesome/free-solid-svg-icons'
 
 const DetalleProducto = () => {
-  
+
   const { contexto } = useContext(ContextGlobal);
 
   const { id } = useParams();
@@ -52,15 +54,13 @@ const DetalleProducto = () => {
     fetchCaracteristicas();
   }, []);
 
-
-
-console.log("DATAAAAAAA",data);
   return (
 
     <>
       <div className='background-overlay mostrar container-middle'>
         <div className="detalle-producto-overlay mostrar">
           <article className="detalle-producto-card">
+
             <div className='detalle-izquierda-card'>
               <Link to='/'>
                 <button className='button button-detalle'> {<IoIosArrowBack />}  Volver Atras</button>
@@ -76,40 +76,32 @@ console.log("DATAAAAAAA",data);
               </Link>
             </div>
 
-            <div className='detalle-descripcion-producto'>
-              <h2>Descripcion de producto</h2>
-              <p>{data.descripcion}</p>
-            </div>
+            <div>
+              <div className='detalle-descripcion-producto'>
+                <h2>Descripcion de producto</h2>
+                <p>{data.descripcion}</p>
+                <p>asd</p>
+                
+                
+              </div>
 
-
-            {/* Mostrar las características */}
-            {/* <div className='tituloCaracteristicas'><h2>Características</h2>  </div> */}
-            <h2 className="titulo-426">Características</h2>
-            <div className="caracteristicas-container">
-              <div className='tituloCaracteristicas'><h2 className='oculto'>Características</h2>  </div>
-
-              {caracteristicas.map(caracteristica => (
-                <div className='container-big-item'>
-                  <div key={caracteristica.id} className="caracteristica-item">
-                    <p>{caracteristica.nombre}</p>
-                    <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
+              <div>
+                <h2 className="titulo-426">Características</h2>
+                <div className="caracteristicas-container">
+                  <div className='tituloCaracteristicas'><h2 className='oculto'>Características</h2>  </div>
+                  <div className='iconos-caracteristicas'>
+                    {caracteristicas.map(caracteristica => (
+                      <div className='container-big-item'>
+                        <div key={caracteristica.id} className="caracteristica-item">
+                          <p>{caracteristica.nombre}</p>
+                          <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
           </article>
         </div>
         {mostrarFotos && <VerMasFotos srcImagen={data.imgBici} nombreBici={data.nombreBici} onClose={handleCerrarFotos} />}

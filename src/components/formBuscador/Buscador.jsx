@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { BiSearch } from 'react-icons/bi';
 import './formBuscador.css'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'

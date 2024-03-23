@@ -1,4 +1,3 @@
-
 .detalle-producto-overlay {
   position: fixed;
   top: 0;
@@ -30,13 +29,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-around;
-
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-       */
 }
 
 .detalle-izquierda-card {
@@ -44,7 +36,6 @@
   flex-direction: column;
   align-items: center;
   justify-content:space-around;
-  /* grid-area: 1 / 1 / 2 / 2; */
   height: 100%;
   width: 60%;
 }
@@ -69,8 +60,6 @@ a:-webkit-any-link {
 
 .detalle-descripcion-producto {
   font-family: var(--fuente-principal);
-  height: 100%;
-  width: 30%;
 }
 
 .imagen-Detalle-Producto {
@@ -90,16 +79,16 @@ font-size: 1rem;
 
 }
 
-
-
-
 .caracteristicas-container {
-width: 30%; 
+width: 100%; 
+display: flex;
+flex-direction: column;
 text-align: center;
-padding: 10px; 
-box-sizing: border-box; 
-/* grid-area: 3 / 1 / 4 / 3;  */
 overflow: auto;
+}
+
+.iconos-caracteristicas{
+  display: flex;
 }
 
 .caracteristica-item {
@@ -118,7 +107,6 @@ margin-bottom: 1px;
 width: 100%;
 
 }
-
 
 .container-big-item{
 
@@ -154,13 +142,10 @@ font-size: 10px;
 
 }
 
-
 .container-big-item{
 
 column-count: 2;
 }
-
-
 
 .button.button.button-detalle {
 
@@ -169,8 +154,6 @@ height: 10px;
 font-size: 10px;
 
 }
-
-
 
 div.detalle-izquierda-card{
 box-sizing: border-box;

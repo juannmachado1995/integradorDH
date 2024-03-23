@@ -1,4 +1,5 @@
 import './App.css'
+import '@fortawesome/fontawesome-free/css/all.css';
 import Home from './components/routes/Home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
