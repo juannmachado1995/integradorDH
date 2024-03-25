@@ -9,12 +9,25 @@ const ProductosRegistrar = ({ onSubmit }) => {
   const [descripcion, setDescripcion] = useState("");
   const [categoria, setCategoria] = useState("");
   const [categorias, setCategorias] = useState([])
-  const [urlImagen, setUrlmagenes] = useState("");
-  const [tituloImagen, setTituloImagen] = useState("");
+  const [urlImagen, setUrlImagen] = useState([""]);
   const [imagenes, setImagenes] = useState([]);
   const [caracteristicas, setCaracteriticas] = useState([]);
   const [caracteristicaSeleccionada, setCaracteriticaSeleccionada] = useState([]);
   const [nombreCard, setNombreCard] = useState([]);
+ 
+  
+  const handleUrlImagenChange = (event, index) => {
+    const newImagenes = [...urlImagen];
+    newImagenes[index] = event.target.value;
+    setUrlImagen(newImagenes);
+  };
+
+  //para que no tire error el boton de "agregar nuevo campo"
+  const agregarCampoImagen = () => {
+    setUrlImagen([...urlImagen, '']);
+  };
+
+
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
   };
@@ -38,26 +51,16 @@ const ProductosRegistrar = ({ onSubmit }) => {
     setDescripcion(event.target.value);
   };
 
-  const handleUrlImagenChange = (event) => {
-    setUrlmagenes(event.target.value)
-  }
-  const handleTituloImagenChange = (event) => {
-    setTituloImagen(event.target.value)
-  }
-
   const handleAgregarImagen = () => {
-    if (urlImagen !== "" && tituloImagen !== "") {
-      const nuevaImagen = { titulo: tituloImagen, urlImg: urlImagen };
-      setImagenes([...imagenes, nuevaImagen]);
+    if (urlImagen !== "" && nombre !== "") {
+      const nuevasImagenes = urlImagen.map((url) => ({ titulo: nombre, urlImg: url }));
+      setImagenes([...imagenes, ...nuevasImagenes]);
+      
     } else {
-      alert("Por favor, ingrese tanto la URL como el título de la imagen.");
+      alert("Por favor, ingrese tanto la URL como el nombre del producto.");
     }
   };
-
-  /*const handleImagenesChange = (event) => {
-    const urlImagen = Array.from(event.target.urlImagen);
-    setImagenes(urlImagen);
-  };*/
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -89,12 +92,9 @@ const ProductosRegistrar = ({ onSubmit }) => {
       setCategoria("");
       setDescripcion("");
       setImagenes([]);
-      setUrlmagenes("");
-      setTituloImagen("");
+      setUrlImagen([""]);
       setCaracteriticaSeleccionada("");
       setCaracteriticas("");
-
-
 
     } catch (error) {
       console.error("Error al guardar el producto:", error, nuevoProducto);
@@ -166,26 +166,36 @@ const ProductosRegistrar = ({ onSubmit }) => {
             onChange={handleDescripcionChange}
           />
         </div>
-        <div className="form-group">
-          <label>Titulo Imagen:</label>
+
+<div>
+      {urlImagen.map((imagen, index) => (
+        <div key={index} className="form-group">
+          <label>Url Imagen {index + 1}:</label>
           <input
             type="text"
-            name="Titulo Imagen"
-            placeholder='Titulo Imagen'
-            value={tituloImagen}
-            onChange={handleTituloImagenChange}
+            name={`Url imagen ${index + 1}`}
+            placeholder={`Url imagen ${index + 1}`}
+            value={imagen}
+            onChange={(event) => handleUrlImagenChange(event, index)}
           />
+          {index === urlImagen.length - 1 && (
+            <button onClick={agregarCampoImagen}>Agregar otra URL</button>
+          )}
         </div>
-        <div className="form-group">
-          <label>Url Imagen:</label>
-          <input
-            type="text"
-            name="Url imagen"
-            placeholder='Url imagen'
-            value={urlImagen}
-            onChange={handleUrlImagenChange}
-          />
-        </div>
+      ))}
+
+{/*Esto lo puse porque no entendia porque no funcionaba, 
+cualquier cosa se puede sacarr*/}
+      <div>
+        <h2>Url imagenes cargadas:</h2>
+        <ul>
+          {urlImagen.map((url, index) => (
+            <li key={index}>{url}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
         <div className="form-group">
           <label>Categoria:</label>
           <select
