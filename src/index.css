@@ -216,19 +216,11 @@ body {
     flex-direction: column;
   }
 
-  .categorias-conteiner {
-    flex-direction: column;
-  }
-
   .card-categoria {
     width: 100%;
     padding: 0;
-    border: rgb(209, 206, 206);
     justify-content: space-around;
-    border-width: 2px;
-    border-style: solid;
     margin: 1rem 0;
-    border-radius: 20px;
   }
 
   .card-categoria:hover {
