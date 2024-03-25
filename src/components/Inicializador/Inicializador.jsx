@@ -60,7 +60,7 @@ const Inicializador = () => {
       }
     };
 
-    inicializarProductos();
+    /*inicializarProductos();*/
   }, []);
 
   return null; 

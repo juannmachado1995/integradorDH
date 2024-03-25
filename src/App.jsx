@@ -23,7 +23,6 @@ import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
 function App() {
   return (
     <>
-      <Inicializador />
       <Header />
       <Routes>
         
