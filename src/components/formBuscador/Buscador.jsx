@@ -94,10 +94,11 @@ const Buscador = () => {
             const numeroResultados = response.data.length;
             if(numeroResultados > 0){
                 setMensajeOk('Se han encontrado ' + response.data.length + ' resultados');
-                setContexto({...contexto, arrayCiclas: response.data})
             }else{
                 setMensajeOk('No se han encontrado resultados')
             }
+
+            setContexto({...contexto, arrayCiclas: response.data})
             //formHTML.reset();
         }catch(error){
             setMensajeError(error.response.data.message);
