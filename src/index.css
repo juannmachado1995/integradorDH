@@ -176,26 +176,13 @@ body {
   }
 
   .form-buscador {
-    width: 100%;
+    width: 90%;
     font-size: 1rem;
-  }
-
-  .forms-busca-tu-bici {
-    width: 100vw;
-    margin-left: 1rem;
-    margin-right: 1rem;
   }
 
   .search-icon {
     display: none;
   }
-
-  .forms-busca-tu-bici::placeholder {
-    font-weight: 1;
-    font-size: 1.5rem;
-    color: #ffffff;
-  }
-
 
   .div-card-producto {
     flex-direction: column;

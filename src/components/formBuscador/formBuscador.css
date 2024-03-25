@@ -191,4 +191,51 @@
     display: flex;
     align-items: center;
   }
+
+  .buscador-tooltip-ok{
+    position: relative;
+    background: #cde6e3;
+    padding: 5px;
+    border-radius: 10px;
+    color: #037058;
+  }
+
+  .buscador-tooltip-error{
+    position: relative;
+    background: #f2dada;
+    padding: 5px;
+    border-radius: 10px;
+    color: #d95555;
+  }
   
+
+  @media screen and (max-width: 768px) {
+    .form-buscador{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-buscador input::placeholder{
+      text-align: center;
+    }
+
+    .form-buscador input {
+      text-align: center;
+    }
+
+    .container-buscador{
+      height: 42vw;
+    }
+
+    .buscador-seccion-calendario .react-calendar--doubleView{
+      width: 90vw;
+    }
+
+    .buscador-seccion-calendario .react-calendar--doubleView .react-calendar__viewContainer{
+      flex-direction: column;
+    }
+
+    .buscador-seccion-calendario .react-calendar--doubleView .react-calendar__viewContainer > *{
+      width: auto;
+    }
+  }

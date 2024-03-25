@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { BiSearch } from 'react-icons/bi';
+import React, { useContext, useState } from 'react'
 import './formBuscador.css'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
-import { pathIcons, urlBackend } from '../utils/global.context';
+import { ContextGlobal, pathIcons, urlBackend } from '../utils/global.context';
 import axios from 'axios';
 
 const labelDayWeek =[
@@ -31,9 +30,14 @@ const labelMonth =[
     'dic'
 ];
 const Buscador = () => {
+    const {contexto, setContexto} = useContext(ContextGlobal);
+
     const [rangoFechas, setRangoFechas] = useState('');
     const [rangoFechasServicio, setRangoFechasServicio] = useState([]);
     const [activarCalendario, setActivarCalendario] = useState(false);
+
+    const [mensajeOk, setMensajeOk] = useState('');
+    const [mensajeError, setMensajeError] = useState('');
 
     const rangoHandle = (value, event) =>{
         let fecha1 = new Date(value[0]);
@@ -44,45 +48,80 @@ const Buscador = () => {
         setRangoFechasServicio([new Date(value[0]), new Date(value[1])]);
     };
 
+    const validateForm= (form) =>{
+        let isValidForm = true;
+
+        if(!form.rango_fechas){
+            isValidForm = false;
+            setMensajeError('Selecciona por favor que días buscas');
+        }
+        return isValidForm;
+    };
+
     const handleSubmit = (e) =>{
         e.preventDefault();
+        setMensajeOk('');
+        setMensajeError('');
         const formIniciarSesion = e.target;
         const formIniciarSesionData = new FormData(formIniciarSesion);
         const formJson = Object.fromEntries(formIniciarSesionData.entries());
-
-        console.log(formJson);
-
-        //consumeService(formJson, formIniciarSesion);
         
+        const isValidForm = validateForm(formJson);
+
+        if(isValidForm){
+            consumeService(formJson, formIniciarSesion);
+        }
     }
 
     const consumeService = async (formJson, formHTML) =>{
 
-        const endPoint = 'productos/??????';
+        const endPoint = 'productos/buscarProductoDisponible';
         const url = urlBackend + endPoint;
 
-        const params = new URLSearchParams();
-        params.append('nombre', formJson.nombre_producto);
-        params.append('fechas', rangoFechasServicio);
+        const nombre = formJson.nombre_producto.toUpperCase().trim();
+
+        const fecha1 = rangoFechasServicio[0].toISOString().substring(0, 10);
+        const fecha2 = rangoFechasServicio[1].toISOString().substring(0, 10);
+
+        const payload = {
+            nombreProducto: nombre,
+            fechaInicio: fecha1,
+            fechaFin: fecha2
+        };
 
         try{
-            const response = await axios.post(url, params);
-            formHTML.reset();
-            //setContexto({...contexto, sesionActiva: true});
+            const response = await axios.post(url, payload);
+            const numeroResultados = response.data.length;
+            if(numeroResultados > 0){
+                setMensajeOk('Se han encontrado ' + response.data.length + ' resultados');
+                setContexto({...contexto, arrayCiclas: response.data})
+            }else{
+                setMensajeOk('No se han encontrado resultados')
+            }
+            //formHTML.reset();
         }catch(error){
-            console.log(error.response.data);
+            setMensajeError(error.response.data.message);
         }
     } 
 
+    const handlerContainerBuscador = (e) =>{
+        const parent = e.target.closest('#buscador-seccion-calendario');
+        if(parent === null){
+            if(activarCalendario){
+                setActivarCalendario(false);
+            }
+        }
+    };
+
     return (
         <>
-            <div className='container-buscador'>
+            <div className='container-buscador' onClick={handlerContainerBuscador}>
                 <h1 className='titulo-slogan'>Encontrá la bicicleta ideal para cada viaje.</h1>
                 <form className='form-buscador' onSubmit={handleSubmit}>
                     <input className="forms-busca-tu-bici"
                         type="text"
                         id="nombre"
-                        placeholder='Nombre de producto'
+                        placeholder='¿Cómo la buscas?'
                         name='nombre_producto'
                     />
                     <div></div>
@@ -98,8 +137,22 @@ const Buscador = () => {
                         Buscar
                     </button>
                 </form>
+
+                {mensajeOk &&
+                    <div className='buscador-tooltip-ok'>
+                        <span>{mensajeOk}</span>
+                    </div>
+                }
+
+                {mensajeError &&
+                    <div className='buscador-tooltip-error'>
+                        <span>{mensajeError}</span>
+                    </div>
+                }
                 <div className={'buscador-seccion-calendario ' + 
-                     (activarCalendario? 'calendario-activo' : '')}>
+                     (activarCalendario? 'calendario-activo' : '')}
+                     id='buscador-seccion-calendario'
+                     >
                     <Calendar showDoubleView={true}  locale='es'
                               showNeighboringMonth={false}
                               selectRange={true} returnValue='range' 
