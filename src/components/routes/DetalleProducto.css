@@ -29,6 +29,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-around;
+  padding: 0.4rem;
 }
 
 .detalle-izquierda-card {
@@ -40,12 +41,35 @@
   width: 60%;
 }
 
+.detalle-derecha-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .button-detalle {
   text-decoration: none;
-  width: 9rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 180px;
+  height: 40px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.button-detalle:hover {
+  background-color: #388e3c !important;
+}
+
+.button-detalle:focus {
+  outline: none;
 }
 
 a:-webkit-any-link {
@@ -53,9 +77,17 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 
-.detalle-de-la-bici {
+.titulo {
   font-family: var(--fuente-principal);
-  font-size: 1rem;
+  font-size: 1.7rem;
+  font-weight: 400;
+  
+}
+
+.button-titulo{
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .detalle-descripcion-producto {
@@ -68,11 +100,17 @@ a:-webkit-any-link {
 }
 
 .titulo-nombre-bici {
-color: #000000;
-border: none;
-
-font-size: 1rem;
+  font-family: var(--fuente-principal);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #000000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
+
 
 p,h2{
 font-size: 1rem;
@@ -91,15 +129,14 @@ overflow: auto;
   display: flex;
 }
 
-.caracteristica-item {
-text-align: center;
-margin-bottom: 10px;
+.caracteristica-icon {
+  width: 2rem !important;
+  height: 2rem !important;
+  margin: 0 1rem 1rem !important;
 }
 
-.caracteristica-icon {
-width: 5px;
-height: 5px;
-margin-bottom: 1px; 
+.caracteristica-item {
+text-align: center;
 }
 
 .tituloCaracteristicas{

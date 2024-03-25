@@ -5,8 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 import { ContextGlobal, urlBackend } from '../utils/global.context';
 import './DetalleProducto.css'
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTruckMedical } from '@fortawesome/free-solid-svg-icons'
 
 const DetalleProducto = () => {
 
@@ -14,18 +12,18 @@ const DetalleProducto = () => {
 
   const { id } = useParams();
   const url = urlBackend + 'productos/' + id;
-  console.log(url);
 
   /*En las pruebas con backend, se pueden habilitar y probar estas lineas o cambiar por axios a gusto*/
   /*const {data, error} = useFetchEffect(url);*/
   /*mientra se consume el back, nos traemos el array con la info para probar*/
   /*Posteriormente data será lo que devuelva el llamado al back, mientras se emula con el array*/
   const data = contexto.arrayCiclas[+id - 1];
+  
 
   const [mostrarFotos, setMostrarFotos] = useState(false);
   //se inlcuye
   const [caracteristicas, setCaracteristicas] = useState([]);
-
+  const [caracteristicasProducto,setCaracteristicasProducto] = useState([])
 
   const handleMostrarFotos = () => {
     setMostrarFotos(true)
@@ -44,7 +42,6 @@ const DetalleProducto = () => {
     const fetchCaracteristicas = async () => {
       try {
         const response = await axios.get('http://localhost:8080/caracteristicas/listar');
-        console.log('Características obtenidas:', response.data);
         setCaracteristicas(response.data);
       } catch (error) {
         console.error('Error al obtener características:', error);
@@ -54,6 +51,8 @@ const DetalleProducto = () => {
     fetchCaracteristicas();
   }, []);
 
+  console.log("prpooooooooooooo",data);
+
   return (
 
     <>
@@ -62,38 +61,39 @@ const DetalleProducto = () => {
           <article className="detalle-producto-card">
 
             <div className='detalle-izquierda-card'>
-              <Link to='/'>
-                <button className='button button-detalle'> {<IoIosArrowBack />}  Volver Atras</button>
-              </Link>
-              <span className='detalle-de-la-bici'>Detalles de la bicicleta</span>
-              <span className='titulo-nombre-bici border-radius'>{data.nombreBici}</span>
+              <div className='button-titulo'>
+                <Link to='/'>
+                  <button className='button button-detalle'> {<IoIosArrowBack />}Volver Atrás</button>
+                </Link>
+                <span className='titulo'>Detalles de la bicicleta</span>
+              </div>
+
+              <span className='titulo-nombre-bici'>{data.nombreBici}</span>
               <img className='imagen-Detalle-Producto' src={data.imgBici} alt="" />
               <Link to="/masfotos">
                 <button className='button button-detalle'
                   onClick={handleMostrarFotos}>
-                  Ver mas fotos +
+                  Ver más fotos
                 </button>
               </Link>
             </div>
 
-            <div>
+            <div className='detalle-derecha-card'>
               <div className='detalle-descripcion-producto'>
-                <h2>Descripcion de producto</h2>
+                <h2 className='titulo'>Descripcion de producto</h2>
                 <p>{data.descripcion}</p>
                 <p>asd</p>
-                
-                
               </div>
+
 
               <div>
                 <h2 className="titulo-426">Características</h2>
-                <div className="caracteristicas-container">
-                  <div className='tituloCaracteristicas'><h2 className='oculto'>Características</h2>  </div>
+                <div className="caracteristicas-container titulo">
+                  <div className='titulo'><h2 className='oculto titulo'>Características</h2>  </div>
                   <div className='iconos-caracteristicas'>
                     {caracteristicas.map(caracteristica => (
-                      <div className='container-big-item'>
-                        <div key={caracteristica.id} className="caracteristica-item">
-                          <p>{caracteristica.nombre}</p>
+                      <div className='container-big-item' key={caracteristica.id}>
+                        <div className="caracteristica-item">
                           <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
                         </div>
                       </div>
