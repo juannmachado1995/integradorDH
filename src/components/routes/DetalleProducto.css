@@ -72,7 +72,7 @@ a:-webkit-any-link{
 .imagen-Detalle-Producto {
   width: 60%;
   max-height: 40vw; 
-  object-fit: cover; 
+  object-fit:contain; 
 }
 .imagen-Detalle-Producto:hover{
   cursor: zoom-in;
@@ -103,6 +103,38 @@ a:-webkit-any-link{
   border-radius: 8px; 
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); 
 }
+
+
+
+.button-reserva{
+  font-family: var(--fuente-principal);
+  font-weight: 410;
+  padding: 0.5rem !important;
+  font-size: 1.5rem !important;
+  margin: 1rem 25rem;
+  color:#f0f0f0;
+  background-color: #2ecc71;
+}
+.button-reserva:hover {
+  background-color: #27ae60 !important; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.button-reserva2{
+  font-family: var(--fuente-principal);
+  font-weight: 410;
+  padding: 0.5rem !important;
+  font-size: 1.5rem !important;
+  margin: 1rem 25rem;
+  color:#f0f0f0;
+  background-color: #3498db;
+}
+.button-reserva2:hover {
+  background-color: #267ab1 !important; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+
+
 
 
 .barra-titulo{

@@ -60,13 +60,15 @@
 .container-buscador {
     display: flex;
     flex-direction: column;
-    height: 20vw;
+    height:89vh;
     align-items: center;
-    background-image: url('https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg');
-    background-size: 100vw;
+   /* background-image: url('https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg');
+   */ 
+   background-size: 100vw;
     background-repeat: no-repeat;
     position: relative;
     border-radius: 20px;
+    transition: background-image 0.5s ease-in-out;
   }
   
   .container-buscador::before {

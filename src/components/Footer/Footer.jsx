@@ -5,6 +5,14 @@ import { urlLogoFooter, pathIcons } from '../utils/global.context';
 
 
 const Footer = () => {
+
+
+  const whatsappClick = () => {
+    const numero = '123456789';
+    const whatsapp = `https://wa.me/${numero}`;
+    window.location.href = whatsapp;
+  };
+
   return (
     <footer>
       <div className="footer-content">
@@ -20,7 +28,7 @@ const Footer = () => {
         </div>
         <div className='right'>
           <img src={pathIcons.facebook} alt='Facebook' />
-          <img src={pathIcons.whatsapp} alt='WhatsApp' />
+          <img src={pathIcons.whatsapp} onClick={whatsappClick} alt='WhatsApp' />
           <img src={pathIcons.instagram} alt='Instagram' />
           <img src={pathIcons.youtube} alt='Youtube' />
         </div>

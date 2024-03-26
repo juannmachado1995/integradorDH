@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState ,useEffect} from 'react'
 import './formBuscador.css'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
@@ -114,9 +114,30 @@ const Buscador = () => {
         }
     };
 
+
+
+    //imagen background 
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const images = [
+      "url('https://i.imgur.com/ZacZoMt.jpg')",
+      "url('https://i.imgur.com/rKkwnEt.jpg')",
+      "url('https://i.imgur.com/4SoFTpo.jpg')",      
+    ];
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }, [images.length]);
+    const containerStyle = {
+      backgroundImage: images[currentIndex],
+    };
+
+
+
     return (
         <>
-            <div className='container-buscador' onClick={handlerContainerBuscador}>
+            <div className='container-buscador' onClick={handlerContainerBuscador} style={containerStyle}>
                 <h1 className='titulo-slogan'>Encontrá la bicicleta ideal para cada viaje.</h1>
                 <form className='form-buscador' onSubmit={handleSubmit}>
                     <input className="forms-busca-tu-bici"
