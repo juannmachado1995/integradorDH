@@ -70,7 +70,8 @@ a:-webkit-any-link{
 }
 
 .imagen-Detalle-Producto {
-  max-height: 400px; 
+  width: 60%;
+  max-height: 40vw; 
   object-fit: cover; 
 }
 .imagen-Detalle-Producto:hover{

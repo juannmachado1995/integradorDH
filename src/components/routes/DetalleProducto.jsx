@@ -150,12 +150,12 @@ const DetalleProducto = () => {
 
               <div>
                 <h2 className='titulo'>Calendario</h2>
-                <h1>AQUI CALENDARIO???????????????</h1>
                 <img
                   src="https://www.calendargratis.com/wp-content/uploads/2023/09/Calendario-Enero-y-Febrero-2024-1536x994.png"
                   alt=""
                   style={{ width: '50vw', height: 'auto' }}
-                />              </div>
+                />
+              </div>
             </div>
           </article>
         </div>
