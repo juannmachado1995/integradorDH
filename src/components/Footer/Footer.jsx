@@ -27,12 +27,21 @@ const Footer = () => {
           <div className="copy"> <p>Copyright © 2024</p></div>
         </div>
         <div className='right'>
-          <img src={pathIcons.facebook} alt='Facebook' />
-          <img src={pathIcons.whatsapp} onClick={whatsappClick} alt='WhatsApp' />
-          <img src={pathIcons.instagram} alt='Instagram' />
-          <img src={pathIcons.youtube} alt='Youtube' />
+      ¡
+        <Link to="https://www.facebook.com">
+            <img src={pathIcons.facebook} alt='Facebook' />
+          </Link>
+          <Link to="https://www.whatsapp.com">
+            <img src={pathIcons.whatsapp} alt='WhatsApp' />
+          </Link>
+          <Link to="https://www.instagram.com">
+            <img src={pathIcons.instagram} alt='Instagram' />
+          </Link>
+          <Link to="https://www.youtube.com">
+            <img src={pathIcons.youtube} alt='Youtube' />
+          </Link>
         </div>
-      </div>
+      </div>  
     </footer>
   );
 };
