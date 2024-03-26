@@ -72,7 +72,7 @@ a:-webkit-any-link{
 .imagen-Detalle-Producto {
   width: 60%;
   max-height: 40vw; 
-  object-fit: cover; 
+  object-fit:contain; 
 }
 .imagen-Detalle-Producto:hover{
   cursor: zoom-in;
