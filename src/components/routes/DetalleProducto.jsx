@@ -154,8 +154,10 @@ const DetalleProducto = () => {
                   src="https://www.calendargratis.com/wp-content/uploads/2023/09/Calendario-Enero-y-Febrero-2024-1536x994.png"
                   alt=""
                   style={{ width: '50vw', height: 'auto' }}
-                />          
-                    </div>
+                />
+              </div>
+              <button className='button button-reserva'>Iniciar Reserva</button>
+              <button className='button button-reserva2'>Iniciar Reserva</button>
             </div>
           </article>
         </div>
