@@ -150,12 +150,28 @@ const DetalleProducto = () => {
 
               <div>
                 <h2 className='titulo'>Calendario</h2>
-                <img
+                
+
+                <div className='container-calendar-button'>
+               <div> <img
                   src="https://www.calendargratis.com/wp-content/uploads/2023/09/Calendario-Enero-y-Febrero-2024-1536x994.png"
                   alt=""
                   style={{ width: '50vw', height: 'auto' }}
-                />
+                /></div>
+                 
+                 <div>
+                 <p >!Aprovecha nuestros descuentos de temporada!</p>
+                  <Link to="/reservas">
+                    <button className='button-reserva'>Iniciar Reserva
+                    
+                    </button>
+                </Link>
+                </div>
+                </div>
               </div>
+              
+                      
+   
             </div>
           </article>
         </div>

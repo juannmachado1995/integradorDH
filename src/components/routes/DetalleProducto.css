@@ -169,6 +169,31 @@ display: block;
   display: none;
 }
 
+.container-calendar-button{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+.button-reserva {
+  background-color: #ff9900;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.button-reserva:hover {
+  background-color: #ffcc66; 
+}
+
 /* Media queries para hacerlo responsive 768*/
 @media screen and (max-width: 768px){
 

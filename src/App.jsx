@@ -18,6 +18,7 @@ import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCa
 import Inicializador from './components/Inicializador/Inicializador'
 import CategoriasLista from './components/categorias/CategoriasLista'
 import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
+import ReservasHacer from './components/routes/Admin/Reservas/ReservasHacer';
 
 
 function App() {
@@ -49,25 +50,24 @@ function App() {
 
           </Route>
 
+
           {/*Administración de características*/}
           <Route path='caracteristicas'  >
             <Route index element={<CaracteristicaLista />} />
             <Route path='registrar' element={<FormCaracteristica />} />
           </Route>
 
+
+
           {/*Administración de lista usuarios*/}
           <Route path='usuarios'  >
-                  <Route index element={<UsuariosListar/>} />
-                 
-                </Route>
-
-
-
+            <Route index element={<UsuariosListar/>} />
+           </Route>
 
         </Route>
 
-
-
+         {/*Administración de reservas*/}
+         <Route path='/reservas' element={<ReservasHacer />} />
 
         {/*Detalle de producto*/}
         <Route path='/productos/:id' element={<DetalleProducto />} />
