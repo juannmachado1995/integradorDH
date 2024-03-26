@@ -14,8 +14,8 @@ const ProductosRegistrar = ({ onSubmit }) => {
   const [caracteristicas, setCaracteriticas] = useState([]);
   const [caracteristicaSeleccionada, setCaracteriticaSeleccionada] = useState([]);
   const [nombreCard, setNombreCard] = useState([]);
- 
-  
+
+
   const handleUrlImagenChange = (event, index) => {
     const newImagenes = [...urlImagen];
     newImagenes[index] = event.target.value;
@@ -55,12 +55,12 @@ const ProductosRegistrar = ({ onSubmit }) => {
     if (urlImagen !== "" && nombre !== "") {
       const nuevasImagenes = urlImagen.map((url) => ({ titulo: nombre, urlImg: url }));
       setImagenes([...imagenes, ...nuevasImagenes]);
-      
+
     } else {
       alert("Por favor, ingrese tanto la URL como el nombre del producto.");
     }
   };
-  
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -167,34 +167,34 @@ const ProductosRegistrar = ({ onSubmit }) => {
           />
         </div>
 
-<div>
-      {urlImagen.map((imagen, index) => (
-        <div key={index} className="form-group">
-          <label>Url Imagen {index + 1}:</label>
-          <input
-            type="text"
-            name={`Url imagen ${index + 1}`}
-            placeholder={`Url imagen ${index + 1}`}
-            value={imagen}
-            onChange={(event) => handleUrlImagenChange(event, index)}
-          />
-          {index === urlImagen.length - 1 && (
-            <button onClick={agregarCampoImagen}>Agregar otra URL</button>
-          )}
-        </div>
-      ))}
-
-{/*Esto lo puse porque no entendia porque no funcionaba, 
-cualquier cosa se puede sacarr*/}
-      <div>
-        <h2>Url imagenes cargadas:</h2>
-        <ul>
-          {urlImagen.map((url, index) => (
-            <li key={index}>{url}</li>
+        <div>
+          <label>Url Imagen:</label>
+          {urlImagen.map((imagen, index) => (
+            <div key={index} className="form-group">
+              <input
+                type="text"
+                name={`Url imagen ${index + 1}`}
+                placeholder={`Url imagen ${index + 1}`}
+                value={imagen}
+                onChange={(event) => handleUrlImagenChange(event, index)}
+              />
+              {index === urlImagen.length - 1 && (
+                <button onClick={agregarCampoImagen}>Agregar otra URL</button>
+              )}
+            </div>
           ))}
-        </ul>
-      </div>
-    </div>
+
+          {/*Esto lo puse porque no entendia porque no funcionaba, 
+cualquier cosa se puede sacarr*/}
+          <div>
+            <h2>Url imagenes cargadas:</h2>
+            <ul>
+              {urlImagen.map((url, index) => (
+                <li key={index}>{url}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <div className="form-group">
           <label>Categoria:</label>
@@ -212,23 +212,24 @@ cualquier cosa se puede sacarr*/}
             ))}
           </select>
         </div>
+        
         <div className="form-group">
-          <label>Características:</label>
-          
-          {Array.isArray(caracteristicas) && caracteristicas.map((caracteristica) => (
-            <div key={caracteristica.id}>
-              <input
-                type="checkbox"
-                id={`caracteristica-${caracteristica.id}`}
-                name={`caracteristica-${caracteristica.nombre}`}
-                value={caracteristica.nombre}
-                checked={caracteristicaSeleccionada.includes(caracteristica.nombre)}
-                onChange={handleCaracteristicaChange}
-              />
-              <label htmlFor={`caracteristica-${caracteristica.id}`}>{caracteristica.nombre}</label>
-            </div>
-          ))}
-          
+          <label>Características:
+
+            {Array.isArray(caracteristicas) && caracteristicas.map((caracteristica) => (
+              <div key={caracteristica.id} className='caracteristicas-coneiner'>
+                <input
+                  type="checkbox"
+                  id={`caracteristica-${caracteristica.id}`}
+                  name={`caracteristica-${caracteristica.nombre}`}
+                  value={caracteristica.nombre}
+                  checked={caracteristicaSeleccionada.includes(caracteristica.nombre)}
+                  onChange={handleCaracteristicaChange}
+                />
+                <span htmlFor={`caracteristica-${caracteristica.id}`}>{caracteristica.nombre}</span>
+              </div>
+            ))}
+          </label>
         </div>
 
         <button type="submit" onClick={handleAgregarImagen}>
