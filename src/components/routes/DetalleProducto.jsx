@@ -169,9 +169,7 @@ const DetalleProducto = () => {
                 </div>
                 </div>
               </div>
-              
-                      
-   
+
             </div>
           </article>
         </div>
