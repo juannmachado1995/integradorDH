@@ -18,6 +18,7 @@
 }
 
 .detalle-derecha-card{
+  padding-left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,15 +49,19 @@ a:-webkit-any-link{
 
 .titulo {
   font-family: var(--fuente-principal); 
-  font-size: 1.7rem; 
+  font-size: 2rem; 
   font-weight: 400; 
   color: #333; 
-  margin: 2.5rem 0 0.5rem; 
+  margin: 3rem 0rem 1rem; 
   text-transform: uppercase; 
   letter-spacing: 1px; 
   line-height: 1.2; 
   border-bottom: 1px solid #ccc; 
   padding-bottom: 5px;
+}
+p{
+  font-family: var(--fuente-principal) !important;
+  font-size: 1.5rem !important;
 }
 
 .detalle-descripcion-producto {
@@ -66,30 +71,30 @@ a:-webkit-any-link{
 .fotos-detalle{
   margin: 1rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .imagen-Detalle-Producto {
   width: 60%;
-  max-height: 40vw; 
+  max-height: 35vw; 
   object-fit:contain; 
 }
 .imagen-Detalle-Producto:hover{
   cursor: zoom-in;
 }
 
-
 .miniaturas {
-  margin: 1rem;
-  width: 40%;
+  width: 45%;
+  max-height: 35vw; 
   display: flex;
   flex-wrap: wrap; 
-  justify-content: space-between; 
+  justify-content: space-around; 
   gap: 10px;
 }
 
 .miniatura {
-  width: 48%; 
+  width: 40%;
   object-fit: cover;
   transition: transform 0.3s ease-in-out; }
 
@@ -109,16 +114,22 @@ a:-webkit-any-link{
 .button-reserva{
   font-family: var(--fuente-principal);
   font-weight: 410;
-  padding: 0.5rem !important;
   font-size: 1.5rem !important;
-  margin: 1rem 25rem;
-  color:#f0f0f0;
-  background-color: #2ecc71;
+  background-color: #EE9B01;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: 0.2s ease-in-out;
 }
 .button-reserva:hover {
   background-color: #27ae60 !important; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
+
 .button-reserva2{
   font-family: var(--fuente-principal);
   font-weight: 410;
@@ -132,10 +143,6 @@ a:-webkit-any-link{
   background-color: #267ab1 !important; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
-
-
-
-
 
 .barra-titulo{
   display: flex;
@@ -206,19 +213,6 @@ display: block;
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-
-
-.button-reserva {
-  background-color: #EE9B01;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
 }
 
 

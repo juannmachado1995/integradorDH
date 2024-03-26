@@ -22,7 +22,7 @@
 .card-categoria:hover {
 
   cursor: pointer;
-  font-style: italic;
+  
   transform: scale(1.09);
   z-index: 1;
 }
@@ -40,8 +40,10 @@
 
 .nombre-categoria {
   margin-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.7rem;
   font-weight: lighter;
+  text-transform: uppercase; 
+  color: rgb(79, 75, 75);
 }
   
 .card-link {

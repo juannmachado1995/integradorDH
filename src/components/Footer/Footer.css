@@ -36,8 +36,7 @@ footer {
 
 .right img {
   width: 35px;
-  margin: 0;
-  margin: 10%;
+  margin: 0.5rem !important;
   transition: 0.2s ease-in-out;
 }
 .right img:hover{
