@@ -5,6 +5,8 @@ import { Link, useParams } from 'react-router-dom';
 import { ContextGlobal, urlBackend } from '../utils/global.context';
 import './DetalleProducto.css'
 import axios from 'axios';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'
 
 const DetalleProducto = () => {
 
@@ -16,8 +18,9 @@ const DetalleProducto = () => {
 
   const [errorConsumeService, setErrorConsumeService] = useState('');
 
-
-
+  const [fechaDesde, setFechaDesde] = useState(new Date());
+  const [fechaHasta, setFechaHasta] = useState(new Date());
+  const [showRange, setShowRange] = useState(true);
 
   //logica para que al apretar una miniatura se pase a grande
   const [imagenPrincipal, setImagenPrincipal] = useState('');
@@ -30,7 +33,6 @@ const DetalleProducto = () => {
       setImagenPrincipal(datosProducto.imagenes[0].urlImg);
     }
   }, [datosProducto]);
-
 
 
   //esto para la "fullScreen" de la imagen , no se si funcionara con todo 
@@ -57,10 +59,6 @@ const DetalleProducto = () => {
     }
   };
 
-
-
-
-
   useEffect(() => {
     const traerProducto = async () => {
       const endPoint = 'productos/buscarPorId/' + id;
@@ -77,6 +75,70 @@ const DetalleProducto = () => {
     traerProducto();
 
   }, []);
+
+  const tileDisabledCalendario = ({date}) => {
+    return (
+     esFechaRestringida(fechasPaila, date)
+    );
+  };
+
+  const tileContentCalendario =({date, view}) =>{
+    let fechaActual = new Date();
+    fechaActual.setHours(0, 0, 0);
+    fechaActual.setMilliseconds(0);
+    let returnX = false;
+    switch(view){
+      case 'month':
+        if(esFechaRestringida(fechasPaila, date) || date< fechaActual){
+          returnX = true;
+        }
+        break;
+      case 'year':
+        if(date < fechaActual && (date.getMonth() < fechaActual.getMonth())){
+          returnX = true;
+        }
+        break;
+    }
+
+    if(returnX){
+      return <span>X</span>
+    }
+    
+  }
+
+  const rangoHandle = (value, event) =>{
+    const [desde, hasta] = value;
+    if(esRangoConFechaRestringida(fechasPaila, desde, hasta)){
+      setShowRange(false);
+      setFechaDesde(null);
+      setFechaHasta(null);
+    }else{
+      setShowRange(true);
+      setFechaDesde(desde);
+      setFechaHasta(hasta);
+    }
+  };
+
+  const fechasPaila = [
+    new Date('2024-04-15T00:00:00.000'),
+    new Date('2024-04-16T00:00:00.000'),
+    new Date('2024-04-17T00:00:00.000'),
+    new Date('2024-04-25T00:00:00.000')
+  ];
+
+  const esFechaRestringida = (fechasRestringidas, valFecha) =>{
+    return fechasRestringidas.some((fechaRestringida) => (
+      fechaRestringida.getFullYear() === valFecha.getFullYear() &&
+      fechaRestringida.getMonth() === valFecha.getMonth() &&
+      fechaRestringida.getDate() === valFecha.getDate()
+    ));
+  };
+
+  const esRangoConFechaRestringida = (fechasRestringidas, fechaIni, fechaFin) =>{
+    return fechasRestringidas.some((fechaRestringida) => (
+      fechaRestringida >= fechaIni && fechaRestringida <= fechaFin
+    ));
+  };
 
   return (
 
@@ -151,13 +213,18 @@ const DetalleProducto = () => {
               <div>
                 <h2 className='titulo'>Calendario</h2>
                 <div className='container-calendar-button'>
-                  <div>
-                    <img
-                      src="https://www.calendargratis.com/wp-content/uploads/2023/09/Calendario-Enero-y-Febrero-2024-1536x994.png"
-                      alt=""
-                      style={{ width: '50vw', height: 'auto' }}
-                    />
-                  </div>
+                    <div className='buscador-seccion-calendario calendario-activo'
+                        id='buscador-seccion-calendario'>
+                        <Calendar showDoubleView={true}  locale='es'
+                                  showNeighboringMonth={false}
+                                  selectRange={true} returnValue='range' 
+                                  minDate={new Date()}
+                                  onChange={rangoHandle}
+                                  tileDisabled={tileDisabledCalendario}
+                                  tileContent={tileContentCalendario}
+                                  value={showRange? [fechaDesde , fechaHasta] : null}
+                                />
+                    </div>
                   <div>
                     <p >!Aprovecha nuestros descuentos de temporada!</p>
                     <Link to="/reservas">

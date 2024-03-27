@@ -1,3 +1,37 @@
+.buscador-seccion-calendario button.react-calendar__tile:disabled:hover{
+  background: #f2dada;
+  color: #d95555;
+}
+
+.buscador-seccion-calendario button.react-calendar__tile:disabled:hover abbr{
+  display: none;
+}
+
+.buscador-seccion-calendario button.react-calendar__tile:disabled span{
+  display: none;
+}
+
+.buscador-seccion-calendario button.react-calendar__tile:disabled:hover span{
+  display: block;
+}
+
+.buscador-seccion-calendario button.react-calendar__tile--hover:disabled{
+  background: #f2dada;
+  color: #d95555;
+}
+
+.buscador-seccion-calendario button.react-calendar__tile--hover:disabled abbr{
+  display: none;
+}
+
+.buscador-seccion-calendario button.react-calendar__tile--hover:disabled span{
+  display: block;
+}
+
+
+
+
+
 .detalle-producto-overlay{
   margin-bottom: 1rem;
 }
