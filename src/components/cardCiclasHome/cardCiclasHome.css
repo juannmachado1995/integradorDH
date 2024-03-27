@@ -7,6 +7,20 @@
   
   }
   
+  .megusta{
+    width: 3rem;
+  }
+.megusta:hover{
+  transform: scale(1.1);
+}
+
+
+  .titulo-card-container{
+display: flex;
+padding: 1rem;
+
+  }
+
   .div-card-producto a{
     text-decoration: none;
     color: var(--color-fuente);
@@ -21,23 +35,26 @@
     align-items: center;
     justify-content: space-between;
     font-size: 1.2rem;
-    transition: background-color 0.5s ease-in-out,
-      transform 0.2s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
       width: 100%;
   }
   
   .card-producto-home:hover {
-    cursor: pointer;
     background-color: rgb(241, 240, 240);
-    transform: scale(1.1);
+    
   }
   
   .image-ciclas-home {
     width: 100%;
-    /*height: 35vw;*/
     overflow: hidden;
     border-radius: 15px;
     object-fit: fill;
+    transition:transform 0.2s ease-in-out;
+  }
+  .image-ciclas-home:hover{
+    transform: scale(1.05)   ;
+     cursor: pointer;
+
   }
   
   .home {

@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
-import VerMasFotos from './VerMasFotos';
 import { Link, useParams } from 'react-router-dom';
 import { ContextGlobal, urlBackend } from '../utils/global.context';
 import './DetalleProducto.css'
@@ -8,11 +7,10 @@ import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 
+
 const DetalleProducto = () => {
 
   const { id } = useParams();
-
-  const [mostrarFotos, setMostrarFotos] = useState(false);
 
   const [datosProducto, setDatosProducto] = useState(null);
 
@@ -76,43 +74,43 @@ const DetalleProducto = () => {
 
   }, []);
 
-  const tileDisabledCalendario = ({date}) => {
+  const tileDisabledCalendario = ({ date }) => {
     return (
-     esFechaRestringida(fechasPaila, date)
+      esFechaRestringida(fechasPaila, date)
     );
   };
 
-  const tileContentCalendario =({date, view}) =>{
+  const tileContentCalendario = ({ date, view }) => {
     let fechaActual = new Date();
     fechaActual.setHours(0, 0, 0);
     fechaActual.setMilliseconds(0);
     let returnX = false;
-    switch(view){
+    switch (view) {
       case 'month':
-        if(esFechaRestringida(fechasPaila, date) || date< fechaActual){
+        if (esFechaRestringida(fechasPaila, date) || date < fechaActual) {
           returnX = true;
         }
         break;
       case 'year':
-        if(date < fechaActual && (date.getMonth() < fechaActual.getMonth())){
+        if (date < fechaActual && (date.getMonth() < fechaActual.getMonth())) {
           returnX = true;
         }
         break;
     }
 
-    if(returnX){
+    if (returnX) {
       return <span>X</span>
     }
-    
+
   }
 
-  const rangoHandle = (value, event) =>{
+  const rangoHandle = (value, event) => {
     const [desde, hasta] = value;
-    if(esRangoConFechaRestringida(fechasPaila, desde, hasta)){
+    if (esRangoConFechaRestringida(fechasPaila, desde, hasta)) {
       setShowRange(false);
       setFechaDesde(null);
       setFechaHasta(null);
-    }else{
+    } else {
       setShowRange(true);
       setFechaDesde(desde);
       setFechaHasta(hasta);
@@ -126,7 +124,7 @@ const DetalleProducto = () => {
     new Date('2024-04-25T00:00:00.000')
   ];
 
-  const esFechaRestringida = (fechasRestringidas, valFecha) =>{
+  const esFechaRestringida = (fechasRestringidas, valFecha) => {
     return fechasRestringidas.some((fechaRestringida) => (
       fechaRestringida.getFullYear() === valFecha.getFullYear() &&
       fechaRestringida.getMonth() === valFecha.getMonth() &&
@@ -134,7 +132,7 @@ const DetalleProducto = () => {
     ));
   };
 
-  const esRangoConFechaRestringida = (fechasRestringidas, fechaIni, fechaFin) =>{
+  const esRangoConFechaRestringida = (fechasRestringidas, fechaIni, fechaFin) => {
     return fechasRestringidas.some((fechaRestringida) => (
       fechaRestringida >= fechaIni && fechaRestringida <= fechaFin
     ));
@@ -156,11 +154,11 @@ const DetalleProducto = () => {
                   <button className='button-detalle'>
                     {<IoIosArrowBack />}</button>
                 </Link>
-                <div className='centradorTitulo'>
-                  <span className='titulo-nombre-bici'>
-                    {datosProducto.nombre}
-                  </span>
-                </div>
+
+                <span className='titulo-nombre-bici centradorTitulo'>
+                  {datosProducto.nombre}
+                </span>
+
               </div>
               <div className='fotos-detalle'>
 
@@ -213,18 +211,18 @@ const DetalleProducto = () => {
               <div>
                 <h2 className='titulo'>Calendario</h2>
                 <div className='container-calendar-button'>
-                    <div className='buscador-seccion-calendario calendario-activo'
-                        id='buscador-seccion-calendario'>
-                        <Calendar showDoubleView={true}  locale='es'
-                                  showNeighboringMonth={false}
-                                  selectRange={true} returnValue='range' 
-                                  minDate={new Date()}
-                                  onChange={rangoHandle}
-                                  tileDisabled={tileDisabledCalendario}
-                                  tileContent={tileContentCalendario}
-                                  value={showRange? [fechaDesde , fechaHasta] : null}
-                                />
-                    </div>
+                  <div className='buscador-seccion-calendario calendario-activo'
+                    id='buscador-seccion-calendario'>
+                    <Calendar showDoubleView={true} locale='es'
+                      showNeighboringMonth={false}
+                      selectRange={true} returnValue='range'
+                      minDate={new Date()}
+                      onChange={rangoHandle}
+                      tileDisabled={tileDisabledCalendario}
+                      tileContent={tileContentCalendario}
+                      value={showRange ? [fechaDesde, fechaHasta] : null}
+                    />
+                  </div>
                   <div>
                     <p >!Aprovecha nuestros descuentos de temporada!</p>
                     <Link to="/reservas">

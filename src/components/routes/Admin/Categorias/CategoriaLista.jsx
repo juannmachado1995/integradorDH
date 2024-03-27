@@ -20,19 +20,25 @@ const CategoriaLista = () => {
     fetchCategorias();
   }, []);
 
-
-
+  const handleEliminar = async (id) => { 
+    try {
+      const response = await axios.delete(`http://localhost:8080/categorias/eliminar/${id}`); 
+      console.log('Categoría eliminada:', response.data);
+    } catch (error) {
+      console.error('Error al eliminar la categoría:', error,id);
+    }
+  };
 
   return (
     <div>
       <h1>Lista de Categorias</h1>
 
 
-<div className="producto-item">
-  <div className="producto-id">ID categoria</div>
-   <div className="producto-nombre">Nombre Categoria</div>
-   <div className="producto-acciones">Acciones</div>
- </div>
+      <div className="producto-item">
+        <div className="producto-id">ID categoria</div>
+        <div className="producto-nombre">Nombre Categoria</div>
+        <div className="producto-acciones">Acciones</div>
+      </div>
 
       <ul>
         {categorias.map(categoria => (
@@ -42,21 +48,23 @@ const CategoriaLista = () => {
             <div><p> {categoria.titulo}</p></div>
             {/* <p>{categoria.descripcion}</p> */}
             {/* <img src={categoria.imagen} alt="" className='card-categoria'/> */}
-                    <div className='icon-aling'>               
-                      <img
-                      src={pathIcons.delete}
-                      alt="Eliminar"
-                      className="delete-icon"
-                      
-                    />
-                       <img
-                      src={pathIcons.edit}
-                      alt="Modificar"
-                      className="delete-icon"
-                     
-                    />
-                    </div>
-           
+            <div className='icon-aling'>
+              <img
+                src={pathIcons.delete}
+                alt="Eliminar"
+                className="delete-icon"
+                onClick={() => handleEliminar(categoria.id)}
+              />
+              {/* 
+              <img
+                src={pathIcons.edit}
+                alt="Modificar"
+                className="delete-icon"
+
+              />
+              */}
+            </div>
+
           </li>
         ))}
       </ul>

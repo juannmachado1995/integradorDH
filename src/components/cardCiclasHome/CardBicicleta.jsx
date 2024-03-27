@@ -21,23 +21,25 @@ const CardBicicleta = () => {
     manejadorProductos();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     setNuevosProductos(contexto.arrayCiclas);
   }, [contexto.arrayCiclas]);
-  
+
   return (
     <div>
       <h3 className='titulos'>Recomendaciones</h3>
-      <div className='div-card-producto'>
-        {nuevosProductos.map((producto, index) => (
-          <Link to={'/productos/' + producto.id} key={index} className='wrapper-card-producto-home'>
-          <article className='card-producto-home'>
-            <img className='image-ciclas-home' src={producto.imagenes[0].urlImg} alt={producto.nombre} />
-            <span>{producto.nombre}</span>
-          </article>
-          </Link>
-        ))}
-      </div>
+        <div className='div-card-producto'>
+          {nuevosProductos.map((producto, index) => (
+            <Link to={'/productos/' + producto.id} key={index} className='wrapper-card-producto-home'>
+              <article className='card-producto-home'>
+                <img className='image-ciclas-home' src={producto.imagenes[0].urlImg} alt={producto.nombre} />
+                <div className='titulo-card-container'>
+                  <span>{producto.nombre}</span>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
     </div>
   );
 };

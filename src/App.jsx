@@ -15,10 +15,11 @@ import CategoriaLista from './components/routes/Admin/Categorias/CategoriaLista'
 import FormCategoria from './components/routes/Admin/Categorias/FormCategoria'
 import CaracteristicaLista from './components/routes/Admin/Caracteristicas/CaracteristicaLista'
 import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCaracteristica'
-import Inicializador from './components/Inicializador/Inicializador'
+
 import CategoriasLista from './components/categorias/CategoriasLista'
 import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
 import ReservasHacer from './components/routes/Admin/Reservas/ReservasHacer';
+
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        
+
         {/*Home del site */}
         <Route path='/' element={<Home />} />
 
@@ -61,13 +62,14 @@ function App() {
 
           {/*Administración de lista usuarios*/}
           <Route path='usuarios'  >
-            <Route index element={<UsuariosListar/>} />
-           </Route>
+            <Route index element={<UsuariosListar />} />
+          </Route>
 
         </Route>
 
-         {/*Administración de reservas*/}
-         <Route path='/reservas' element={<ReservasHacer />} />
+        {/*Administración de reservas*/}
+        <Route path='/reservas' element={<ReservasHacer />} />
+
 
         {/*Detalle de producto*/}
         <Route path='/productos/:id' element={<DetalleProducto />} />

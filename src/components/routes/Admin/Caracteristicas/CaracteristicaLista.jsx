@@ -63,21 +63,27 @@ const CaracteristicaLista = () => {
             <div> <p>{caracteristica.id}</p></div>
             <div><p> {caracteristica.nombre}</p></div>
             <div className='icon-aling'><img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" /></div>
-            <div >                
+            <div >   
+
+              {/*             
               <img
                 src={pathIcons.delete}
                 alt="Eliminar"
                 className="delete-icon"
                 onClick={() => handleDeleteClick(caracteristica.id)}
-        
-             
+      
              />
+
               <img
                 src={pathIcons.edit}
                 alt="Modificar"
                 className="delete-icon"
               />
+              */}
+              <h1>.</h1>
+
             </div>
+      
           </li>
         ))}
       </ul>
