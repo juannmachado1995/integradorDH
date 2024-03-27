@@ -143,9 +143,8 @@ const DetalleProducto = () => {
   return (
 
     <>
-
+      <div className='container-middle'>
       {datosProducto ?
-
         <div className="detalle-producto-overlay">
 
           <article className="detalle-producto-card">
@@ -250,7 +249,7 @@ const DetalleProducto = () => {
       {document.fullscreenElement && (
         <button onClick={handleExitFullScreen}>Atrás</button>
       )}
-
+      </div>
     </>
   )
 }
