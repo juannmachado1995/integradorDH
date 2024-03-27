@@ -29,8 +29,16 @@ const labelMonth =[
     'nov',
     'dic'
 ];
+
+const pad = (number) => {
+    if (number < 10) {
+      return "0" + number;
+    }
+    return number;
+};
+
 const Buscador = () => {
-    const {contexto, setContexto} = useContext(ContextGlobal);
+    const {contexto, setContexto} = useContext(ContextGlobal); 
 
     const [rangoFechas, setRangoFechas] = useState('');
     const [rangoFechasServicio, setRangoFechasServicio] = useState([]);
@@ -80,8 +88,13 @@ const Buscador = () => {
 
         const nombre = formJson.nombre_producto.toUpperCase().trim();
 
-        const fecha1 = rangoFechasServicio[0].toISOString().substring(0, 10);
-        const fecha2 = rangoFechasServicio[1].toISOString().substring(0, 10);
+        const fecha1 = rangoFechasServicio[0].getFullYear() + '-' +
+                       pad(rangoFechasServicio[0].getMonth() + 1) + '-' +
+                       pad(rangoFechasServicio[0].getDate());
+
+        const fecha2 = rangoFechasServicio[1].getFullYear() + '-' +
+                       pad(rangoFechasServicio[1].getMonth() + 1) + '-' +
+                       pad(rangoFechasServicio[1].getDate());
 
         const payload = {
             nombreProducto: nombre,
