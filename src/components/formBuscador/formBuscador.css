@@ -21,7 +21,8 @@
   border-bottom-right-radius: 0;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
-  background: #006edc;
+  /*background: #006edc;*/
+  background: var(--verde-oscuro);
   color: white;
   border-style: none;
 }
@@ -31,9 +32,13 @@
   border-bottom-left-radius: 0;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-  background: #006edc;
+  background: var(--verde-oscuro);
   color: white;
   border-style: none;
+}
+
+.buscador-seccion-calendario .react-calendar__tile--active{
+  background: var(--verde-claro);
 }
 
 .buscador-seccion-calendario .react-calendar__month-view__days__day--neighboringMonth {
@@ -60,7 +65,7 @@
 .container-buscador {
     display: flex;
     flex-direction: column;
-    height:89vh;
+    height:23vw;
     align-items: center;
    /* background-image: url('https://www.ciclismoafondo.es/uploads/s1/32/75/31/7/entrenamiento-1.jpeg');
    */ 
@@ -116,6 +121,7 @@
     align-items: center;
     margin: 10px;
     font-size: 1rem;
+    position: relative;
 }
 
 .buscador-seccion-rango-fechas input{

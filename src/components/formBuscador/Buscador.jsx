@@ -146,7 +146,29 @@ const Buscador = () => {
       backgroundImage: images[currentIndex],
     };
 
-
+    const tileContentCalendario =({date, view}) =>{
+        let fechaActual = new Date();
+        fechaActual.setHours(0, 0, 0);
+        fechaActual.setMilliseconds(0);
+        let returnX = false;
+        switch(view){
+          case 'month':
+            if(date< fechaActual){
+              returnX = true;
+            }
+            break;
+          case 'year':
+            if(date < fechaActual && (date.getMonth() < fechaActual.getMonth())){
+              returnX = true;
+            }
+            break;
+        }
+    
+        if(returnX){
+          return <span>X</span>
+        }
+        
+      }
 
     return (
         <>
@@ -164,7 +186,7 @@ const Buscador = () => {
                          onClick={() => (setActivarCalendario(!activarCalendario))}>
                         <img src={pathIcons.calendario} alt='Buscar' />
                         <input id='id_fechas' type='text' name='rango_fechas' value={rangoFechas} readOnly={true} 
-                        placeholder='Fecha inicio - Fecha fin'
+                        placeholder='Desde - Hasta'
                         />
                     </div>
                     <button type="submit" name='submitForm'>
@@ -193,6 +215,7 @@ const Buscador = () => {
                               selectRange={true} returnValue='range' 
                               onChange={rangoHandle}
                               minDate={new Date()}
+                              tileContent={tileContentCalendario}
                             />
                 </div>
             </div>
