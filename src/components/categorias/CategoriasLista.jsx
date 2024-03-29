@@ -29,20 +29,24 @@ const CategoriasLista = (props) => {
     return (
 
         <>
-            <h1>CATEGORIA</h1>
-            <h1>
-                {categoria}
-            </h1>
-            <div className='div-card-producto'>
-                {productos.map((cicla, index) => (
-                    <Link to={'/productos/' + (+index + 1)} key={index}>
-                        <article className='card-producto-home'>
-                            <img className='image-ciclas-home' src={cicla.imagenes[0].urlImg} alt={cicla.nombre} />
-                            <span>{cicla.nombre}</span>
-                        </article>
-                    </Link>
+            <div className='container-middle'>
+                <h1>CATEGORIA</h1>
+                <h1>
+                    {categoria}
+                </h1>
+                <div className='div-card-producto'>
+                    {productos.map((cicla, index) => (
+                        <Link to={'/productos/' + cicla.id} key={index} className='wrapper-card-producto-home'>
+                            <article className='card-producto-home'>
+                                <img className='image-ciclas-home' src={cicla.imagenes[0].urlImg} alt={cicla.nombre} />
+                                <div className='titulo-card-container'>
+                                    <span>{cicla.nombre}</span>
+                                </div>
+                            </article>
+                        </Link>
 
-                ))}
+                    ))}
+                </div>
             </div>
         </>
 
