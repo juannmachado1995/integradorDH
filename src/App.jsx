@@ -18,7 +18,6 @@ import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCa
 
 import CategoriasLista from './components/categorias/CategoriasLista'
 import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
-import ReservasHacer from './components/routes/Admin/Reservas/ReservasHacer';
 import { useLayoutEffect } from 'react';
 import ConfirmarReserva from './components/routes/Reservas/ConfirmarReserva';
 import ListarReservas from './components/routes/Reservas/ListarReservas';
