@@ -122,6 +122,7 @@
     margin: 10px;
     font-size: 1rem;
     position: relative;
+    color: black;
 }
 
 .buscador-seccion-rango-fechas input{

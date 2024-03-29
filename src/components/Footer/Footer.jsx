@@ -20,17 +20,16 @@ const Footer = () => {
           <div className="copy"> <p>Copyright © 2024</p></div>
         </div>
         <div className='right'>
-      
-          <a to="https://www.facebook.com">
+          <a href="https://www.facebook.com" target='_blank'>
             <img src={pathIcons.facebook} alt='Facebook' />
           </a>
-          <a href={urlApiWhatsApp}>
+          <a href={urlApiWhatsApp} target='_blank'>
             <img src={pathIcons.whatsapp} alt='WhatsApp'/>
           </a>
-          <a to="https://www.instagram.com">
+          <a href="https://www.instagram.com" target='_blank'>
             <img src={pathIcons.instagram} alt='Instagram' />
           </a>
-          <a to="https://www.youtube.com">
+          <a href="https://www.youtube.com" target='_blank'>
             <img src={pathIcons.youtube} alt='Youtube' />
           </a>
         </div>
