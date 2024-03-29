@@ -94,8 +94,8 @@ a:-webkit-any-link{
   padding-bottom: 5px;
 }
 p{
-  font-family: var(--fuente-principal) !important;
-  font-size: 1.5rem !important;
+  font-family: var(--fuente-principal) ;
+  font-size: 1.5rem ;
 }
 
 .detalle-descripcion-producto {

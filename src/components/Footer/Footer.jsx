@@ -6,11 +6,10 @@ import { urlLogoFooter, pathIcons } from '../utils/global.context';
 
 const Footer = () => {
 
-  const whatsappClick = () => {
-    const numero = '123456789';
-    const whatsapp = `https://wa.me/${numero}`;
-    window.location.href = whatsapp;
-  };
+  const telefonoApiWhatsApp = '573102604250';
+  const mensajeApiWhatsApp = 'Hola, me gustaría saber mas a cerca de las ciclas disponibles en EBikerent.';
+  const endPointApiWhatsApp = 'https://api.whatsapp.com/send';
+  const urlApiWhatsApp = endPointApiWhatsApp + '?phone=' + telefonoApiWhatsApp + '&text=' + mensajeApiWhatsApp.replace(/\s/g, '%20');
 
   return (
     <footer>
@@ -22,18 +21,18 @@ const Footer = () => {
         </div>
         <div className='right'>
       
-        <Link to="https://www.facebook.com">
+          <a to="https://www.facebook.com">
             <img src={pathIcons.facebook} alt='Facebook' />
-          </Link>
-          <Link to="https://www.whatsapp.com">
-            <img src={pathIcons.whatsapp} alt='WhatsApp' onClick={whatsappClick}/>
-          </Link>
-          <Link to="https://www.instagram.com">
+          </a>
+          <a href={urlApiWhatsApp}>
+            <img src={pathIcons.whatsapp} alt='WhatsApp'/>
+          </a>
+          <a to="https://www.instagram.com">
             <img src={pathIcons.instagram} alt='Instagram' />
-          </Link>
-          <Link to="https://www.youtube.com">
+          </a>
+          <a to="https://www.youtube.com">
             <img src={pathIcons.youtube} alt='Youtube' />
-          </Link>
+          </a>
         </div>
       </div>  
     </footer>
