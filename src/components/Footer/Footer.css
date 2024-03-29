@@ -1,10 +1,7 @@
 footer {
   background-color: var(--verde-claro);
   color: #f0f0f0;
-  padding: 0.5rem;
-
 }
-
 
 .footer-content {
   display: flex;
@@ -13,16 +10,12 @@ footer {
   justify-content: space-between;
 }
 
-
 .left {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-left: 20px;
-
-
 }
-
 
 .left img {
   margin-right: 2%;
@@ -35,7 +28,7 @@ footer {
 
 .right img {
   width: 20px;
-  margin: 0.5rem !important;
+  margin: 0.3rem;
   transition: 0.2s ease-in-out;
 }
 .right img:hover{
@@ -57,36 +50,24 @@ footer {
   width: 200px;
 }
 
-
-.right > * {
-  margin-left: 10px; 
-}
-
 /*estilos footer entre 768 y 1023*/
 @media (min-width: 768px) and (max-width: 1023px) {
-
   .left {
-
     margin-left: 10px;
-
   }
 
   .left p {
     margin-left: 6%;
     font-size: 0.8rem;
     white-space: nowrap;
-
   }
 
   .left img {
     margin-right: 2%;
-
   }
 
   .right img {
     width: 20px;
-    margin: 0;
-    margin: 10%;
   }
 }
 
@@ -94,29 +75,22 @@ footer {
 
 /* Estilos footer entre 377 y 676 */
 @media (min-width: 377px) and (max-width: 767px) {
-
   .left {
-
     margin-left: 10px;
-
   }
 
   .left img {
     margin-right: 2%;
-
   }
 
   .right img {
     width: 20px;
-    margin: 0;
-    margin: 10%;
   }
 
   .left p {
     margin-left: 6%;
     font-size: 0.8rem;
     white-space: nowrap;
-
   }
 
 
@@ -125,32 +99,22 @@ footer {
 
 /* Estilos footer entre 321 y 376 */
 @media (min-width: 321px) and (max-width: 376px) {
-
-
   .left {
-
     margin-left: 10px;
-
   }
 
   .left p {
     font-size: 0.8rem;
     white-space: nowrap;
-
   }
 
   .left img {
     margin-right: 0;
-
   }
 
   .right img {
     width: 20px;
-    margin: 0;
-    margin: 10%;
   }
-
-
 }
 
 
@@ -158,8 +122,6 @@ footer {
 /* Estilos footer  320 */
 
 @media (max-width: 320px) {
-
-
   .footer-content {
     display: flex;
     flex-direction: column;
@@ -169,14 +131,12 @@ footer {
 
   .left img {
     margin-right: 2%;
-
   }
 
   .right img {
     width: 20px;
     align-items: center;
     padding-left: 10px;
-
   }
 
 
@@ -184,13 +144,9 @@ footer {
     margin-left: 5%;
     font-size: 0.8rem;
     white-space: nowrap;
-
   }
 
   .right {
-
     justify-content: center;
   }
-
-
 }
