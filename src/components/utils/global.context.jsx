@@ -19,6 +19,9 @@ import pathIcoYoutube from '../../images/youtube.png';
 import pathIcoLupa from '../../images/ico-lupa.png';
 import pathIcoCalendario from '../../images/ico-calendario.png';
 import pathRol from '../../images/rol.png';
+import pathIcoDone from '../../images/ico-done.png';
+import pathIcoGotoBack from '../../images/ico-goto-back.png';
+import pathIcoRedAlert from '../../images/ico-red-alert.png';
 
 /*Manejo global de objeto de sesión */
 const nameObjSession = 'ebikerent-session';
@@ -78,7 +81,10 @@ export const pathIcons = {
   youtube: pathIcoYoutube,
   lupa: pathIcoLupa,
   calendario: pathIcoCalendario,
-  rol: pathRol
+  rol: pathRol,
+  done: pathIcoDone,
+  gotoBack: pathIcoGotoBack,
+  redAlert: pathIcoRedAlert
 };
 
 export const urlBackend = 'http://localhost:8080/';
