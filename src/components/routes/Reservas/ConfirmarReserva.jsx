@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { getObjSession, modulosRedireccion, urlBackend } from '../../utils/global.context';
+import { getObjSession, modulosRedireccion, urlBackend, pathIcons } from '../../utils/global.context';
 import axios from 'axios';
+import ButtonLeftIcon from '../../Buttons/ButtonLeftIcon';
+import './ConfirmarReserva.css';
+import Input2 from '../../Input2/Input2';
 
 const msgError1 = 'Existe un error en los datos de la reserva, por favor elíge una bicicleta y asegúrate de seleccionar los días en los que quieres reservarla, luego selecciona  el botón “Iniciar Reserva”.';
 const msgError2 = 'Existe un error con las fechas de reserva, fecha inicial de reserva [';
@@ -10,14 +13,33 @@ const msgError2_2 = '].';
 const msgError3 = 'Existe un error con los datos de la bicicleta';
 const msgError4 = 'La bicicleta no se puede reservar en las fechas seleccionadas';
 const msgError5 = 'Esta bicicleta no existe';
+const msgError6 = 'Tardaste mucho en confirmar la reserva, la bicicleta ya no esta disponible en esas fechas, intenta en otra fecha o con otra bicicleta.';
 
 const ConfirmarReserva = () => {
+  /*Estados para mistrar cards/mensajes de error o confirmación*/
   const [errorConsumeService, setErrorConsumeService] = useState(null);
   const [okConsumeService, setOkConsumeService] = useState(null);
+  const [errorConsumeService2, setErrorConsumeService2] = useState(null);
+  const [okConsumeService2, setOkConsumeService2] = useState(null);
+
+  /*Estado para guardar datos de producto a reservar*/
   const [datosProducto, setDatosProducto] = useState(null);
 
+  /*Estados para datos de formulario de datos personales*/
+  const [datosPerNombre, setDatosPerNombre] = useState('');
+  const [datosPerApellido, setDatosPerApellido] = useState('');
+  const [datosPerCorreo, setDatosPerCorreo] = useState('');
+  const [datosPerMedioPago, setDatosPerMedioPago] = useState('');
+
+  /*Estados de datos de reserva para consumo de servicio */
+  const [fechaInicioService, setFechaInicioService] = useState('');
+  const [fechaFinService, setFechaFinService] = useState('');
+  const [idProductoService, setIdProductoService] = useState('');
+
+  /*Para extraer parametros de URL*/
   const [reservaParams, setReservaParams] = useSearchParams();
 
+  /*Para realizar navegación/redireccionamientos*/
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -35,14 +57,20 @@ const ConfirmarReserva = () => {
                        '&fecha2=' + encodeURIComponent(fecha2);
       navigate(urlLogin)
     }else{
+      setDatosPerNombre(objSessionTmp.nombre);
+      setDatosPerApellido(objSessionTmp.apellido);
+      setDatosPerCorreo(objSessionTmp.correo);
+      setDatosPerMedioPago('Tarjeta de crédito');
+
       if(isValidBookingValues(idProducto, fecha1, fecha2)){
-        console.log('a llamar cadena promise')
         consultarProductoPorId(idProducto)
-          .then(() =>{
+          .then((response) =>{
+            setDatosProducto(response.data);
             buscarReservaPorProducto(idProducto, fecha1, fecha2);
         })
-          .catch(() => {
+          .catch((error) => {
             setErrorConsumeService(msgError5);
+            setErrorConsumeService2(error.response.data.message)
         });
       }
     }
@@ -103,7 +131,7 @@ const ConfirmarReserva = () => {
   };
 
   const buscarReservaPorProducto = async (idProducto, fecha1, fecha2) => {
-    const endPoint = 'reservas/buscarReservaPorProducto'
+    const endPoint = 'reservas/buscarReservaPorProducto';
     const url = urlBackend + endPoint;
 
     const payload = {
@@ -111,36 +139,133 @@ const ConfirmarReserva = () => {
       fechaFin: fecha2,
       producto_id: idProducto,
       correo: 'correo@correo.com'
-    }
+    };
 
     try{
       const response = await axios.post(url, payload);
+      setFechaInicioService(fecha1);
+      setFechaFinService(fecha2);
+      setIdProductoService(idProducto);
     }catch(error){
-      console.log('error buscarReservaPorProducto:', error.response);
       setErrorConsumeService(msgError4);
+      setErrorConsumeService2(error.response.data.message);
     }
   }
 
+  const handleGoToBack = () =>{
+    navigate(-1);
+  }
+
+  const handleConfirmarReserva = async () =>{
+    setErrorConsumeService('');
+    setOkConsumeService('');
+    setErrorConsumeService2('');
+    setOkConsumeService2('');
+
+    const endPonit = 'reservas/registrar';
+    const url = urlBackend + endPonit;
+
+    const payload = {
+      fechaInicio: fechaInicioService,
+      fechaFin: fechaInicioService,
+      producto_id: idProductoService,
+      correo: datosPerCorreo
+    };
+
+    try{
+      const response = await axios.post(url, payload);
+      setOkConsumeService('Tu bicicleta se ha reservado con éxito');
+      setOkConsumeService2('N° de reserva generado: ' + response.data.id);
+      setReservaParams('');
+    }catch(error){
+      setErrorConsumeService(msgError6);
+      setErrorConsumeService2(error.response.data.message);
+    }
+
+  }
+
+  const handleGoToHome = () =>{
+    navigate('/');
+  };
+
   return (
-    <div className='container-middle'>
-        <h1>Confirmar Reserva</h1>
+    <div className='container-middle ConfirmarReserva-parent-center'>
+        <div className='ConfirmarReserva-titulo-principal'>
+          <h2>Confirmar Reserva</h2>
+        </div>
         {(errorConsumeService || okConsumeService) ?
-          <div>
-            {errorConsumeService &&
-            <div>
-              <h3>Error</h3>
-              <span>{errorConsumeService}</span>
+          <div className='ConfirmarReserva-vertical-container ConfirmarReserva-mensajes-servicio'>
+            <div className='ConfirmarReserva-mensajes-servicio--item'>
+              <img src={errorConsumeService? pathIcons.redAlert: pathIcons.done} alt="" />
             </div>
-            }
-            {okConsumeService &&
-            <div>
-              <h3>Error</h3>
-              <span>{errorConsumeService}</span>
+            <div className='ConfirmarReserva-mensajes-servicio--item'>
+              <div style={{display: 'flex', flexDirection: 'column'}}>
+              <p className={errorConsumeService? 'ConfirmarReserva-mensajes-servicio--error': ''}>
+                {errorConsumeService ?
+                  errorConsumeService
+                  :
+                  okConsumeService
+                }
+              </p>
+              {errorConsumeService2 &&
+                <div className='ConfirmarReserva-mensajes-servicio--DetalleError'>{errorConsumeService2}</div>
+              }
+              {okConsumeService2 &&
+                <div>{okConsumeService2}</div>
+              }
+              </div>
             </div>
-            }
+            <div className='ConfirmarReserva-mensajes-servicio--item ConfirmarReserva-mensajes-servicio--buttons'>
+              <ButtonLeftIcon title='Volver al inicio' text='Volver al inicio' icon='none' handleClick={handleGoToHome} />
+            </div>
           </div>
           :
-          <span>todo nice</span>
+          <div className='ConfirmarReserva-main'>
+            <div className='ConfirmarReserva-seccion-botones-top'>
+              <ButtonLeftIcon title='Volver atrás' text='Volver atrás' icon={pathIcons.gotoBack} handleClick={handleGoToBack} />
+            </div>
+            
+            <div className='ConfirmarReserva-seccion-datos-personales ConfirmarReserva-vertical-container'>
+              <h3>Revisa tus datos</h3>
+              <form onSubmit={(e) => (e.preventDefault())}>
+                <Input2 idInput='nombre' textInput='Nombre' nameInput='nombre' typeInput='text' value={datosPerNombre}/>
+                <Input2 idInput='apellido' textInput='Apellido' nameInput='apellido' typeInput='text' value={datosPerApellido}/>
+                <Input2 idInput='correo' textInput='Correo electrónico' nameInput='correo' typeInput='email' value={datosPerCorreo}/>
+                <Input2 idInput='medioPago' textInput='Medio de pago' nameInput='medioPago' typeInput='text' value={datosPerMedioPago} />
+              </form>
+            </div>
+            
+            <div className='ConfirmarReserva-seccion-datos-reserva ConfirmarReserva-vertical-container'>
+              <h3>Detalle de la reserva</h3>
+              {datosProducto &&
+                <div className='ConfirmarReserva-seccion-datos-reserva--card'>
+                  <img src={datosProducto.imagenes[0].urlImg} alt={datosProducto.imagenes[0].titulo} />
+                  <div className='ConfirmarReserva-seccion-datos-reserva--nombre'>
+                    {datosProducto.nombre}
+                  </div>
+                  <div className='ConfirmarReserva-seccion-datos-reserva--fechas'>
+                    <span>Fecha inicio</span>
+                    <span>{fechaInicioService}</span>
+                  </div>
+                  <div className='ConfirmarReserva-seccion-datos-reserva--fechas'>
+                    <span>Fecha fin</span>
+                    <span>{fechaFinService}</span>
+                  </div>
+                </div>
+              }
+            </div>
+            
+            <div className='ConfirmarReserva-seccion-datos-adicionales ConfirmarReserva-vertical-container'>
+              <h3>Estamos ubicados en</h3>
+              <span>Av. Alicia Moreau de Justo, 516 1107 Buenos Aires Ciudad autónoma de Buenos Aires</span>
+              <h3>Horario</h3>
+              <span>Lunes a Domingo de 8:00am a 5:30pm</span>
+            </div>
+
+            <div className='ConfirmarReserva-seccion-botones-bottom'>
+              <ButtonLeftIcon title='Confirmar Reserva' text='Confirmar reserva' icon={pathIcons.login} handleClick={handleConfirmarReserva} />
+            </div>
+          </div>
         }
     </div>
   )

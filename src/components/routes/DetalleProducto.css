@@ -90,7 +90,7 @@ a:-webkit-any-link{
   border-bottom: 1px solid #ccc; 
   padding-bottom: 5px;
 }
-p{
+.detalle-producto-overlay p{
   font-family: var(--fuente-principal) ;
   font-size: 1.5rem ;
 }
@@ -189,9 +189,12 @@ p{
 
 
 
-p,h2{
-font-size: 1rem;
+.detalle-producto-overlay p{
+  font-size: 1rem;
+}
 
+.detalle-producto-overlay h2{
+  font-size: 1rem;
 }
 
 .caracteristicas-container {
@@ -253,7 +256,7 @@ box-sizing: border-box;
 height: 60vh;
 }
 
-p{
+.detalle-producto-overlay p{
 font-size: 10px;
 
 }
@@ -309,9 +312,8 @@ div.detalle-descripcion-producto{
   overflow:auto;
 }
 
-h2{
+.detalle-producto-overlay h2{
   margin: 0%;
-  
 }
 
 .titulo-426{
@@ -371,7 +373,7 @@ div.caracteristicas-container {
 }
 
 
-p{
+.detalle-producto-overlay p{
 font-size: 10px;
 margin: 0%;
 
