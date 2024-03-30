@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ButtonRightIcon from '../../Buttons/ButtonRightIcon'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
-import { pathIcons, getObjSession } from '../../utils/global.context'
+import { pathIcons, getObjSession, modulosRedireccion } from '../../utils/global.context'
 import './Admin.css'
 
 const Admin = () => {
@@ -14,7 +14,8 @@ const Admin = () => {
 
     if(objSessionTmp === null){
       /*Si no hay objeto de sesión, es decir, no se ha logueado, no permite usar el modulo admin */
-      navigate('/login')
+      const urlLogin = '/login?modulo=' + modulosRedireccion.admin;
+      navigate(urlLogin)
     }else{
       /*Si existe el objeto de sesión, pero no tiene los permisos, no permite usar el modulo */
       if(!objSessionTmp.esAdmin){

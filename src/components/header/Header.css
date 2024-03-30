@@ -8,6 +8,7 @@ header {
     left: 0;
     top: 0;
     width: 100%;
+    max-width: calc(100vw - 16px);
     position: fixed;
     z-index: 3;
 }
