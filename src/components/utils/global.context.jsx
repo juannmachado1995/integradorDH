@@ -82,3 +82,8 @@ export const pathIcons = {
 };
 
 export const urlBackend = 'http://localhost:8080/';
+
+export const modulosRedireccion ={
+  confirmarReservas : 'confirmarReserva',
+  admin : 'admin'
+};

@@ -6,7 +6,14 @@ import './DetalleProducto.css'
 import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
+import { useNavigate } from 'react-router-dom';
 
+const pad = (number) => {
+  if (number < 10) {
+    return "0" + number;
+  }
+  return number;
+};
 
 const DetalleProducto = () => {
 
@@ -16,9 +23,11 @@ const DetalleProducto = () => {
 
   const [errorConsumeService, setErrorConsumeService] = useState('');
 
-  const [fechaDesde, setFechaDesde] = useState(new Date());
-  const [fechaHasta, setFechaHasta] = useState(new Date());
-  const [showRange, setShowRange] = useState(true);
+  const [fechaDesde, setFechaDesde] = useState(null);
+  const [fechaHasta, setFechaHasta] = useState(null);
+  const [showRange, setShowRange] = useState(false);
+
+  const navigate = useNavigate();
 
   //logica para que al apretar una miniatura se pase a grande
   const [imagenPrincipal, setImagenPrincipal] = useState('');
@@ -138,6 +147,27 @@ const DetalleProducto = () => {
     ));
   };
 
+  const goToConfirmarReserva = () =>{
+    if(fechaDesde === null || fechaHasta === null){
+      alert('Debe seleccionar un rango de fechas')
+    }else{
+      const fecha1 = fechaDesde.getFullYear() + '-' +
+            pad(fechaDesde.getMonth() + 1) + '-' +
+            pad(fechaDesde.getDate());
+
+      const fecha2 = fechaHasta.getFullYear() + '-' +
+            pad(fechaHasta.getMonth() + 1) + '-' +
+            pad(fechaHasta.getDate());
+
+      
+      const url = '/reservas/confirmar?id=' + id + 
+                  '&fecha1=' + encodeURIComponent(fecha1) + 
+                  '&fecha2=' + encodeURIComponent(fecha2);
+      
+      navigate(url);
+    }
+  }
+
   return (
 
     <>
@@ -224,11 +254,9 @@ const DetalleProducto = () => {
                   </div>
                   <div>
                     <p >!Aprovecha nuestros descuentos de temporada!</p>
-                    <Link to="/reservas">
-                      <button className='button-reserva'>
-                        Iniciar Reserva
-                      </button>
-                    </Link>
+                    <button className='button-reserva' onClick={goToConfirmarReserva}>
+                      Iniciar Reserva
+                    </button>
                   </div>
                 </div>
               </div>
