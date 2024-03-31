@@ -29,7 +29,7 @@ const ConfirmarReserva = () => {
   const [datosPerNombre, setDatosPerNombre] = useState('');
   const [datosPerApellido, setDatosPerApellido] = useState('');
   const [datosPerCorreo, setDatosPerCorreo] = useState('');
-  const [datosPerMedioPago, setDatosPerMedioPago] = useState('');
+  const [datosPerTelefono, setDatosPerTelefono] = useState('');
 
   /*Estados de datos de reserva para consumo de servicio */
   const [fechaInicioService, setFechaInicioService] = useState('');
@@ -60,7 +60,7 @@ const ConfirmarReserva = () => {
       setDatosPerNombre(objSessionTmp.nombre);
       setDatosPerApellido(objSessionTmp.apellido);
       setDatosPerCorreo(objSessionTmp.correo);
-      setDatosPerMedioPago('Tarjeta de crédito');
+      setDatosPerTelefono(objSessionTmp.telefono);
 
       if(isValidBookingValues(idProducto, fecha1, fecha2)){
         consultarProductoPorId(idProducto)
@@ -167,10 +167,12 @@ const ConfirmarReserva = () => {
 
     const payload = {
       fechaInicio: fechaInicioService,
-      fechaFin: fechaInicioService,
+      fechaFin: fechaFinService,
       producto_id: idProductoService,
       correo: datosPerCorreo
     };
+
+    console.log(payload)
 
     try{
       const response = await axios.post(url, payload);
@@ -231,7 +233,7 @@ const ConfirmarReserva = () => {
                 <Input2 idInput='nombre' textInput='Nombre' nameInput='nombre' typeInput='text' value={datosPerNombre}/>
                 <Input2 idInput='apellido' textInput='Apellido' nameInput='apellido' typeInput='text' value={datosPerApellido}/>
                 <Input2 idInput='correo' textInput='Correo electrónico' nameInput='correo' typeInput='email' value={datosPerCorreo}/>
-                <Input2 idInput='medioPago' textInput='Medio de pago' nameInput='medioPago' typeInput='text' value={datosPerMedioPago} />
+                <Input2 idInput='telefono' textInput='Teléfono' nameInput='telefono' typeInput='text' value={datosPerTelefono} />
               </form>
             </div>
             
