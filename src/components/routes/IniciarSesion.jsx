@@ -126,6 +126,7 @@ const IniciarSesion = () =>{
                 nombre: response.data.nombre,
                 apellido: response.data.apellido,
                 correo: response.data.mail,
+                telefono: response.data.telefono,
                 esAdmin: response.data.esAdmin
             });
             setContexto({...contexto, sesionActiva: true});

@@ -27,6 +27,8 @@ const DetalleProducto = () => {
   const [fechaHasta, setFechaHasta] = useState(null);
   const [showRange, setShowRange] = useState(false);
 
+  const[fechasReservadas, setFechasReservadas] = useState([]);
+
   const navigate = useNavigate();
 
   //logica para que al apretar una miniatura se pase a grande
@@ -74,18 +76,19 @@ const DetalleProducto = () => {
       try {
         const response = await axios.get(url);
         setDatosProducto(response.data);
+        setFechasReservadas(response.data.reservas.map((element) => new Date(element + 'T00:00:00.000')
+        ));
       } catch (error) {
         setErrorConsumeService(error.response.data.message);
       }
     }
 
     traerProducto();
-
   }, []);
 
   const tileDisabledCalendario = ({ date }) => {
     return (
-      esFechaRestringida(fechasPaila, date)
+      esFechaRestringida(fechasReservadas, date)
     );
   };
 
@@ -96,7 +99,7 @@ const DetalleProducto = () => {
     let returnX = false;
     switch (view) {
       case 'month':
-        if (esFechaRestringida(fechasPaila, date) || date < fechaActual) {
+        if (esFechaRestringida(fechasReservadas, date) || date < fechaActual) {
           returnX = true;
         }
         break;
@@ -115,7 +118,7 @@ const DetalleProducto = () => {
 
   const rangoHandle = (value, event) => {
     const [desde, hasta] = value;
-    if (esRangoConFechaRestringida(fechasPaila, desde, hasta)) {
+    if (esRangoConFechaRestringida(fechasReservadas, desde, hasta)) {
       setShowRange(false);
       setFechaDesde(null);
       setFechaHasta(null);
@@ -125,13 +128,6 @@ const DetalleProducto = () => {
       setFechaHasta(hasta);
     }
   };
-
-  const fechasPaila = [
-    new Date('2024-04-15T00:00:00.000'),
-    new Date('2024-04-16T00:00:00.000'),
-    new Date('2024-04-17T00:00:00.000'),
-    new Date('2024-04-25T00:00:00.000')
-  ];
 
   const esFechaRestringida = (fechasRestringidas, valFecha) => {
     return fechasRestringidas.some((fechaRestringida) => (
