@@ -249,7 +249,7 @@ const DetalleProducto = () => {
                     />
                   </div>
                   <div>
-                    <p >!Aprovecha nuestros descuentos de temporada!</p>
+                    <p className='pButton-Reserva'>!Aprovecha nuestros descuentos de temporada!</p>
                     <button className='button-reserva' onClick={goToConfirmarReserva}>
                       Iniciar Reserva
                     </button>

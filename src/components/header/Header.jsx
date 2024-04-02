@@ -31,9 +31,11 @@ const Header = () => {
     navigate('/Admin');
   };
 
+
+
   let options = [];
   const optionsUserAnonimus = [
-    { title: 'Crear cuenta', text: 'Crear cuenta', icon: pathIcons.addUser, link: '/signup', handle: null},
+    { title: 'Crear cuenta', text: 'Crear cuenta', icon: pathIcons.addUser, link: '', handle: null},
     { title: 'Iniciar sesión', text: 'Iniciar sesión', icon: pathIcons.goLogginUser, link: '/login', handle: null}
   ];
 
