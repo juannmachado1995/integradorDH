@@ -289,8 +289,50 @@ box-sizing: border-box;
 
   display: none;
 }
+
+div.detalle-producto-overlay{
+
+  margin-top: 0;
 }
 
+.imagen-Detalle-Producto {
+
+  width: 100%;
+}
+
+
+div.detalle-izquierda-card {
+  width: 100%;
+}
+
+
+
+
+div.caracteristicas-container {
+height: auto;
+}
+
+button.button-reserva {
+
+  font-size: 1rem !important;
+  margin-top: 10px;
+}
+
+.pButton-Reserva {
+
+font-size: 0.8rem !important;
+
+}
+
+
+
+div.container-calendar-button{
+
+  display: flex;
+  flex-direction: column;
+  
+  }
+}
 
 /* Media queries para hacerlo responsive 426*/
 
@@ -425,5 +467,46 @@ button.button-reserva {
 font-size: 0.8rem !important;
 
 }
+
+
+div.fotos-detalle {
+
+  display: flex;
+  flex-direction: column;
+}
+
+img.imagen-Detalle-Producto {
+
+  display: none;
+}
+
+
+div.miniaturas{
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: fit-content;
+  width: 100%;
+
+}
+
+div.detalle-izquierda-card {
+
+  height: auto;
+}
+
+div.detalle-producto-overlay{
+
+  margin-top: 0;
+}
+
+
+.miniatura {
+  width: 100%;
+}
+
+
+
 
 }
