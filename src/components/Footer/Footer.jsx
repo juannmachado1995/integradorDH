@@ -7,7 +7,7 @@ import { urlLogoFooter, pathIcons } from '../utils/global.context';
 const Footer = () => {
 
   const telefonoApiWhatsApp = '573102604250';
-  const mensajeApiWhatsApp = 'Hola, me gustaría saber mas a cerca de las ciclas disponibles en EBikerent.';
+  const mensajeApiWhatsApp = 'Hola, me gustaría saber mas acerca de las ciclas disponibles en EBikerent.';
   const endPointApiWhatsApp = 'https://api.whatsapp.com/send';
   const urlApiWhatsApp = endPointApiWhatsApp + '?phone=' + telefonoApiWhatsApp + '&text=' + mensajeApiWhatsApp.replace(/\s/g, '%20');
 
