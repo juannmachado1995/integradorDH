@@ -394,4 +394,36 @@ img.imagen-Detalle-Producto{
   height: 300px;
 
 }
+
+
+div.container-calendar-button{
+
+display: flex;
+flex-direction: column;
+
+}
+
+.iconos-caracteristicas {
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+div.caracteristicas-container {
+height: auto;
+}
+
+button.button-reserva {
+
+  font-size: 1rem !important;
+  margin-top: 10px;
+}
+
+.pButton-Reserva {
+
+font-size: 0.8rem !important;
+
+}
+
 }

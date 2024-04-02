@@ -22,6 +22,7 @@ import { useLayoutEffect } from 'react';
 import ConfirmarReserva from './components/routes/Reservas/ConfirmarReserva';
 import ListarReservas from './components/routes/Reservas/ListarReservas';
 
+
 /*Se agrega este componente de envoltura de routes para hacer que en cada cambio de pagina
   se desplace al princiio de la misma */
 const WrapperRoutes = ({children}) =>{
@@ -83,9 +84,10 @@ function App() {
 
           {/*Detalle de producto*/}
           <Route path='/productos/:id' element={<DetalleProducto />} />
-
           <Route path='/masFotos' element={<MasFotos />} />
           <Route path='categorias/:categoria' element={<CategoriasLista />} />
+
+          
 
           {/*Rutas no encontradas*/}
           <Route path='*' element={
