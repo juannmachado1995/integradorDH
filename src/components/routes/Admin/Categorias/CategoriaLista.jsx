@@ -22,7 +22,7 @@ const CategoriaLista = () => {
 
   const handleEliminar = async (id) => { 
     try {
-      const response = await axios.delete(`http://localhost:8080/categorias/eliminar/${id}`); 
+      const response = await axios.delete(`https://backendebikerent-production.up.railway.app/categorias/eliminar/${id}`); 
       console.log('Categoría eliminada:', response.data);
     } catch (error) {
       console.error('Error al eliminar la categoría:', error,id);

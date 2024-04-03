@@ -10,7 +10,7 @@ const CaracteristicaLista = () => {
   useEffect(() => {
     const fetchCaracteristicas = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/caracteristicas/listar');
+        const response = await axios.get('https://backendebikerent-production.up.railway.app/caracteristicas/listar');
         console.log('Características obtenidas:', response.data);
         setCaracteristicas(response.data);
       } catch (error) {
