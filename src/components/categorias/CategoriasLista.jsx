@@ -11,7 +11,7 @@ const CategoriasLista = (props) => {
     useEffect(() => {
         const filtroCategorias = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/productos/listar');
+                const response = await axios.get('https://backendebikerent-production.up.railway.app/productos/listar');
                 if (categoria) {
                     setProductos(response.data.filter((producto) => producto.categoria.titulo === categoria));
                 } else {

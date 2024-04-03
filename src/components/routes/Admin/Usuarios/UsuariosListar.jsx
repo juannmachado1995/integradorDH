@@ -11,7 +11,7 @@ const UsuariosListar = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/usuarios/listar');
+        const response = await axios.get('https://backendebikerent-production.up.railway.app/usuarios/listar');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);

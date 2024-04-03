@@ -12,7 +12,7 @@ const CardBicicleta = () => {
   useEffect(() => {
     const manejadorProductos = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/productos/listar');
+        const response = await axios.get('https://backendebikerent-production.up.railway.app/productos/listar');
         setNuevosProductos(response.data);
       } catch (error) {
         console.error('Error al obtener productos:', error);

@@ -79,7 +79,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/productos/registrar",
+        "https://backendebikerent-production.up.railway.app/productos/registrar",
         nuevoProducto
       );
       console.log("Producto guardado:", response.data);
@@ -106,7 +106,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
   useEffect(() => {
     async function fetchCategorias() {
       try {
-        const response = await fetch('http://localhost:8080/categorias/listar');
+        const response = await fetch('https://backendebikerent-production.up.railway.app/categorias/listar');
         if (!response.ok) {
           throw new Error('Error al cargar las categorías');
         }
@@ -124,7 +124,7 @@ const ProductosRegistrar = ({ onSubmit }) => {
   useEffect(() => {
     async function fetchCaracteristicas() {
       try {
-        const response = await fetch('http://localhost:8080/caracteristicas/listar');
+        const response = await fetch('https://backendebikerent-production.up.railway.app/caracteristicas/listar');
         if (!response.ok) {
           throw new Error('Error al cargar las categorías');
         }
