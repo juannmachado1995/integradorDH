@@ -87,7 +87,7 @@ export const pathIcons = {
   redAlert: pathIcoRedAlert
 };
 
-export const urlBackend = 'http://localhost:8080/';
+export const urlBackend = 'https://backendebikerent-production.up.railway.app/';
 
 export const modulosRedireccion ={
   confirmarReservas : 'confirmarReserva',
