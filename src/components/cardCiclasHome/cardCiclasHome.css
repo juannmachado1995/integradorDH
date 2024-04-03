@@ -64,17 +64,21 @@ padding: 1rem;
 
   .icono-favorito {
     color: #EE9B01;
+
   }
   
   .icono-no-favorito {
     color: #C8D2D1;
     cursor: pointer;
+    display: none !important;
  
   }
   
   .icono-no-favorito:hover {
     color: gray;
   }
+
+
   @media screen and (max-width: 768px) {
     .div-card-producto {
       grid-template-columns: 1fr;
