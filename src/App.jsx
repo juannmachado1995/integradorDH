@@ -8,14 +8,12 @@ import Admin from './components/routes/Admin/Admin'
 import ProductosListar from './components/routes/Admin/Productos/ProductosListar'
 import ProductosRegistrar from './components/routes/Admin/Productos/ProductosRegistrar'
 import DetalleProducto from './components/routes/DetalleProducto'
-import MasFotos from './components/routes/MasFotos'
 import RegistrarUsuario from './components/routes/RegistrarUsuario'
 import IniciarSesion from './components/routes/IniciarSesion'
 import CategoriaLista from './components/routes/Admin/Categorias/CategoriaLista'
 import FormCategoria from './components/routes/Admin/Categorias/FormCategoria'
 import CaracteristicaLista from './components/routes/Admin/Caracteristicas/CaracteristicaLista'
 import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCaracteristica'
-
 import CategoriasLista from './components/categorias/CategoriasLista'
 import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
 import { useLayoutEffect, useState } from 'react';
@@ -86,7 +84,6 @@ function App() {
 
           {/*Detalle de producto*/}
           <Route path='/productos/:id' element={<DetalleProducto />} />
-          <Route path='/masFotos' element={<MasFotos />} />
           <Route path='categorias/:categoria' element={<CategoriasLista />} />
 
           

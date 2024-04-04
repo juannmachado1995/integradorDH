@@ -7,7 +7,7 @@ import { FaHeart } from 'react-icons/fa';
 
 
 const CardBicicleta = () => {
-  const [titulo ,setTitulo] = useState("")
+  const [titulo, setTitulo] = useState("")
   const { contexto, setContexto } = useContext(ContextGlobal);
   const [nuevosProductos, setNuevosProductos] = useState([]);
 
@@ -26,8 +26,8 @@ const CardBicicleta = () => {
 
   useEffect(() => {
     if (contexto.arrayCiclas.length > 0) {
-    setNuevosProductos(contexto.arrayCiclas);
-    setTitulo("Búsqueda Realizada");
+      setNuevosProductos(contexto.arrayCiclas);
+      setTitulo("Búsqueda Realizada");
     }
   }, [contexto.arrayCiclas]);
 
@@ -35,7 +35,6 @@ const CardBicicleta = () => {
 
 
   //logica para guardar favoritos en local storage
-
   useEffect(() => {
     const productosFavoritosGuardados = JSON.parse(localStorage.getItem('productosFavoritos'));
     if (productosFavoritosGuardados) {
@@ -55,11 +54,67 @@ const CardBicicleta = () => {
     const productosFavoritos = nuevosProductosActualizados
       .filter((producto) => producto.favorito)
       .map((producto) => ({ id: producto.id, nombre: producto.nombre }));
-      localStorage.setItem('productosFavoritos', JSON.stringify([
-        { id: 1, nombre: 'Producto 1' },
-        { id: 2, nombre: 'Producto 2' },
-        { id: 3, nombre: 'Producto 3' }
-      ]));
+    localStorage.setItem('productosFavoritos', JSON.stringify([
+      { id: 1, nombre: 'Producto 1' },
+      { id: 2, nombre: 'Producto 2' },
+      { id: 3, nombre: 'Producto 3' }
+    ]));
+  };
+
+
+
+  //favs
+
+  const [idProducto, setIdProducto] = useState(1)
+  const [listadeFavoritos, setListadeFavoritos] = useState([])
+
+  const handleIdProducto = (id) => {
+    setIdProducto(id)
+  }
+
+  const handleFavoritos = async () => {
+
+    const sessionDatos = localStorage.getItem('ebikerent-session')
+    if (sessionDatos !== null) {
+      const datos = JSON.parse(sessionDatos)
+      const correo = datos.correo
+
+      const datosFavorito = {
+        "correo": correo,
+        "producto_id": idProducto,
+        "favorito": true
+      }
+      try {
+        const response = await axios.post('https://backendebikerent-production.up.railway.app/productoFavorito/agregar', datosFavorito);
+        console.log("FAVORITO ", datosFavorito);
+      } catch (error) {
+        console.error('Error al agregar favorito', error, datosFavorito);
+      }
+    }
+    else {
+      console.log("Debe estar registrado para guardar favoritos");
+    }
+  };
+
+  const listaFavoritos = async () => {
+    const sessionDatos = localStorage.getItem('ebikerent-session')
+    if (sessionDatos !== null) {
+      const datos = JSON.parse(sessionDatos)
+      const correo = datos.correo
+      const payload = {
+        correo : correo
+      }
+      try {
+        const response = await axios.post('https://backendebikerent-production.up.railway.app/productoFavorito/listarFavoritosPorUsuario', payload);
+        setListadeFavoritos(response.data)
+        console.log("FAVORITOS", response.data);
+      } catch (error) {
+        console.error('Error al listar favoritos', error,correo);
+      }
+    }
+    else {
+      console.log("Debe estar registrado para listar favoritos");
+    }
   };
 
 
@@ -67,27 +122,28 @@ const CardBicicleta = () => {
   return (
     <div>
       <h3 className='titulos'>{titulo}</h3>
-        <div className='div-card-producto'>
-          {nuevosProductos.map((producto, index) => (
-            <Link to={'/productos/' + producto.id} key={index} className='wrapper-card-producto-home'>
-              <article className='card-producto-home'>
+      <div className='div-card-producto'>
+        {nuevosProductos.map((producto, index) => (
+          <div className='wrapper-card-producto-home' key={index} >
+            <article className='card-producto-home'>
+              <Link to={'/productos/' + producto.id} >
                 <img className='image-ciclas-home' src={producto.imagenes[0].urlImg} alt={producto.nombre} />
-                <div className='titulo-card-container'>
+              </Link>
+              <div className='titulo-card-container'>
+                <div className='titulo-fav'>
                   <span>{producto.nombre}</span>
-          
+                  <FaHeart className='fa-hearth'
+                    onClick={() => {
+                      handleIdProducto(producto.id)
+                      handleFavoritos();
+                    }}
+                  />
                 </div>
-                
-                <FaHeart
-                className={producto.favorito ? 'icono-favorito' : 'icono-no-favorito'}
-                onClick={(e) => {
-                  e.preventDefault(); // Prevenir que el enlace sea seguido
-                  toggleFavorito(producto.id);
-                }}
-              />
-              </article>
-            </Link>
-          ))}
-        </div>
+              </div>
+            </article>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

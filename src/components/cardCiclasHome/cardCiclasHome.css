@@ -5,13 +5,22 @@
     justify-items: center;
   }
   
-  .megusta{
-    width: 3rem;
-  }
-.megusta:hover{
-  transform: scale(1.1);
-}
 
+.titulo-fav{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.fa-hearth{
+  margin: 1.5px;
+  font-size: 3rem;
+ transition: transform 0.3s ease-in-out;
+}
+.fa-hearth:hover{
+  cursor: pointer;
+  transform: scale(1.4);
+  color: red !important;
+}
 
   .titulo-card-container{
 display: flex;

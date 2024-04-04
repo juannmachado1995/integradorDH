@@ -59,16 +59,18 @@
   font-size: 2.5rem !important;
   display: flex;
   margin:0 1rem;
-  font-weight: 500;
   cursor: pointer;
   border: none; 
   background: none;  
   color: white; 
-  transition: color 0.3s ease-in-out; 
+  transition: 
+  color 0.3s ease-in-out,
+  transform 0.3s ease-in-out; 
 }
 
 .button-detalle:hover {
-  color: #565555; 
+  transform: scale(1.2);
+  color: #343434; 
 }
 
 a:-webkit-any-link{
@@ -80,7 +82,7 @@ a:-webkit-any-link{
 
 .titulo {
   font-family: var(--fuente-principal); 
-  font-size: 2rem; 
+  font-size: 2rem !important; 
   font-weight: 400; 
   color: #333; 
   margin: 3rem 0rem 1rem; 
@@ -91,8 +93,9 @@ a:-webkit-any-link{
   padding-bottom: 5px;
 }
 .detalle-producto-overlay p{
-  font-family: var(--fuente-principal) ;
-  font-size: 1.5rem ;
+  font-family: var(--fuente-principal);
+  font-size: 1.5rem !important;
+  margin-right: 7px;
 }
 
 .detalle-descripcion-producto {
@@ -212,6 +215,15 @@ overflow: auto;
   height: 2rem !important;
   margin: 0 1rem 1rem !important;
 }
+.fa-hearth{
+  margin: 1.5px;
+  font-size: 3rem;
+ transition: transform 0.3s ease-in-out;
+ margin: 0 1rem; 
+}
+.fa-hearth:hover{
+  color: red !important;
+}
 
 .caracteristica-item {
 text-align: center;
@@ -241,14 +253,15 @@ display: block;
 @media screen and (max-width: 768px){
 
 article.detalle-producto-card {
-  width: 100%;
+  width: 95%;
   padding: 1rem;
   flex-direction: column;
   align-items: center;
 }
 
-.caracteristicas-container {
+.titulo{margin: 1rem;}
 
+.caracteristicas-container {
 width: 100vw;  
 overflow: auto;
 box-sizing: border-box; 
@@ -257,12 +270,13 @@ height: 60vh;
 
 .detalle-producto-overlay p{
 font-size: 10px;
+margin: 1rem;
+width: 95%;
 
 }
-
 .container-big-item{
-
 column-count: 2;
+display: flex;
 }
 
 .button.button.button-detalle {
@@ -346,7 +360,7 @@ article.detalle-producto-card {
 
 div.detalle-descripcion-producto{
 
-  height: 20vh;
+  height: 50vh;
   width: 100%;
   text-align: center;
   box-sizing: border-box;
@@ -419,10 +433,6 @@ font-size: 10px;
 margin: 0%;
 
 }
-.detalle-producto-card{
-
-  height: 70vh;
-}
 
 span.titulo-nombre-bici{
 font-size: 10px;
@@ -445,7 +455,6 @@ flex-direction: column;
 }
 
 .iconos-caracteristicas {
-
   display: flex;
   flex-direction: column;
 }
@@ -504,8 +513,5 @@ div.detalle-producto-overlay{
 .miniatura {
   width: 100%;
 }
-
-
-
 
 }

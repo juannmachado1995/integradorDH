@@ -7,6 +7,7 @@ import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import { useNavigate } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
 
 const pad = (number) => {
   if (number < 10) {
@@ -181,6 +182,38 @@ const DetalleProducto = () => {
 
   }
 
+
+  //FAVORITOS
+  const [idProducto, setIdProducto] = useState(1)
+
+  const handleIdProducto = (id) => {
+    setIdProducto(id)
+  }
+
+  const handleFavoritos = async () => {
+
+    const sessionDatos = localStorage.getItem('ebikerent-session')
+    if (sessionDatos !== null) {
+      const datos = JSON.parse(sessionDatos)
+      const correo = datos.correo
+
+      const datosFavorito = {
+        "correo": correo,
+        "producto_id": idProducto,
+        "favorito": true
+      }
+      try {
+        const response = await axios.post('https://backendebikerent-production.up.railway.app/productoFavorito/agregar', datosFavorito);
+        console.log("FAVORITO ", datosFavorito);
+      } catch (error) {
+        console.error('Error al agregar favorito', error, datosFavorito);
+      }
+    }
+    else {
+      console.log("Debe estar registrado para guardar favoritos");
+    }
+  };
+
   return (
 
     <>
@@ -201,6 +234,12 @@ const DetalleProducto = () => {
                     {datosProducto.nombre}
                   </span>
 
+                  <FaHeart className='fa-hearth button-detalle'
+                    onClick={() => {
+                      handleIdProducto(producto.id)
+                      handleFavoritos();
+                    }}
+                  />
                 </div>
                 <div className='fotos-detalle'>
 
@@ -229,7 +268,7 @@ const DetalleProducto = () => {
 
               <div className='detalle-derecha-card'>
                 <div className='detalle-descripcion-producto'>
-                  <h2 className='titulo'>Descripción del producto</h2>
+                  <h2 className='titulo descipcion-producto'>Descripción del producto</h2>
                   <p>{datosProducto.descripcion}</p>
                   <p>{textoDescripcion(datosProducto.categoria)}</p>
                 </div>
