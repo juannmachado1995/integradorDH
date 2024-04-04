@@ -30,8 +30,8 @@ const CategoriasLista = (props) => {
 
         <>
             <div className='container-middle'>
-                <h1>CATEGORIA</h1>
-                <h1>
+                
+                <h1 className='titulos'>
                     {categoria}
                 </h1>
                 <div className='div-card-producto'>

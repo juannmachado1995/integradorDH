@@ -86,7 +86,6 @@ const CardBicicleta = () => {
       }
       try {
         const response = await axios.post('https://backendebikerent-production.up.railway.app/productoFavorito/agregar', datosFavorito);
-        console.log("FAVORITO ", datosFavorito);
       } catch (error) {
         console.error('Error al agregar favorito', error, datosFavorito);
       }
@@ -96,26 +95,32 @@ const CardBicicleta = () => {
     }
   };
 
-  const listaFavoritos = async () => {
-    const sessionDatos = localStorage.getItem('ebikerent-session')
-    if (sessionDatos !== null) {
-      const datos = JSON.parse(sessionDatos)
-      const correo = datos.correo
-      const payload = {
-        correo : correo
+  useEffect(() => {
+
+    const listaFavoritos = async () => {
+      const sessionDatos = localStorage.getItem('ebikerent-session')
+      if (sessionDatos !== null) {
+        const datos = JSON.parse(sessionDatos)
+        const correo = datos.correo
+        const payload = {
+          correo: correo
+        }
+        try {
+          const response = await axios.post('https://backendebikerent-production.up.railway.app/productoFavorito/listarFavoritosPorUsuario', payload);
+          setListadeFavoritos(response.data)
+        } catch (error) {
+          console.error('Error al listar favoritos', error, correo);
+        }
       }
-      try {
-        const response = await axios.post('https://backendebikerent-production.up.railway.app/productoFavorito/listarFavoritosPorUsuario', payload);
-        setListadeFavoritos(response.data)
-        console.log("FAVORITOS", response.data);
-      } catch (error) {
-        console.error('Error al listar favoritos', error,correo);
+      else {
+        console.log("Debe estar registrado para listar favoritos");
       }
-    }
-    else {
-      console.log("Debe estar registrado para listar favoritos");
-    }
-  };
+    };
+
+    listaFavoritos();
+  }, [handleFavoritos])
+
+
 
 
 
@@ -132,9 +137,10 @@ const CardBicicleta = () => {
               <div className='titulo-card-container'>
                 <div className='titulo-fav'>
                   <span>{producto.nombre}</span>
-                  <FaHeart className='fa-hearth'
+                  <FaHeart
+                    className={'fa-hearth ' + (listadeFavoritos.map(objeto => objeto.id).includes(producto.id) ? 'esFavorito' : '')}
                     onClick={() => {
-                      handleIdProducto(producto.id)
+                      handleIdProducto(producto.id);
                       handleFavoritos();
                     }}
                   />

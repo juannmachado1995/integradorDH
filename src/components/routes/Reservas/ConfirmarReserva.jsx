@@ -193,7 +193,7 @@ const ConfirmarReserva = () => {
   return (
     <div className='container-middle ConfirmarReserva-parent-center'>
         <div className='ConfirmarReserva-titulo-principal'>
-          <h2>Confirmar Reserva</h2>
+          <h2 className='titulos'>CONFIRMAR RESERVA</h2>
         </div>
         {(errorConsumeService || okConsumeService) ?
           <div className='ConfirmarReserva-vertical-container ConfirmarReserva-mensajes-servicio'>
@@ -218,7 +218,7 @@ const ConfirmarReserva = () => {
               </div>
             </div>
             <div className='ConfirmarReserva-mensajes-servicio--item ConfirmarReserva-mensajes-servicio--buttons'>
-              <ButtonLeftIcon title='Volver al inicio' text='Volver al inicio' icon='none' handleClick={handleGoToHome} />
+              <ButtonLeftIcon title='Volver al inicio' text='Volver al inicio' icon='none' handleClick={handleGoToHome}/>
             </div>
           </div>
           :

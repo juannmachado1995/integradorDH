@@ -25,7 +25,7 @@ const Categorias = (props) => {
 
   useEffect(() => {
     if (contexto.arrayCiclas.length > 0) {
-      setOcultar(true)
+      //setOcultar(true)
     }
   }, [contexto.arrayCiclas]);
 

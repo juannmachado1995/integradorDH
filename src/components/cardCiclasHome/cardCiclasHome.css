@@ -21,6 +21,9 @@
   transform: scale(1.4);
   color: red !important;
 }
+.esFavorito{
+  color: red;
+}
 
   .titulo-card-container{
 display: flex;

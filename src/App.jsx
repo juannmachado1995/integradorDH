@@ -19,6 +19,7 @@ import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
 import { useLayoutEffect, useState } from 'react';
 import ConfirmarReserva from './components/routes/Reservas/ConfirmarReserva';
 import ListarReservas from './components/routes/Reservas/ListarReservas';
+import Favoritos from './components/header/Favoritos/Favoritos';
 
 
 /*Se agrega este componente de envoltura de routes para hacer que en cada cambio de pagina
@@ -48,6 +49,9 @@ function App() {
 
           {/*Inicio de sesión de usuarios */}
           <Route path='/login' element={<IniciarSesion />} />
+        
+          {/*Favoritos */}
+          <Route path='/favoritos' element={<Favoritos />} />
 
           {/*Sección admin*/}
           <Route path='/admin' element={<Admin />}>
