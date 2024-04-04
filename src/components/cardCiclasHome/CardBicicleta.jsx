@@ -65,15 +65,10 @@ const CardBicicleta = () => {
 
   //favs
 
-  const [idProducto, setIdProducto] = useState(1)
   const [listadeFavoritos, setListadeFavoritos] = useState([])
 
-  const handleIdProducto = (id) => {
-    setIdProducto(id)
-  }
-
-  const handleFavoritos = async () => {
-
+  const handleFavoritos = async (id) => {
+    
     const sessionDatos = localStorage.getItem('ebikerent-session')
     if (sessionDatos !== null) {
       const datos = JSON.parse(sessionDatos)
@@ -81,7 +76,7 @@ const CardBicicleta = () => {
 
       const datosFavorito = {
         "correo": correo,
-        "producto_id": idProducto,
+        "producto_id": id,
         "favorito": true
       }
       try {
@@ -140,8 +135,8 @@ const CardBicicleta = () => {
                   <FaHeart
                     className={'fa-hearth ' + (listadeFavoritos.map(objeto => objeto.id).includes(producto.id) ? 'esFavorito' : '')}
                     onClick={() => {
-                      handleIdProducto(producto.id);
-                      handleFavoritos();
+                      
+                      handleFavoritos(producto.id);
                     }}
                   />
                 </div>
