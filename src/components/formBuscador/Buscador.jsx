@@ -102,6 +102,8 @@ const Buscador = () => {
             fechaFin: fecha2
         };
 
+        console.log(payload);
+
         try{
             const response = await axios.post(url, payload);
             const numeroResultados = response.data.length;
