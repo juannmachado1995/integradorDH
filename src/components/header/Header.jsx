@@ -31,6 +31,10 @@ const Header = () => {
     navigate('/Admin');
   };
 
+  const handleFavoritos = () => {
+    navigate('/favoritos');
+  };
+
 
 
   let options = [];
@@ -41,7 +45,7 @@ const Header = () => {
 
   const optionsUserLoged = [
     { title: 'Mi perfil', text: 'Mi perfil', icon: 'none', link: '', handle: null},
-    { title: 'Favoritos', text: 'Favoritos', icon: 'none', link:'/favoritos', handle: null},
+    { title: 'Favoritos', text: 'Favoritos', icon: 'none', link:'', handle: handleFavoritos},
     { title: 'Cambiar contraseña', text: 'Cambiar contraseña', icon: 'none', link: '', handle: null},
     { title: 'Cerrar sesión', text: 'Cerrar sesión', icon: 'none', link: '', handle: handleCerarSesion}
   ];

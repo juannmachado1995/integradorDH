@@ -193,7 +193,7 @@ const ConfirmarReserva = () => {
   return (
     <div className='container-middle ConfirmarReserva-parent-center'>
         <div className='ConfirmarReserva-titulo-principal'>
-          <h2 className='titulos'>CONFIRMAR RESERVA</h2>
+          <h2>Confirmar Reserva</h2>
         </div>
         {(errorConsumeService || okConsumeService) ?
           <div className='ConfirmarReserva-vertical-container ConfirmarReserva-mensajes-servicio'>
