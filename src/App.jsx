@@ -18,7 +18,7 @@ import FormCaracteristica from './components/routes/Admin/Caracteristicas/FormCa
 
 import CategoriasLista from './components/categorias/CategoriasLista'
 import UsuariosListar from './components/routes/Admin/Usuarios/UsuariosListar'
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import ConfirmarReserva from './components/routes/Reservas/ConfirmarReserva';
 import ListarReservas from './components/routes/Reservas/ListarReservas';
 
@@ -35,6 +35,8 @@ const WrapperRoutes = ({children}) =>{
 };
 
 function App() {
+
+
   return (
     <>
       <Header />

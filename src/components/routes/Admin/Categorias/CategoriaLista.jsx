@@ -9,8 +9,7 @@ const CategoriaLista = () => {
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/categorias/listar');
-        console.log('Categorías obtenidas:', response.data);
+        const response = await axios.get('https://backendebikerent-production.up.railway.app/categorias/listar');
         setCategorias(response.data);
       } catch (error) {
         console.error('Error al obtener categorías:', error);

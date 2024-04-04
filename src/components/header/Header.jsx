@@ -98,6 +98,10 @@ const Header = () => {
     
   },[contexto.sesionActiva]);
 
+  const reiniciarHome = () => {
+    
+  }
+
   return (
     <header className='header-flex-container'>
       <div className='header-container-logo-empresa'>

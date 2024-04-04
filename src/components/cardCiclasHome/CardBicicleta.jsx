@@ -5,7 +5,9 @@ import { ContextGlobal } from '../utils/global.context';
 import './cardCiclasHome.css'
 import { FaHeart } from 'react-icons/fa';
 
+
 const CardBicicleta = () => {
+  const [titulo ,setTitulo] = useState("")
   const { contexto, setContexto } = useContext(ContextGlobal);
   const [nuevosProductos, setNuevosProductos] = useState([]);
 
@@ -14,23 +16,25 @@ const CardBicicleta = () => {
       try {
         const response = await axios.get('https://backendebikerent-production.up.railway.app/productos/listar');
         setNuevosProductos(response.data);
+        setTitulo("Recomendaciones")
       } catch (error) {
         console.error('Error al obtener productos:', error);
       }
     };
-
     manejadorProductos();
   }, []);
 
   useEffect(() => {
+    if (contexto.arrayCiclas.length > 0) {
     setNuevosProductos(contexto.arrayCiclas);
+    setTitulo("Búsqueda Realizada");
+    }
   }, [contexto.arrayCiclas]);
 
 
 
 
   //logica para guardar favoritos en local storage
-
 
   useEffect(() => {
     const productosFavoritosGuardados = JSON.parse(localStorage.getItem('productosFavoritos'));
@@ -62,7 +66,7 @@ const CardBicicleta = () => {
 
   return (
     <div>
-      <h3 className='titulos'>Recomendaciones</h3>
+      <h3 className='titulos'>{titulo}</h3>
         <div className='div-card-producto'>
           {nuevosProductos.map((producto, index) => (
             <Link to={'/productos/' + producto.id} key={index} className='wrapper-card-producto-home'>

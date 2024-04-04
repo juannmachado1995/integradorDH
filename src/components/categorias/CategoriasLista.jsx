@@ -18,7 +18,7 @@ const CategoriasLista = (props) => {
                     setProductos(response.data);
                 }
             } catch (error) {
-                console.error('Error al obtener productos:', error);
+                console.error('Error al obtener categorias:', error);
             }
         };
 

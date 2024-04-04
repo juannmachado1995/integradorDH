@@ -27,7 +27,7 @@ const DetalleProducto = () => {
   const [fechaHasta, setFechaHasta] = useState(null);
   const [showRange, setShowRange] = useState(false);
 
-  const[fechasReservadas, setFechasReservadas] = useState([]);
+  const [fechasReservadas, setFechasReservadas] = useState([]);
 
   const navigate = useNavigate();
 
@@ -143,134 +143,152 @@ const DetalleProducto = () => {
     ));
   };
 
-  const goToConfirmarReserva = () =>{
-    if(fechaDesde === null || fechaHasta === null){
+  const goToConfirmarReserva = () => {
+    if (fechaDesde === null || fechaHasta === null) {
       alert('Debe seleccionar un rango de fechas')
-    }else{
+    } else {
       const fecha1 = fechaDesde.getFullYear() + '-' +
-            pad(fechaDesde.getMonth() + 1) + '-' +
-            pad(fechaDesde.getDate());
+        pad(fechaDesde.getMonth() + 1) + '-' +
+        pad(fechaDesde.getDate());
 
       const fecha2 = fechaHasta.getFullYear() + '-' +
-            pad(fechaHasta.getMonth() + 1) + '-' +
-            pad(fechaHasta.getDate());
+        pad(fechaHasta.getMonth() + 1) + '-' +
+        pad(fechaHasta.getDate());
 
-      
-      const url = '/reservas/confirmar?id=' + id + 
-                  '&fecha1=' + encodeURIComponent(fecha1) + 
-                  '&fecha2=' + encodeURIComponent(fecha2);
-      
+
+      const url = '/reservas/confirmar?id=' + id +
+        '&fecha1=' + encodeURIComponent(fecha1) +
+        '&fecha2=' + encodeURIComponent(fecha2);
+
       navigate(url);
     }
+  }
+
+  const textoMontana = "Diseñada para desafiar los límites de la aventura al aire libre, la bicicleta todoterreno es una máquina de exploración lista para conquistar cualquier terreno. Su resistente construcción y diseño versátil la convierten en la compañera perfecta para aquellos que buscan emociones en la naturaleza. Equipada con neumáticos de tracción y una suspensión adaptable, esta bicicleta se adapta sin esfuerzo a los terrenos más desafiantes, desde caminos pedregosos hasta senderos boscosos, brindando un viaje suave y emocionante en cualquier entorno. Ya sea ascendiendo montañas, atravesando arroyos o explorando terrenos accidentados, esta bicicleta ofrece un rendimiento confiable y una capacidad de respuesta que inspira confianza en los ciclistas aventureros."
+  const textoUrbana = " Concebida para los amantes de la velocidad y la resistencia, la bicicleta de ruta es la elección definitiva para los largos recorridos en carretera. Con un diseño aerodinámico y un chasis ligero, esta bicicleta está diseñada para deslizarse sin esfuerzo a través del viento, permitiendo a los ciclistas alcanzar velocidades impresionantes y mantenerlas durante largas distancias. Cada componente, desde los manillares hasta los pedales, está cuidadosamente diseñado para maximizar la eficiencia y el rendimiento, brindando una experiencia de conducción suave y cómoda incluso en los trayectos más largos. Ya sea compitiendo en carreras de resistencia, explorando nuevas rutas escénicas o simplemente disfrutando de un paseo tranquilo por el campo, esta bicicleta es la compañera ideal para los entusiastas del ciclismo que buscan superar sus propios límites y conquistar nuevos horizontes en cada pedalada."
+  const textoRuta = "Concebida para los amantes de la velocidad y la resistencia, la bicicleta de ruta es la elección definitiva para los largos recorridos en carretera. Con un diseño aerodinámico y un chasis ligero, esta bicicleta está diseñada para deslizarse sin esfuerzo a través del viento, permitiendo a los ciclistas alcanzar velocidades impresionantes y mantenerlas durante largas distancias. Cada componente, desde los manillares hasta los pedales, está cuidadosamente diseñado para maximizar la eficiencia y el rendimiento, brindando una experiencia de conducción suave y cómoda incluso en los trayectos más largos. Ya sea compitiendo en carreras de resistencia, explorando nuevas rutas escénicas o simplemente disfrutando de un paseo tranquilo por el campo, esta bicicleta es la compañera ideal para los entusiastas del ciclismo que buscan superar sus propios límites y conquistar nuevos horizontes en cada pedalada."
+
+  const textoDescripcion = (categoria) => {
+    if (categoria = "ruta") {
+      return textoRuta
+    }
+    if (categoria = "urbana") {
+      return textoUrbana
+    }
+    if (categoria = "montaña") {
+      return textoMontana
+    }
+
   }
 
   return (
 
     <>
       <div className='container-middle'>
-      {datosProducto ?
-        <div className="detalle-producto-overlay">
+        {datosProducto ?
+          <div className="detalle-producto-overlay">
 
-          <article className="detalle-producto-card">
-            <div className='detalle-izquierda-card'>
+            <article className="detalle-producto-card">
+              <div className='detalle-izquierda-card'>
 
-              <div className='barra-titulo'>
-                <Link to='/'>
-                  <button className='button-detalle'>
-                    {<IoIosArrowBack />}</button>
-                </Link>
+                <div className='barra-titulo'>
+                  <Link to='/'>
+                    <button className='button-detalle'>
+                      {<IoIosArrowBack />}</button>
+                  </Link>
 
-                <span className='titulo-nombre-bici centradorTitulo'>
-                  {datosProducto.nombre}
-                </span>
+                  <span className='titulo-nombre-bici centradorTitulo'>
+                    {datosProducto.nombre}
+                  </span>
 
-              </div>
-              <div className='fotos-detalle'>
-
-                <img className='imagen-Detalle-Producto' src={imagenPrincipal} alt="" onClick={() => handleFullScreen()} />
-
-                <div className="miniaturas">
-                  {datosProducto.imagenes.map((imagen, index) => {
-                    if (index !== 0 && index <= 4) {
-                      return (
-                        <img
-                          key={index}
-                          className='miniatura'
-                          src={imagen.urlImg}
-                          alt=""
-                          onClick={() => handleClickMiniatura(imagen.urlImg)}
-                        />
-                      );
-                    } else {
-                      return null;
-                    }
-                  })}
                 </div>
+                <div className='fotos-detalle'>
+
+                  <img className='imagen-Detalle-Producto' src={imagenPrincipal} alt="" onClick={() => handleFullScreen()} />
+
+                  <div className="miniaturas">
+                    {datosProducto.imagenes.map((imagen, index) => {
+                      if (index !== 0 && index <= 4) {
+                        return (
+                          <img
+                            key={index}
+                            className='miniatura'
+                            src={imagen.urlImg}
+                            alt=""
+                            onClick={() => handleClickMiniatura(imagen.urlImg)}
+                          />
+                        );
+                      } else {
+                        return null;
+                      }
+                    })}
+                  </div>
+                </div>
+
               </div>
 
-            </div>
+              <div className='detalle-derecha-card'>
+                <div className='detalle-descripcion-producto'>
+                  <h2 className='titulo'>Descripción del producto</h2>
+                  <p>{datosProducto.descripcion}</p>
+                  <p>{textoDescripcion(datosProducto.categoria)}</p>
+                </div>
 
-            <div className='detalle-derecha-card'>
-              <div className='detalle-descripcion-producto'>
-                <h2 className='titulo'>Descripción del producto</h2>
-                <p>{datosProducto.descripcion}</p>
-                <p>asd</p>
-              </div>
-
-              <div>
-                <h2 className="titulo-426">Características</h2>
-                <h2 className='oculto titulo'>Características</h2>
-                <div className="caracteristicas-container">
-                  <div className='iconos-caracteristicas'>
-                    {datosProducto.caracteristicas.map(caracteristica => (
-                      <div className='container-big-item' key={caracteristica.id} title={caracteristica.nombre}>
-                        <div className="caracteristica-item">
-                          <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
+                <div>
+                  <h2 className="titulo-426">Características</h2>
+                  <h2 className='oculto titulo'>Características</h2>
+                  <div className="caracteristicas-container">
+                    <div className='iconos-caracteristicas'>
+                      {datosProducto.caracteristicas.map(caracteristica => (
+                        <div className='container-big-item' key={caracteristica.id} title={caracteristica.nombre}>
+                          <div className="caracteristica-item">
+                            <img src={caracteristica.icono} alt="Icono" className="caracteristica-icon" />
+                            <h2>{caracteristica.nombre}</h2>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <h2 className='titulo'>Calendario</h2>
-                <div className='container-calendar-button'>
-                  <div className='buscador-seccion-calendario calendario-activo'
-                    id='buscador-seccion-calendario'>
-                    <Calendar showDoubleView={true} locale='es'
-                      showNeighboringMonth={false}
-                      selectRange={true} returnValue='range'
-                      minDate={new Date()}
-                      onChange={rangoHandle}
-                      tileDisabled={tileDisabledCalendario}
-                      tileContent={tileContentCalendario}
-                      value={showRange ? [fechaDesde, fechaHasta] : null}
-                    />
-                  </div>
-                  <div>
-                    <p className='pButton-Reserva'>!Aprovecha nuestros descuentos de temporada!</p>
-                    <button className='button-reserva' onClick={goToConfirmarReserva}>
-                      Iniciar Reserva
-                    </button>
+                <div>
+                  <h2 className='titulo'>Calendario</h2>
+                  <div className='container-calendar-button'>
+                    <div className='buscador-seccion-calendario calendario-activo'
+                      id='buscador-seccion-calendario'>
+                      <Calendar showDoubleView={true} locale='es'
+                        showNeighboringMonth={false}
+                        selectRange={true} returnValue='range'
+                        minDate={new Date()}
+                        onChange={rangoHandle}
+                        tileDisabled={tileDisabledCalendario}
+                        tileContent={tileContentCalendario}
+                        value={showRange ? [fechaDesde, fechaHasta] : null}
+                      />
+                    </div>
+                    <div>
+                      <p className='pButton-Reserva'>!Aprovecha nuestros descuentos de temporada!</p>
+                      <button className='button-reserva' onClick={goToConfirmarReserva}>
+                        Iniciar Reserva
+                      </button>
+                    </div>
                   </div>
                 </div>
+
               </div>
+            </article>
+          </div>
+          : <div>
+            <span><b>Sin detalle</b></span>
+            <hr />
+            <span>{errorConsumeService}</span>
+          </div>
+        }
 
-            </div>
-          </article>
-        </div>
-        : <div>
-          <span><b>Sin detalle</b></span>
-          <hr />
-          <span>{errorConsumeService}</span>
-        </div>
-      }
-
-      {/* esto es para que  el botón de "Atrás" pero solo si la imagen está en pantalla completa*/}
-      {document.fullscreenElement && (
-        <button onClick={handleExitFullScreen}>Atrás</button>
-      )}
+        {/* esto es para que  el botón de "Atrás" pero solo si la imagen está en pantalla completa*/}
+        {document.fullscreenElement && (
+          <button onClick={handleExitFullScreen}>Atrás</button>
+        )}
       </div>
     </>
   )

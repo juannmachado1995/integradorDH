@@ -11,7 +11,6 @@ const CaracteristicaLista = () => {
     const fetchCaracteristicas = async () => {
       try {
         const response = await axios.get('https://backendebikerent-production.up.railway.app/caracteristicas/listar');
-        console.log('Características obtenidas:', response.data);
         setCaracteristicas(response.data);
       } catch (error) {
         console.error('Error al obtener características:', error);
