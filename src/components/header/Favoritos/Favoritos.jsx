@@ -36,8 +36,7 @@ console.log(listadeFavoritos);
 
 
     return (
-        <div>
-            <h1>a</h1>
+        <div className='container-middle'>
             <h3 className='titulos'>Favoritos</h3>
             <div className='div-card-producto'>
                 {listadeFavoritos.map((producto, index) => (
